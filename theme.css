@@ -1,0 +1,4207 @@
+﻿/*
+ * Spookyfin for Jellyfin
+ * A fast, rounded, cyan-accent Material You inspired custom CSS theme.
+ * Repository: https://github.com/endoflineservice/spookyfin
+ */
+/* Codex Material You Fast Rounded v2.6 for Jellyfin
+   Installed 2026-06-14. Local CSS only: no imports, no blur, no heavy animation. */
+:root {
+  --my-bg: #071014;
+  --my-bg-raised: #0b151a;
+  --my-surface: #101b20;
+  --my-surface-2: #15242a;
+  --my-surface-3: #1d3038;
+  --my-surface-4: #243b45;
+  --my-surface-soft: rgba(21, 36, 42, .9);
+  --my-outline: rgba(213, 243, 247, .14);
+  --my-outline-strong: rgba(213, 243, 247, .3);
+  --my-text: #effcff;
+  --my-muted: #b8ced4;
+  --my-muted-2: #91a9af;
+  --my-primary: #00e5ff;
+  --my-primary-2: #a9f7ff;
+  --my-primary-3: #5af0ff;
+  --my-primary-container: #006b80;
+  --my-primary-container-soft: rgba(0, 229, 255, .28);
+  --my-on-primary: #001f26;
+  --my-secondary: #ffdc5e;
+  --my-secondary-container: #6c5100;
+  --my-tertiary: #ff66d8;
+  --my-tertiary-container: #72305f;
+  --my-quaternary: #9bff66;
+  --my-quaternary-container: #305e1d;
+  --my-state-hover: rgba(0, 229, 255, .14);
+  --my-state-focus: rgba(0, 229, 255, .24);
+  --my-state-pressed: rgba(0, 229, 255, .3);
+  --my-state-selected: rgba(0, 229, 255, .2);
+  --my-danger: #ffb4ab;
+  --my-danger-container: #6b2a25;
+  --my-good: #86dca9;
+  --my-warn: #ffd277;
+  --my-radius-xs: 10px;
+  --my-radius-sm: 16px;
+  --my-radius-md: 22px;
+  --my-radius-lg: 28px;
+  --my-radius-xl: 36px;
+  --my-radius-xxl: 44px;
+  --my-shadow: 0 16px 42px rgba(0, 0, 0, .3);
+  --my-shadow-soft: 0 10px 28px rgba(0, 0, 0, .2);
+  --my-expressive-gradient: rgba(0, 229, 255, .18);
+  --theme-primary-color: var(--my-primary) !important;
+  --theme-accent-color: var(--my-primary) !important;
+  --mui-palette-primary-main: var(--my-primary) !important;
+  --mui-palette-primary-light: var(--my-primary-2) !important;
+  --mui-palette-primary-dark: var(--my-primary-container) !important;
+  --mui-palette-primary-contrastText: var(--my-on-primary) !important;
+  --mui-palette-secondary-main: var(--my-tertiary) !important;
+  --mui-palette-info-main: var(--my-primary) !important;
+  --mui-palette-action-selected: var(--my-primary-container-soft) !important;
+  --md-sys-color-primary: var(--my-primary) !important;
+  --md-sys-color-on-primary: var(--my-on-primary) !important;
+  --md-sys-color-primary-container: var(--my-primary-container) !important;
+  --md-sys-color-secondary: var(--my-secondary) !important;
+  --md-sys-color-tertiary: var(--my-tertiary) !important;
+  --md-sys-color-surface: var(--my-surface) !important;
+  --md-sys-color-surface-container: var(--my-surface-2) !important;
+  --md-sys-color-outline: var(--my-outline-strong) !important;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.backgroundContainer,
+.page,
+.libraryPage,
+.mainAnimatedPage {
+  background: var(--my-bg) !important;
+  color: var(--my-text) !important;
+  font-family: "Segoe UI Variable", "Segoe UI", Roboto, system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+.backgroundContainer {
+  background: var(--my-bg) !important;
+  background-image: none !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  height: 100vh !important;
+  inset: 0 !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+
+.backgroundContainer::before,
+.backgroundContainer::after,
+body::before,
+body::after,
+.page::before,
+.page::after,
+.mainAnimatedPage::before,
+.mainAnimatedPage::after {
+  content: none !important;
+}
+
+.backdropContainer,
+.itemBackdrop {
+  transform: none !important;
+  will-change: auto !important;
+}
+
+.backdropContainer {
+  inset: 0 !important;
+  position: fixed !important;
+}
+
+.backdropImage,
+.itemBackdrop {
+  background-attachment: fixed !important;
+}
+
+* {
+  scrollbar-color: var(--my-primary-container) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--my-primary-container);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+::selection {
+  background: rgba(0, 229, 255, .34);
+  color: var(--my-text);
+}
+
+/* App chrome */
+.skinHeader,
+.skinHeader-withBackground,
+.mainDrawer,
+.nowPlayingBar,
+.appfooter {
+  background: rgba(24, 29, 23, .97) !important;
+  color: var(--my-text) !important;
+  border-color: var(--my-outline) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.skinHeader {
+  min-height: 4.45em;
+  border-bottom: 1px solid var(--my-outline);
+}
+
+.mainDrawer {
+  border-right: 1px solid var(--my-outline);
+}
+
+.headerTop,
+.headerTabs,
+.libraryViewNav,
+.pageTabContent {
+  min-width: 0;
+}
+
+.headerTop {
+  min-height: 4.35rem !important;
+}
+
+.headerTabs {
+  min-height: 3.1rem !important;
+}
+
+.headerButton,
+.paper-icon-button-light,
+.detailButton,
+.emby-tab-button,
+.navMenuOption {
+  border-radius: 999px !important;
+}
+
+.headerButton,
+.paper-icon-button-light {
+  min-width: 2.85rem !important;
+  width: 2.85rem !important;
+  height: 2.85rem !important;
+  margin: .12rem !important;
+}
+
+.navMenuOption {
+  margin: .15rem .55rem !important;
+  min-height: 2.55rem;
+}
+
+.navMenuOption:hover,
+.navMenuOption-selected,
+.emby-tab-button-active,
+.headerButton:hover,
+.paper-icon-button-light:hover,
+.detailButton:hover {
+  background: rgba(0, 229, 255, .18) !important;
+  color: var(--my-primary-2) !important;
+}
+
+.emby-tab-button {
+  min-height: 2.6rem !important;
+  padding: 0 1rem !important;
+  color: var(--my-muted) !important;
+}
+
+.emby-tab-button-active {
+  color: var(--my-primary-2) !important;
+}
+
+/* Buttons */
+.emby-button,
+.button-flat,
+.button-link {
+  color: var(--my-primary) !important;
+  letter-spacing: 0 !important;
+}
+
+.emby-button {
+  min-height: 2.45rem;
+  line-height: 1.15 !important;
+  padding: .45rem 1rem !important;
+  border-radius: 999px !important;
+}
+
+.raised,
+.button-submit,
+.fab,
+.btnPlay,
+.btnShuffle,
+.btnResume,
+.btnDownload,
+.btnHeaderPremiere,
+.btnManualRecording,
+.btnCancelSeriesTimer,
+.btnCancelTimer {
+  background: var(--my-primary) !important;
+  color: var(--my-on-primary) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  font-weight: 650 !important;
+}
+
+.raised:hover,
+.button-submit:hover,
+.fab:hover,
+.btnPlay:hover,
+.btnShuffle:hover,
+.btnResume:hover {
+  background: var(--my-primary-2) !important;
+}
+
+.button-cancel,
+.btnDelete,
+.btnRemove,
+.btnShutdown,
+.btnRestart,
+.btnResetPassword {
+  color: var(--my-danger) !important;
+}
+
+a,
+.button-link,
+.textlink,
+.emby-linkbutton,
+.linkButton,
+.cardText a,
+.sectionTitleButton,
+.itemExternalLinks a,
+.material-icons.md-inactive:hover {
+  color: var(--my-primary) !important;
+}
+
+.emby-button:hover,
+.button-flat:hover,
+.button-link:hover,
+.textlink:hover,
+.emby-linkbutton:hover,
+.sectionTitleButton:hover {
+  color: var(--my-primary-2) !important;
+}
+
+.MuiButton-containedPrimary,
+.MuiButton-contained.MuiButton-colorPrimary,
+.MuiFab-primary,
+.MuiChip-colorPrimary,
+.MuiBadge-colorPrimary,
+.MuiAvatar-colorDefault {
+  background-color: var(--my-primary) !important;
+  color: var(--my-on-primary) !important;
+}
+
+.MuiButton-containedPrimary:hover,
+.MuiButton-contained.MuiButton-colorPrimary:hover,
+.MuiFab-primary:hover,
+.MuiChip-colorPrimary:hover {
+  background-color: var(--my-primary-2) !important;
+  color: var(--my-on-primary) !important;
+}
+
+.MuiButton-textPrimary,
+.MuiButton-outlinedPrimary,
+.MuiIconButton-colorPrimary,
+.MuiSvgIcon-colorPrimary,
+.MuiCheckbox-root.Mui-checked,
+.MuiRadio-root.Mui-checked,
+.MuiSwitch-switchBase.Mui-checked,
+.MuiTab-root.Mui-selected,
+.MuiCircularProgress-root,
+.MuiStepIcon-root.Mui-active,
+.MuiStepIcon-root.Mui-completed {
+  color: var(--my-primary) !important;
+}
+
+.MuiTabs-indicator,
+.MuiSlider-track,
+.MuiSlider-thumb,
+.MuiLinearProgress-bar,
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: var(--my-primary) !important;
+}
+
+.MuiSlider-rail,
+.MuiSwitch-track {
+  background-color: var(--my-surface-3) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline,
+.Mui-focused .MuiOutlinedInput-notchedOutline,
+.MuiInput-underline::after,
+.MuiInput-underline:after {
+  border-color: var(--my-primary) !important;
+}
+
+.MuiListItemButton-root.Mui-selected,
+.MuiListItem-root.Mui-selected,
+.MuiMenuItem-root.Mui-selected,
+.MuiToggleButton-root.Mui-selected,
+.MuiAutocomplete-option[aria-selected="true"] {
+  background-color: var(--my-primary-container-soft) !important;
+  color: var(--my-primary-2) !important;
+}
+
+.MuiListItemButton-root.Mui-selected:hover,
+.MuiMenuItem-root.Mui-selected:hover,
+.MuiToggleButton-root.Mui-selected:hover {
+  background-color: rgba(0, 229, 255, .34) !important;
+}
+
+/* Login */
+.loginPage .readOnlyContent,
+.loginPage .manualLoginForm,
+.loginPage .loginDisclaimerContainer {
+  max-width: 31rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.loginPage .padded-left,
+.loginPage .padded-right {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.loginPage h1,
+.loginPage .pageTitle {
+  font-size: 2rem !important;
+  line-height: 1.15 !important;
+  margin-bottom: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+.manualLoginForm .inputContainer {
+  margin-bottom: .95rem !important;
+}
+
+.manualLoginForm .emby-input,
+.manualLoginForm input {
+  min-height: 2.9rem !important;
+}
+
+.manualLoginForm .emby-button,
+.manualLoginForm .button-submit,
+.manualLoginForm .raised {
+  width: 100%;
+  min-height: 2.9rem !important;
+  margin-top: .55rem !important;
+}
+
+.manualLoginForm .checkboxContainer,
+.loginPage .checkboxContainer {
+  min-height: 2.35rem !important;
+  align-items: center !important;
+}
+
+.manualLoginForm .checkboxLabel,
+.loginPage .checkboxLabel {
+  color: var(--my-muted) !important;
+  line-height: 1.25 !important;
+}
+
+/* Cards and artwork */
+.cardBox,
+.visualCardBox,
+.cardScalable,
+.cardOverlayContainer,
+.itemDetailImage,
+.primaryImageWrapper,
+.channelPrograms,
+.listItem,
+.paperList,
+.chapterThumbContainer,
+.metadataEditorInfo,
+.formDialogContent,
+.actionSheetMenuItem,
+.toast,
+.dialog,
+.emby-select-withcolor,
+.emby-input,
+.emby-textarea,
+.emby-select,
+.trackSelections,
+.playbackSettingsContainer,
+.dashboardSection,
+.dashboardSectionContent {
+  border-radius: var(--my-radius-md) !important;
+}
+
+.cardBox,
+.visualCardBox,
+.paperList,
+.trackSelections,
+.playbackSettingsContainer,
+.dashboardSectionContent,
+.metadataEditorInfo {
+  background: var(--my-surface) !important;
+  border: 1px solid var(--my-outline) !important;
+  box-shadow: none !important;
+}
+
+.cardScalable,
+.cardImageContainer,
+.cardImage,
+.coveredImage,
+.cardContent,
+.cardOverlayContainer,
+.itemDetailImage,
+.primaryImageWrapper img,
+.chapterThumb,
+.detailImageContainer .card,
+.backdropImage,
+.listItemImage,
+.listItemImageButton,
+.listItemImageButton-icon,
+.listItemImage-large {
+  border-radius: var(--my-radius-md) !important;
+  overflow: hidden !important;
+}
+
+.cardScalable {
+  contain: paint;
+}
+
+/* Center the hover play affordance after the global button styles run. */
+.cardOverlayButton-centered,
+.cardOverlayContainer > .cardOverlayFab-primary {
+  bottom: auto !important;
+  left: 50% !important;
+  margin: 0 !important;
+  min-height: 3rem !important;
+  min-width: 3rem !important;
+  padding: 0 !important;
+  position: absolute !important;
+  right: auto !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+.cardOverlayButton-centered {
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.cardOverlayButton-centered .material-icons,
+.cardOverlayButton-centered .cardOverlayButtonIcon,
+.cardOverlayContainer > .cardOverlayFab-primary .material-icons {
+  align-items: center !important;
+  display: flex !important;
+  height: 100% !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.cardOverlayButton-centered:hover,
+.cardOverlayContainer > .cardOverlayFab-primary:hover {
+  transform: translate(-50%, -50%) scale(1.08) !important;
+}
+
+.cardText,
+.cardText-first,
+.cardText-secondary,
+.listItemBody,
+.listItemBodyText,
+.listItemBodyText-secondary {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.cardText,
+.cardText-first {
+  line-height: 1.25 !important;
+  padding-top: .35rem !important;
+}
+
+.cardText-secondary,
+.listItemBodyText-secondary,
+.secondaryText,
+.fieldDescription,
+.inputLabel,
+.selectLabel,
+.checkboxLabel {
+  color: var(--my-muted) !important;
+}
+
+.cardText,
+.cardText-first,
+.listItemBodyText,
+.itemName,
+.sectionTitle,
+h1,
+h2,
+h3,
+h4 {
+  color: var(--my-text) !important;
+  letter-spacing: 0 !important;
+}
+
+.card:hover .cardBox,
+.card:focus .cardBox,
+.listItem:hover,
+.listItem:focus,
+.actionSheetMenuItem:hover {
+  background: var(--my-surface-2) !important;
+  border-color: var(--my-outline-strong) !important;
+}
+
+@media (hover: hover) {
+  .card .cardBox,
+  .listItem,
+  .emby-button,
+  .headerButton,
+  .paper-icon-button-light {
+    transition: background-color .12s ease, border-color .12s ease, color .12s ease, transform .12s ease;
+  }
+
+  .card:hover .cardBox {
+    transform: translateY(-1px);
+  }
+}
+
+/* Lists and dense screens */
+.listItem {
+  min-height: 4rem !important;
+  padding: .42rem .65rem !important;
+  margin: .18rem 0 !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+.listItemBody {
+  padding-top: .1rem !important;
+  padding-bottom: .1rem !important;
+}
+
+.listItemBodyText {
+  line-height: 1.25 !important;
+}
+
+.listItemImage,
+.listItemImageButton,
+.listItemImage-large {
+  background-color: var(--my-surface-2) !important;
+}
+
+.sectionTitle {
+  font-size: 1.15rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: .65rem !important;
+}
+
+.itemsContainer,
+.verticalSection,
+.homePageSection {
+  min-width: 0;
+}
+
+/* Forms */
+.emby-input,
+.emby-textarea,
+.emby-select,
+.selectContainer select,
+.inputContainer input,
+textarea {
+  background: var(--my-surface-2) !important;
+  color: var(--my-text) !important;
+  border: 1px solid var(--my-outline-strong) !important;
+  border-radius: var(--my-radius-sm) !important;
+  box-shadow: none !important;
+}
+
+.emby-input,
+.emby-select,
+.selectContainer select,
+.inputContainer input {
+  min-height: 2.7rem !important;
+  padding: .62rem .85rem !important;
+}
+
+.emby-textarea,
+textarea {
+  padding: .7rem .85rem !important;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select:focus,
+.selectContainer select:focus,
+.inputContainer input:focus,
+textarea:focus {
+  border-color: var(--my-primary) !important;
+  outline: 2px solid rgba(0, 229, 255, .32) !important;
+  outline-offset: 1px !important;
+}
+
+.checkboxOutline,
+.emby-checkbox + span,
+.radioButtonOuterCircle {
+  border-color: var(--my-outline-strong) !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
+}
+
+.emby-checkbox:checked + span,
+.radioButtonInnerCircle,
+.mdl-slider-background-lower,
+.itemProgressBarForeground,
+.playbackProgress > div,
+.taskProgressInner {
+  background: var(--my-primary) !important;
+  color: var(--my-on-primary) !important;
+}
+
+.sliderBubble,
+.mdl-slider-background-flex,
+.mdl-slider-background-upper {
+  background: var(--my-surface-3) !important;
+}
+
+/* Progress and badges */
+.itemProgressBar {
+  background: rgba(237, 243, 232, .18) !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+}
+
+.countIndicator,
+.playedIndicator,
+.mediaSourceIndicator,
+.videoIndicator,
+.newTvProgram,
+.channelTimeslotHeader,
+.guideProgramNameCaret {
+  background: var(--my-primary-container) !important;
+  color: var(--my-primary-2) !important;
+  border-radius: 999px !important;
+}
+
+.missingIndicator,
+.unairedIndicator,
+.errorIcon,
+.alertIcon {
+  background: var(--my-danger-container) !important;
+  color: var(--my-danger) !important;
+}
+
+/* Dialogs, menus, toasts */
+.dialog,
+.formDialogHeader,
+.formDialogFooter,
+.actionSheet,
+.toast {
+  background: var(--my-surface) !important;
+  color: var(--my-text) !important;
+  border: 1px solid var(--my-outline) !important;
+  box-shadow: var(--my-shadow) !important;
+}
+
+.dialog {
+  max-width: min(64rem, calc(100vw - 2rem)) !important;
+}
+
+.formDialogHeader,
+.formDialogFooter {
+  background: var(--my-surface-2) !important;
+  box-shadow: none !important;
+}
+
+.formDialogContent {
+  background: var(--my-bg-raised) !important;
+}
+
+.dialog-small:has(.availableImagesList),
+.dialog-small:has(#imagesContainer),
+.dialog-small:has(.imageEditor-buttons) {
+  width: min(82vw, 78rem) !important;
+  max-width: calc(100vw - 2rem) !important;
+  height: min(88vh, calc(100vh - 2rem)) !important;
+}
+
+.dialog:has(.availableImagesList) .dialogContentInner,
+.dialog:has(#imagesContainer) .dialogContentInner,
+.dialog:has(.imageEditor-buttons) .dialogContentInner {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.dialog:has(.availableImagesList) .flex.align-items-center.justify-content-center {
+  justify-content: flex-start !important;
+  gap: .75rem 1rem !important;
+  margin: 1.35rem 0 1.25rem !important;
+}
+
+.dialog:has(.availableImagesList) .selectContainer {
+  min-width: min(15rem, 100%) !important;
+}
+
+.dialog:has(.availableImagesList) .availableImagesPaging {
+  min-height: 2.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.dialog:has(.availableImagesList) .availableImagesList {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)) !important;
+  gap: 1rem !important;
+  justify-items: center !important;
+  align-items: start !important;
+  padding-top: .35rem !important;
+}
+
+.dialog:has(.availableImagesList) .availableImagesList .imageEditorCard {
+  width: min(100%, 8.5rem) !important;
+  min-width: 7.5rem !important;
+  max-width: 8.5rem !important;
+  margin: 0 !important;
+}
+
+.dialog:has(.availableImagesList) .imageEditorCard .cardBox,
+.dialog:has(.availableImagesList) .imageEditorCard .visualCardBox {
+  width: 100% !important;
+}
+
+.dialog:has(.availableImagesList) .imageEditorCard .cardFooter {
+  padding: .55rem .5rem .65rem !important;
+}
+
+.dialog:has(.availableImagesList) .imageEditorCard .cardText {
+  max-width: 100% !important;
+  line-height: 1.25 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+.dialog:has(.availableImagesList) .btnDownloadRemoteImage {
+  margin-top: .2rem !important;
+}
+
+.actionSheet {
+  border-radius: var(--my-radius-lg) !important;
+  overflow: hidden !important;
+}
+
+.actionSheetMenuItem {
+  min-height: 2.8rem !important;
+}
+
+.toast {
+  border-radius: var(--my-radius-lg) !important;
+}
+
+/* Detail pages */
+.detailPageWrapperContainer,
+.detailLogo,
+.itemBackdrop {
+  filter: none !important;
+}
+
+.itemBackdrop::after,
+.backdropContainer::after {
+  background: rgba(7, 16, 20, .82) !important;
+}
+
+.detailPagePrimaryContainer {
+  background: rgba(10, 23, 28, .96) !important;
+}
+
+.detailButton {
+  min-width: 2.85rem !important;
+  min-height: 2.85rem !important;
+}
+
+.mainDetailButtons {
+  gap: .45rem;
+}
+
+/* Metadata, admin, and library management */
+.dashboardSectionContent,
+.metadataEditorInfo,
+.paperList {
+  overflow: hidden !important;
+}
+
+.dashboardSectionContent {
+  padding: 1rem !important;
+}
+
+.alphaPickerButton,
+.genreButton,
+.emby-select option {
+  border-radius: var(--my-radius-sm) !important;
+}
+
+.fab,
+.btnPlay,
+.btnShuffle,
+.btnResume {
+  min-height: 2.8rem !important;
+}
+
+/* Material 3 Expressive polish */
+.skinHeader,
+.skinHeader-withBackground {
+  background: rgba(7, 16, 20, .96) !important;
+  border-bottom: 1px solid rgba(0, 229, 255, .12) !important;
+  min-height: 4.75em !important;
+}
+
+.headerTop {
+  min-height: 4.6rem !important;
+  padding-left: max(1rem, env(safe-area-inset-left)) !important;
+  padding-right: max(1rem, env(safe-area-inset-right)) !important;
+}
+
+.headerTabs,
+.libraryViewNav {
+  align-items: center !important;
+  gap: .45rem !important;
+  min-height: 3.25rem !important;
+  padding: .35rem .6rem !important;
+}
+
+.emby-tab-button,
+.navMenuOption,
+.MuiTab-root,
+.MuiBottomNavigationAction-root {
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  min-height: 2.65rem !important;
+}
+
+.emby-tab-button-active,
+.navMenuOption-selected,
+.MuiTab-root.Mui-selected,
+.MuiBottomNavigationAction-root.Mui-selected {
+  background: var(--my-primary) !important;
+  border-color: rgba(169, 247, 255, .42) !important;
+  color: var(--my-on-primary) !important;
+  box-shadow: 0 .45rem 1.3rem rgba(0, 229, 255, .18) !important;
+}
+
+.emby-tab-button:hover,
+.navMenuOption:hover,
+.MuiTab-root:hover,
+.MuiBottomNavigationAction-root:hover,
+.headerButton:hover,
+.paper-icon-button-light:hover,
+.detailButton:hover {
+  background: var(--my-state-hover) !important;
+  border-color: rgba(0, 229, 255, .22) !important;
+  color: var(--my-primary-2) !important;
+}
+
+.headerButton,
+.paper-icon-button-light,
+.detailButton,
+.MuiIconButton-root {
+  background: rgba(239, 252, 255, .035) !important;
+  border: 1px solid rgba(213, 243, 247, .1) !important;
+  border-radius: 999px !important;
+}
+
+.mainDrawer,
+.MuiDrawer-paper {
+  background: var(--my-bg-raised) !important;
+  border-right-color: rgba(0, 229, 255, .12) !important;
+}
+
+.mainDrawer .navMenuOption,
+.MuiDrawer-paper .MuiListItemButton-root {
+  margin: .25rem .7rem !important;
+  min-height: 3rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.mainDrawer .navMenuOption-selected,
+.MuiDrawer-paper .MuiListItemButton-root.Mui-selected {
+  box-shadow: inset .28rem 0 0 var(--my-primary), 0 .35rem 1rem rgba(0, 229, 255, .12) !important;
+}
+
+.page,
+.libraryPage,
+.mainAnimatedPage {
+  background-color: transparent !important;
+}
+
+.sectionTitleContainer {
+  align-items: center !important;
+  min-height: 2.7rem !important;
+}
+
+.sectionTitle {
+  font-size: clamp(1.14rem, 1.05rem + .28vw, 1.38rem) !important;
+  font-weight: 780 !important;
+  line-height: 1.15 !important;
+}
+
+.sectionTitleButton,
+.btnMoreFrom,
+.btnMoreItems {
+  background: rgba(0, 229, 255, .08) !important;
+  border: 1px solid rgba(0, 229, 255, .15) !important;
+  border-radius: 999px !important;
+  color: var(--my-primary-2) !important;
+  min-height: 2.35rem !important;
+  padding: .35rem .85rem !important;
+}
+
+.cardBox,
+.visualCardBox,
+.paperList,
+.dashboardSectionContent,
+.metadataEditorInfo,
+.trackSelections,
+.playbackSettingsContainer,
+.MuiPaper-root,
+.MuiCard-root {
+  background: var(--my-surface) !important;
+  border-color: rgba(213, 243, 247, .13) !important;
+  border-radius: var(--my-radius-lg) !important;
+}
+
+.cardScalable,
+.cardImageContainer,
+.cardImage,
+.coveredImage,
+.cardContent,
+.cardOverlayContainer,
+.primaryImageWrapper img,
+.backdropImage,
+.listItemImage,
+.listItemImageButton,
+.listItemImageButton-icon,
+.listItemImage-large {
+  border-radius: var(--my-radius-lg) !important;
+}
+
+.card:hover .cardBox,
+.card:focus .cardBox,
+.listItem:hover,
+.listItem:focus,
+.MuiCard-root:hover {
+  background: var(--my-surface-2) !important;
+  border-color: rgba(0, 229, 255, .34) !important;
+  box-shadow: 0 .55rem 1.7rem rgba(0, 0, 0, .26), 0 0 0 1px rgba(0, 229, 255, .08) !important;
+}
+
+.cardOverlayContainer {
+  background: rgba(0, 0, 0, .28) !important;
+}
+
+.cardOverlayButton,
+.cardOverlayFab-primary,
+.cardOverlayContainer > .cardOverlayFab-primary {
+  background: rgba(239, 252, 255, .92) !important;
+  color: var(--my-on-primary) !important;
+  box-shadow: 0 .45rem 1.2rem rgba(0, 0, 0, .34) !important;
+}
+
+.cardFooter,
+.visualCardBox-cardFooter {
+  padding-top: .7rem !important;
+}
+
+.cardText-first,
+.itemName {
+  font-weight: 720 !important;
+}
+
+.listItem,
+.actionSheetMenuItem,
+.MuiListItemButton-root,
+.MuiMenuItem-root {
+  border-radius: var(--my-radius-md) !important;
+}
+
+.listItem:hover,
+.actionSheetMenuItem:hover,
+.MuiListItemButton-root:hover,
+.MuiMenuItem-root:hover {
+  background: var(--my-state-hover) !important;
+}
+
+.listItem.selected,
+.listItem[data-selected="true"],
+.actionSheetMenuItem-selected,
+.MuiListItemButton-root.Mui-selected,
+.MuiMenuItem-root.Mui-selected {
+  background: var(--my-state-selected) !important;
+  color: var(--my-primary-2) !important;
+}
+
+.raised,
+.button-submit,
+.fab,
+.btnPlay,
+.btnShuffle,
+.btnResume,
+.MuiButton-containedPrimary,
+.MuiFab-primary {
+  background: var(--my-primary) !important;
+  box-shadow: 0 .55rem 1.4rem rgba(0, 229, 255, .22) !important;
+  min-height: 2.95rem !important;
+  padding-left: 1.15rem !important;
+  padding-right: 1.15rem !important;
+}
+
+.button-flat,
+.button-link,
+.MuiButton-textPrimary {
+  border-radius: 999px !important;
+}
+
+.button-flat:hover,
+.button-link:hover,
+.MuiButton-textPrimary:hover {
+  background: var(--my-state-hover) !important;
+}
+
+.emby-input,
+.emby-textarea,
+.emby-select,
+.selectContainer select,
+.inputContainer input,
+textarea,
+.MuiInputBase-root,
+.MuiOutlinedInput-root {
+  background: var(--my-surface-2) !important;
+  border-radius: var(--my-radius-md) !important;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select:focus,
+.selectContainer select:focus,
+.inputContainer input:focus,
+textarea:focus,
+.MuiOutlinedInput-root.Mui-focused {
+  background: var(--my-surface-3) !important;
+  box-shadow: 0 0 0 .22rem rgba(0, 229, 255, .12) !important;
+}
+
+.searchFields,
+.searchField,
+.searchPage .emby-input,
+.searchPage .inputContainer input,
+.searchPage .MuiInputBase-root {
+  border-radius: 999px !important;
+  min-height: 3.15rem !important;
+}
+
+.checkboxOutline,
+.emby-checkbox + span,
+.radioButtonOuterCircle,
+.MuiCheckbox-root,
+.MuiRadio-root,
+.MuiSwitch-root {
+  border-radius: 999px !important;
+}
+
+.emby-checkbox:checked + span,
+.radioButtonInnerCircle,
+.MuiCheckbox-root.Mui-checked,
+.MuiRadio-root.Mui-checked,
+.MuiSwitch-switchBase.Mui-checked {
+  color: var(--my-primary) !important;
+}
+
+.dialog,
+.formDialogHeader,
+.formDialogFooter,
+.actionSheet,
+.toast,
+.MuiDialog-paper,
+.MuiPopover-paper,
+.MuiMenu-paper {
+  border-radius: var(--my-radius-xl) !important;
+}
+
+.dialog,
+.MuiDialog-paper,
+.actionSheet {
+  background: var(--my-surface) !important;
+  border-color: rgba(213, 243, 247, .16) !important;
+}
+
+.formDialogHeader,
+.formDialogFooter,
+.MuiDialogTitle-root,
+.MuiDialogActions-root {
+  background: rgba(21, 36, 42, .95) !important;
+}
+
+.toast,
+.snackbar,
+.MuiSnackbarContent-root {
+  background: var(--my-surface-4) !important;
+  border: 1px solid rgba(0, 229, 255, .18) !important;
+  border-radius: 999px !important;
+  color: var(--my-text) !important;
+}
+
+.nowPlayingBar,
+.appfooter {
+  background: rgba(11, 21, 26, .98) !important;
+  border-top: 1px solid rgba(0, 229, 255, .14) !important;
+}
+
+.alphaPickerButton,
+.genreButton,
+.MuiChip-root,
+.countIndicator,
+.playedIndicator,
+.mediaSourceIndicator,
+.videoIndicator,
+.newTvProgram {
+  border-radius: 999px !important;
+  font-weight: 720 !important;
+}
+
+.MuiChip-root,
+.genreButton,
+.alphaPickerButton {
+  background: rgba(0, 229, 255, .09) !important;
+  border: 1px solid rgba(0, 229, 255, .16) !important;
+  color: var(--my-primary-2) !important;
+}
+
+@media (hover: hover) {
+  .emby-tab-button,
+  .navMenuOption,
+  .headerButton,
+  .paper-icon-button-light,
+  .detailButton,
+  .card .cardBox,
+  .listItem,
+  .raised,
+  .button-submit,
+  .MuiButton-root,
+  .MuiIconButton-root {
+    transition:
+      background-color .16s cubic-bezier(.2, 0, 0, 1),
+      border-color .16s cubic-bezier(.2, 0, 0, 1),
+      box-shadow .16s cubic-bezier(.2, 0, 0, 1),
+      color .16s cubic-bezier(.2, 0, 0, 1),
+      transform .16s cubic-bezier(.2, 0, 0, 1) !important;
+  }
+
+  .card:hover .cardBox,
+  .raised:hover,
+  .button-submit:hover,
+  .MuiButton-containedPrimary:hover {
+    transform: translateY(-2px) !important;
+  }
+}
+
+/* Android-style loading */
+@keyframes codexMaterialLoaderSpin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes codexMaterialLoaderPulse {
+  0%,
+  100% {
+    opacity: .62;
+    transform: scale(.84);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.splashLogo,
+.loadingSpinner,
+.busyIndicator,
+.spinner,
+.progressring,
+.paper-spinner,
+.mdl-spinner,
+.MuiCircularProgress-root {
+  color: var(--my-primary) !important;
+  filter: drop-shadow(0 0 16px rgba(0, 229, 255, .38)) !important;
+}
+
+.splashLogo {
+  align-items: center !important;
+  animation: codexMaterialLoaderSpin .95s cubic-bezier(.4, 0, .2, 1) infinite !important;
+  aspect-ratio: 1 !important;
+  background: var(--my-primary) !important;
+  border-radius: 999px !important;
+  box-shadow:
+    0 0 0 .55rem rgba(0, 229, 255, .08),
+    0 0 2rem rgba(0, 229, 255, .26) !important;
+  display: inline-flex !important;
+  height: 4.8rem !important;
+  justify-content: center !important;
+  margin: auto !important;
+  max-height: 28vw !important;
+  max-width: 28vw !important;
+  min-height: 3.5rem !important;
+  min-width: 3.5rem !important;
+  position: relative !important;
+  width: 4.8rem !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+.splashLogo::before,
+.splashLogo::after {
+  border-radius: 999px !important;
+  content: "" !important;
+  position: absolute !important;
+}
+
+.splashLogo::before {
+  background: var(--my-primary-2) !important;
+  box-shadow: 0 0 1.1rem rgba(0, 229, 255, .78) !important;
+  height: .72rem !important;
+  right: .1rem !important;
+  top: .95rem !important;
+  width: .72rem !important;
+}
+
+.splashLogo::after {
+  animation: codexMaterialLoaderPulse 1.55s ease-in-out infinite !important;
+  background: rgba(0, 229, 255, .18) !important;
+  inset: -1rem !important;
+  z-index: -1 !important;
+}
+
+.MuiCircularProgress-root {
+  animation-duration: .95s !important;
+}
+
+.MuiCircularProgress-circle,
+.progressring circle,
+.paper-spinner circle,
+.mdl-spinner circle,
+.mdl-spinner__circle {
+  stroke: var(--my-primary) !important;
+  stroke-linecap: round !important;
+  filter: drop-shadow(0 0 .45rem rgba(0, 229, 255, .5)) !important;
+}
+
+.mdl-spinner__layer,
+.mdl-spinner__layer-1,
+.mdl-spinner__layer-2,
+.mdl-spinner__layer-3,
+.mdl-spinner__layer-4 {
+  border-color: var(--my-primary) !important;
+}
+
+.MuiLinearProgress-root,
+.linearProgress,
+.progressbar,
+.itemProgressBar,
+.taskProgressOuter {
+  background-color: rgba(0, 229, 255, .12) !important;
+  border-radius: 999px !important;
+  min-height: .36rem !important;
+  overflow: hidden !important;
+}
+
+.MuiLinearProgress-bar,
+.linearProgress .bar,
+.progressbar .bar,
+.itemProgressBarForeground,
+.taskProgressInner {
+  background: var(--my-primary) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0 .7rem rgba(0, 229, 255, .45) !important;
+}
+
+/* Focus */
+.emby-button:focus-visible,
+.paper-icon-button-light:focus-visible,
+.navMenuOption:focus-visible,
+.card:focus-visible,
+.listItem:focus-visible,
+.emby-tab-button:focus-visible,
+.detailButton:focus-visible {
+  outline: 2px solid var(--my-primary) !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 50em) {
+  :root {
+    --my-radius-md: 20px;
+    --my-radius-lg: 24px;
+    --my-radius-xl: 30px;
+  }
+
+  .skinHeader {
+    min-height: 4.25em;
+  }
+
+  .headerButton,
+  .paper-icon-button-light {
+    min-width: 2.55rem !important;
+    width: 2.55rem !important;
+    height: 2.55rem !important;
+  }
+
+  .emby-tab-button {
+    min-height: 2.4rem !important;
+    padding: 0 .75rem !important;
+  }
+
+  .loginPage h1,
+  .loginPage .pageTitle {
+    font-size: 1.65rem !important;
+  }
+
+  .cardBox,
+  .visualCardBox,
+  .cardImageContainer,
+  .cardImage,
+  .coveredImage {
+    border-radius: var(--my-radius-md) !important;
+  }
+
+  .dialog {
+    max-width: calc(100vw - 1rem) !important;
+  }
+
+  .dialog-small:has(.availableImagesList),
+  .dialog-small:has(#imagesContainer),
+  .dialog-small:has(.imageEditor-buttons) {
+    width: calc(100vw - .75rem) !important;
+    max-width: calc(100vw - .75rem) !important;
+    height: calc(100vh - .75rem) !important;
+  }
+
+  .dialog:has(.availableImagesList) .dialogContentInner,
+  .dialog:has(#imagesContainer) .dialogContentInner,
+  .dialog:has(.imageEditor-buttons) .dialogContentInner {
+    padding-left: .85rem !important;
+    padding-right: .85rem !important;
+  }
+
+  .dialog:has(.availableImagesList) .availableImagesList {
+    grid-template-columns: repeat(auto-fill, minmax(5.9rem, 1fr)) !important;
+    gap: .75rem !important;
+  }
+
+  .dialog:has(.availableImagesList) .availableImagesList .imageEditorCard {
+    min-width: 5.9rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Codex top bar alignment repair v2.7 */
+.skinHeader .headerTop,
+.skinHeader .headerLeft,
+.skinHeader .headerRight,
+.skinHeader .headerTop .flex,
+.skinHeader .headerTop .align-items-center {
+  align-items: center !important;
+}
+
+.skinHeader .headerTop {
+  display: flex !important;
+}
+
+.headerButton,
+.paper-icon-button-light,
+.detailButton,
+.MuiIconButton-root,
+.btnUser,
+.userMenuButton,
+.headerUserButton {
+  align-items: center !important;
+  aspect-ratio: 1 / 1 !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-height: 2.85rem !important;
+  min-width: 2.85rem !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: relative !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.headerButton > *,
+.paper-icon-button-light > *,
+.detailButton > *,
+.MuiIconButton-root > *,
+.btnUser > *,
+.userMenuButton > *,
+.headerUserButton > * {
+  margin: auto !important;
+}
+
+.headerButton .material-icons,
+.paper-icon-button-light .material-icons,
+.detailButton .material-icons,
+.MuiIconButton-root .material-icons,
+.headerButton .material-symbols-rounded,
+.paper-icon-button-light .material-symbols-rounded,
+.detailButton .material-symbols-rounded,
+.MuiIconButton-root .material-symbols-rounded,
+.headerButton svg,
+.paper-icon-button-light svg,
+.detailButton svg,
+.MuiIconButton-root svg {
+  display: block !important;
+  flex: 0 0 auto !important;
+  font-size: 1.55rem !important;
+  height: 1.55rem !important;
+  line-height: 1 !important;
+  margin: auto !important;
+  max-height: 1.55rem !important;
+  max-width: 1.55rem !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  transform: none !important;
+  width: 1.55rem !important;
+}
+
+.headerButton .material-icons::before,
+.paper-icon-button-light .material-icons::before,
+.detailButton .material-icons::before {
+  display: block !important;
+  line-height: 1 !important;
+}
+
+.headerButton img,
+.paper-icon-button-light img,
+.btnUser img,
+.userMenuButton img,
+.headerUserButton img,
+.MuiAvatar-root img,
+.MuiAvatar-img {
+  border-radius: 999px !important;
+  display: block !important;
+  height: 100% !important;
+  max-height: none !important;
+  max-width: none !important;
+  min-height: 100% !important;
+  min-width: 100% !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: 100% !important;
+}
+
+.headerButton .userImage,
+.paper-icon-button-light .userImage,
+.btnUser .userImage,
+.userMenuButton .userImage,
+.headerUserButton .userImage,
+.headerButton .profileImage,
+.paper-icon-button-light .profileImage,
+.btnUser .profileImage,
+.userMenuButton .profileImage,
+.headerUserButton .profileImage,
+.headerButton .avatar,
+.paper-icon-button-light .avatar,
+.btnUser .avatar,
+.userMenuButton .avatar,
+.headerUserButton .avatar,
+.MuiAvatar-root {
+  background-color: transparent !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 999px !important;
+  display: block !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  min-width: 100% !important;
+  opacity: 1 !important;
+  overflow: hidden !important;
+  visibility: visible !important;
+  width: 100% !important;
+}
+
+.headerButton:has(img),
+.paper-icon-button-light:has(img),
+.btnUser:has(img),
+.userMenuButton:has(img),
+.headerUserButton:has(img),
+.headerButton:has(.userImage),
+.paper-icon-button-light:has(.userImage),
+.btnUser:has(.userImage),
+.userMenuButton:has(.userImage),
+.headerUserButton:has(.userImage),
+.headerButton:has(.profileImage),
+.paper-icon-button-light:has(.profileImage),
+.btnUser:has(.profileImage),
+.userMenuButton:has(.profileImage),
+.headerUserButton:has(.profileImage) {
+  background: transparent !important;
+  border-color: rgba(213, 243, 247, .18) !important;
+}
+
+.headerButton:has(img)::before,
+.paper-icon-button-light:has(img)::before,
+.btnUser:has(img)::before,
+.userMenuButton:has(img)::before,
+.headerUserButton:has(img)::before {
+  content: none !important;
+}
+/* Codex Material You v2.8: flatter home rows and tinted cards, no glow halos. */
+:root {
+  --my-row-flat: rgba(5, 24, 29, .42);
+  --my-row-flat-alt: rgba(9, 36, 42, .36);
+  --my-card-tint: #10262d;
+  --my-card-tint-2: #182d35;
+  --my-card-tint-3: #203840;
+  --my-card-hover-tint: #263f48;
+  --my-card-text-tint: rgba(18, 46, 54, .84);
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage [class*="Section"]:has(.itemsContainer),
+.homePage [class*="section"]:has(.itemsContainer) {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: 0 !important;
+}
+
+.homePage .verticalSection:nth-of-type(odd),
+.homePage .homePageSection:nth-of-type(odd),
+.homePage .latestItemsSection:nth-of-type(odd),
+.homePage .resumeSection:nth-of-type(odd),
+.homePage .nextUpSection:nth-of-type(odd) {
+  background-color: var(--my-row-flat) !important;
+}
+
+.homePage .verticalSection:nth-of-type(even),
+.homePage .homePageSection:nth-of-type(even),
+.homePage .latestItemsSection:nth-of-type(even),
+.homePage .resumeSection:nth-of-type(even),
+.homePage .nextUpSection:nth-of-type(even) {
+  background-color: var(--my-row-flat-alt) !important;
+}
+
+.homePage .sectionTitleContainer,
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .padded-left,
+.homePage .padded-right {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.card,
+.cardBox,
+.visualCardBox,
+.cardScalable,
+.cardImageContainer,
+.cardContent,
+.cardFooter,
+.visualCardBox-cardFooter,
+.portraitCard,
+.squareCard,
+.overflowBackdropCard,
+.overflowPortraitCard {
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+.cardBox,
+.visualCardBox,
+.MuiCard-root {
+  background: var(--my-card-tint) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.card:nth-child(3n + 1) .cardBox,
+.card:nth-child(3n + 1) .visualCardBox {
+  background: var(--my-card-tint) !important;
+}
+
+.card:nth-child(3n + 2) .cardBox,
+.card:nth-child(3n + 2) .visualCardBox {
+  background: var(--my-card-tint-2) !important;
+}
+
+.card:nth-child(3n) .cardBox,
+.card:nth-child(3n) .visualCardBox {
+  background: var(--my-card-tint-3) !important;
+}
+
+.card:hover .cardBox,
+.card:focus .cardBox,
+.card:hover .visualCardBox,
+.card:focus .visualCardBox,
+.MuiCard-root:hover {
+  background: var(--my-card-hover-tint) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+@media (hover: hover) {
+  .card:hover .cardBox,
+  .card:hover .visualCardBox,
+  .card:hover .cardScalable {
+    transform: none !important;
+  }
+}
+
+.cardFooter,
+.visualCardBox-cardFooter {
+  background: var(--my-card-text-tint) !important;
+  border-radius: 0 0 var(--my-radius-lg) var(--my-radius-lg) !important;
+  margin-top: 0 !important;
+}
+
+.cardText,
+.cardText-first,
+.cardText-secondary,
+.itemName,
+.cardFooter .cardText {
+  text-shadow: none !important;
+}
+
+.cardOverlayContainer {
+  background: rgba(0, 0, 0, .2) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.cardOverlayButton,
+.cardOverlayFab-primary,
+.cardOverlayContainer > .cardOverlayFab-primary {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.homePage .btnNextPage,
+.homePage .btnPreviousPage,
+.homePage .emby-scrollbuttons-button {
+  background: rgba(18, 46, 54, .72) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* v2.8.1: rows are layout only; cards carry the tint. */
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage [class*="Section"]:has(.itemsContainer),
+.homePage [class*="section"]:has(.itemsContainer) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+/* Codex header text nav spacing repair v2.9 */
+.skinHeader .headerTabs,
+.skinHeader .libraryViewNav {
+  align-items: center !important;
+  display: flex !important;
+  flex: 0 1 auto !important;
+  gap: .45rem !important;
+  justify-content: center !important;
+  min-height: 3.25rem !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+  padding-inline: .5rem !important;
+  white-space: nowrap !important;
+}
+
+.skinHeader .emby-tab-button,
+.skinHeader .MuiTab-root,
+.skinHeader .headerTabs .emby-button,
+.skinHeader .headerTabs button,
+.skinHeader .libraryViewNav .emby-button,
+.skinHeader .libraryViewNav button {
+  align-items: center !important;
+  aspect-ratio: auto !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  height: auto !important;
+  justify-content: center !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  min-height: 2.45rem !important;
+  min-width: max-content !important;
+  overflow: visible !important;
+  padding: 0 1.05rem !important;
+  text-indent: 0 !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+.skinHeader .emby-tab-button-active,
+.skinHeader .MuiTab-root.Mui-selected,
+.skinHeader .headerTabs .emby-button-active,
+.skinHeader .headerTabs button[aria-selected="true"],
+.skinHeader .libraryViewNav .emby-button-active,
+.skinHeader .libraryViewNav button[aria-selected="true"] {
+  border-radius: 999px !important;
+  min-width: max-content !important;
+  padding-inline: 1.15rem !important;
+}
+
+.skinHeader .headerTabs .emby-button > *,
+.skinHeader .headerTabs button > *,
+.skinHeader .libraryViewNav .emby-button > *,
+.skinHeader .libraryViewNav button > *,
+.skinHeader .emby-tab-button > * {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto !important;
+}
+
+.skinHeader .headerTabs .material-icons,
+.skinHeader .libraryViewNav .material-icons,
+.skinHeader .emby-tab-button .material-icons,
+.skinHeader .headerTabs svg,
+.skinHeader .libraryViewNav svg,
+.skinHeader .emby-tab-button svg {
+  height: 1.25rem !important;
+  width: 1.25rem !important;
+}
+
+@media (max-width: 50em) {
+  .skinHeader .headerTabs,
+  .skinHeader .libraryViewNav {
+    gap: .3rem !important;
+    padding-inline: .25rem !important;
+  }
+
+  .skinHeader .emby-tab-button,
+  .skinHeader .MuiTab-root,
+  .skinHeader .headerTabs .emby-button,
+  .skinHeader .headerTabs button,
+  .skinHeader .libraryViewNav .emby-button,
+  .skinHeader .libraryViewNav button {
+    min-height: 2.35rem !important;
+    padding-inline: .85rem !important;
+  }
+}
+/* Codex borderless tinted surfaces v3.0 */
+:root {
+  --my-outline: rgba(0, 0, 0, 0) !important;
+  --my-outline-strong: rgba(0, 0, 0, 0) !important;
+  --my-tint-surface: rgba(11, 21, 26, .9);
+  --my-tint-surface-2: rgba(16, 27, 32, .94);
+  --my-tint-surface-3: rgba(18, 33, 39, .96);
+  --my-tint-field: rgba(16, 29, 35, .92);
+  --my-glow-soft: 0 .85rem 2.4rem rgba(0, 0, 0, .22), 0 .2rem .8rem rgba(0, 229, 255, .055);
+  --my-glow-hover: 0 1.1rem 2.7rem rgba(0, 0, 0, .25), 0 .35rem 1.2rem rgba(0, 229, 255, .13);
+  --my-glow-selected: 0 .95rem 2.3rem rgba(0, 0, 0, .24), 0 .38rem 1.35rem rgba(0, 229, 255, .2);
+}
+
+.skinHeader,
+.skinHeader-withBackground,
+.mainDrawer,
+.nowPlayingBar,
+.appfooter,
+.MuiAppBar-root,
+.MuiDrawer-paper {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: 0 .8rem 2.2rem rgba(0, 0, 0, .18) !important;
+}
+
+.skinHeader,
+.skinHeader-withBackground,
+.MuiAppBar-root {
+  background: rgba(7, 17, 22, .96) !important;
+}
+
+.mainDrawer,
+.MuiDrawer-paper {
+  background: rgba(8, 18, 23, .98) !important;
+}
+
+.cardBox,
+.visualCardBox,
+.paperList,
+.dashboardSectionContent,
+.metadataEditorInfo,
+.trackSelections,
+.playbackSettingsContainer,
+.MuiPaper-root,
+.MuiCard-root,
+.listItem,
+.detailImageContainer,
+.primaryImageWrapper,
+.dialog,
+.toast,
+.actionSheet,
+.formDialogHeader,
+.formDialogFooter,
+.itemsContainer > .card,
+.itemDetailPage .detailPagePrimaryContainer,
+.itemDetailPage .detailPageContent,
+.collectionItems,
+.verticalSection,
+.homeSection,
+.section0,
+.section1,
+.section2,
+.section3,
+.section4,
+.section5,
+.section6,
+.section7,
+.section8,
+.section9 {
+  background: var(--my-tint-surface) !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: var(--my-glow-soft) !important;
+}
+
+.cardBox,
+.visualCardBox,
+.MuiCard-root,
+.paperList,
+.dialog,
+.actionSheet,
+.toast,
+.MuiPaper-root {
+  outline: 0 !important;
+}
+
+.card:hover .cardBox,
+.card:focus-within .cardBox,
+.listItem:hover,
+.listItem:focus-within,
+.MuiCard-root:hover,
+.MuiPaper-root:hover,
+.paperList:hover {
+  background: var(--my-tint-surface-2) !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: var(--my-glow-hover) !important;
+}
+
+.headerButton,
+.paper-icon-button-light,
+.detailButton,
+.MuiIconButton-root,
+.emby-tab-button,
+.navMenuOption,
+.MuiTab-root,
+.MuiBottomNavigationAction-root,
+.emby-button,
+.button-flat,
+.button-link,
+.button-submit,
+.raised,
+.fab,
+.MuiButton-root,
+.MuiFab-root,
+.genreButton,
+.MuiChip-root,
+.alphaPickerButton,
+.btnPlay,
+.btnShuffle,
+.btnResume,
+.btnDownload,
+.btnMoreFrom,
+.btnMoreItems,
+.sectionTitleButton {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.headerButton,
+.paper-icon-button-light,
+.detailButton,
+.MuiIconButton-root {
+  background: rgba(239, 252, 255, .055) !important;
+  box-shadow: 0 .35rem 1rem rgba(0, 0, 0, .16) !important;
+}
+
+.headerButton:hover,
+.paper-icon-button-light:hover,
+.detailButton:hover,
+.MuiIconButton-root:hover {
+  background: rgba(0, 229, 255, .18) !important;
+  box-shadow: 0 .45rem 1.25rem rgba(0, 229, 255, .12) !important;
+}
+
+.emby-tab-button,
+.navMenuOption,
+.MuiTab-root,
+.MuiBottomNavigationAction-root,
+.genreButton,
+.MuiChip-root,
+.alphaPickerButton,
+.sectionTitleButton,
+.btnMoreFrom,
+.btnMoreItems {
+  background: rgba(0, 229, 255, .075) !important;
+}
+
+.emby-tab-button-active,
+.navMenuOption-selected,
+.MuiTab-root.Mui-selected,
+.MuiBottomNavigationAction-root.Mui-selected,
+.MuiChip-root.Mui-selected,
+.alphaPickerButton.selected {
+  background: var(--my-primary) !important;
+  border: 0 !important;
+  box-shadow: var(--my-glow-selected) !important;
+  color: var(--my-on-primary) !important;
+}
+
+.emby-input,
+.emby-textarea,
+.emby-select,
+.selectContainer select,
+input,
+textarea,
+select,
+.MuiInputBase-root,
+.MuiOutlinedInput-root,
+.MuiSelect-select,
+.MuiTextField-root,
+.MuiAutocomplete-root,
+.MuiFormControl-root .MuiInputBase-root {
+  background: var(--my-tint-field) !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 .08rem .35rem rgba(0, 0, 0, .2), 0 .35rem 1rem rgba(0, 229, 255, .045) !important;
+  outline: 0 !important;
+}
+
+.MuiOutlinedInput-notchedOutline,
+fieldset,
+.emby-input + .fieldDescription,
+.emby-select + .fieldDescription {
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.MuiInputBase-root.Mui-focused,
+.MuiOutlinedInput-root.Mui-focused {
+  background: var(--my-tint-surface-2) !important;
+  box-shadow: 0 0 0 .22rem rgba(0, 229, 255, .18), inset 0 .08rem .35rem rgba(0, 0, 0, .18) !important;
+}
+
+.emby-button:focus-visible,
+.paper-icon-button-light:focus-visible,
+.navMenuOption:focus-visible,
+.card:focus-visible,
+.listItem:focus-visible,
+.emby-tab-button:focus-visible,
+.detailButton:focus-visible,
+.MuiButton-root:focus-visible,
+.MuiIconButton-root:focus-visible {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 .24rem rgba(0, 229, 255, .24), 0 .65rem 1.6rem rgba(0, 0, 0, .22) !important;
+}
+
+.table,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+.listItem-border,
+.listItemBody,
+.detailSection,
+.metadataField,
+.dashboardSection,
+.dashboardSectionHeader,
+.MuiDivider-root,
+.divider,
+.hr,
+hr {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+tr,
+.listItem,
+.metadataField,
+.dashboardSection {
+  background: rgba(16, 27, 32, .72) !important;
+}
+
+tr:hover,
+.listItem:hover,
+.metadataField:hover {
+  background: var(--my-tint-surface-2) !important;
+}
+
+.cardOverlayContainer,
+.cardOverlayButton,
+.cardOverlayFab-primary,
+.cardOverlayFab-secondary,
+.cardOverlayContainer > .cardOverlayFab-primary,
+.cardOverlayContainer > .cardOverlayFab-secondary {
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: 0 .55rem 1.35rem rgba(0, 0, 0, .32) !important;
+}
+
+.progressbar,
+.progressBar,
+.itemProgressBar,
+.taskProgressOuter,
+.MuiLinearProgress-root {
+  border: 0 !important;
+  background: rgba(0, 229, 255, .105) !important;
+  box-shadow: inset 0 .08rem .25rem rgba(0, 0, 0, .18) !important;
+}
+
+.layout-mobile .skinHeader,
+.layout-tv .skinHeader {
+  border: 0 !important;
+  box-shadow: 0 .55rem 1.5rem rgba(0, 0, 0, .18) !important;
+}
+
+@media (max-width: 50em) {
+  .skinHeader,
+  .skinHeader-withBackground,
+  .mainDrawer,
+  .nowPlayingBar,
+  .appfooter {
+    border: 0 !important;
+    box-shadow: 0 .55rem 1.5rem rgba(0, 0, 0, .18) !important;
+  }
+}
+/* Codex adaptive Jellyfin SVG logo v3.1 */
+:root {
+  --codex-jellyfin-logo-mark: url("data:image/svg+xml,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20viewBox%3d%220%200%20512%20512%22%3e%3cpath%20d%3d%22M256%201c41%200%2097%2062%20153%20149%2060%2093%20103%20188%20103%20249%200%2084-512%2084-512%200%200-61%2043-156%20103-249C159%2063%20215%201%20256%201Zm0%2073c-26%200-69%2051-111%20116-49%2077-80%20154-80%20197%200%2030%20382%2030%20382%200%200-43-31-120-80-197-42-65-85-116-111-116Zm0%20132c17%200%2043%2031%2069%2074%2024%2041%2040%2078%2040%20100%200%2031-218%2031-218%200%200-22%2016-59%2040-100%2026-43%2052-74%2069-74Z%22%2f%3e%3c%2fsvg%3e");
+  --codex-jellyfin-logo-wordmark: url("data:image/svg+xml,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20viewBox%3d%220%200%20640%20160%22%3e%3cpath%20d%3d%22M80%200c20%200%2038%2021%2058%2051%2021%2033%2038%2068%2038%2091%200%2024-192%2024-192%200%200-23%2017-58%2038-91C42%2021%2060%200%2080%200Zm0%2025c-11%200-27%2018-44%2045-18%2028-29%2057-29%2073%200%2010%20146%2010%20146%200%200-16-11-45-29-73-17-27-33-45-44-45Zm0%2047c7%200%2017%2012%2027%2028%209%2015%2015%2029%2015%2037%200%2011-84%2011-84%200%200-8%206-22%2015-37%2010-16%2020-28%2027-28Z%22%2f%3e%3cpath%20d%3d%22M245%2041h34v71c0%2038-20%2053-51%2053-8%200-19-1-26-4l4-28c5%202%2011%203%2018%203%2013%200%2021-6%2021-25V41Zm96%20121c-38%200-62-23-62-58%200-34%2025-61%2059-61%2038%200%2054%2030%2054%2057%200%207-1%2013-1%2016h-80c1%2015%2016%2022%2032%2022%2012%200%2023-2%2033-5l4%2023c-12%205-26%206-39%206Zm-30-70h50c0-11-5-26-24-26-17%200-25%2015-26%2026Zm102-51h33v119h-33V41Zm60%200h33v119h-33V41Zm57%204h36l18%2058c2%207%205%2016%206%2023h1c2-7%204-16%206-23l15-58h35l-27%2078c-17%2047-29%2066-42%2078-12%2011-25%2015-34%2016l-7-28c5-1%2011-3%2016-6%206-3%2012-9%2015-15%201-2%202-4%202-5s0-3-2-6L530%2045Zm136%20115V69h-15V45h15v-4c0-14%204-30%2016-40%2010-9%2023-12%2034-12%208%200%2015%201%2020%203l-1%2025c-3-1-7-2-12-2-13%200-18%2010-18%2024v6h25v24h-25v91h-39Zm82-130c-11%200-18-8-18-17s7-17%2018-17%2018%207%2018%2017-7%2017-18%2017Zm-17%20130V45h33v115h-33Zm63%200V45h29l2%2016h1c5-8%2018-18%2038-18%2025%200%2044%2017%2044%2050v67h-33V98c0-15-5-26-19-26-10%200-16%207-19%2014-1%203-1%207-1%2010v64h-33Z%22%2f%3e%3c%2fsvg%3e");
+  --codex-jellyfin-logo-blank: url("data:image/svg+xml,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20viewBox%3d%220%200%201%201%22%3e%3c%2fsvg%3e");
+  --codex-logo-accent-fill: var(--my-primary);
+}
+
+.skinHeader img[src*="icon-transparent"],
+.skinHeader img[src*="touchicon"],
+.skinHeader .imgLogoIcon,
+.skinHeader .headerLogoIcon,
+.skinHeader .logoIcon,
+.skinHeader .jellyfinLogoIcon {
+  aspect-ratio: 1 / 1 !important;
+  background: var(--codex-logo-accent-fill) !important;
+  content: var(--codex-jellyfin-logo-blank) !important;
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  height: 2.15rem !important;
+  margin: 0 .42rem 0 0 !important;
+  max-height: 2.15rem !important;
+  max-width: 2.15rem !important;
+  min-height: 2.15rem !important;
+  min-width: 2.15rem !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  transform: none !important;
+  width: 2.15rem !important;
+  -webkit-mask: var(--codex-jellyfin-logo-mark) center / contain no-repeat !important;
+  mask: var(--codex-jellyfin-logo-mark) center / contain no-repeat !important;
+}
+
+.skinHeader img[src*="banner-dark"],
+.skinHeader img[src*="banner-light"],
+.skinHeader .imgLogo,
+.skinHeader .headerLogo,
+.skinHeader .jellyfinLogo {
+  background: var(--codex-logo-accent-fill) !important;
+  content: var(--codex-jellyfin-logo-blank) !important;
+  display: inline-block !important;
+  height: 2.25rem !important;
+  max-height: 2.25rem !important;
+  max-width: 10.2rem !important;
+  min-height: 2.25rem !important;
+  min-width: 10.2rem !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  width: 10.2rem !important;
+  -webkit-mask: var(--codex-jellyfin-logo-wordmark) left center / contain no-repeat !important;
+  mask: var(--codex-jellyfin-logo-wordmark) left center / contain no-repeat !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo,
+.skinHeader .pageTitleWithLogo,
+.skinHeader .pageTitle,
+.skinHeader .headerTitle,
+.skinHeader .appName,
+.skinHeader [class*="Logo"] + .pageTitle,
+.skinHeader [class*="logo"] + .pageTitle {
+  align-items: center !important;
+  color: var(--my-primary-2) !important;
+  display: inline-flex !important;
+  font-weight: 830 !important;
+  letter-spacing: 0 !important;
+  text-shadow: 0 0 1rem rgba(0, 229, 255, .28) !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo::before,
+.skinHeader .pageTitleWithLogo::before,
+.skinHeader .headerTitle::before,
+.skinHeader .appName::before {
+  aspect-ratio: 1 / 1 !important;
+  background: var(--codex-logo-accent-fill) !important;
+  content: "" !important;
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  height: 2.05rem !important;
+  margin-right: .42rem !important;
+  width: 2.05rem !important;
+  -webkit-mask: var(--codex-jellyfin-logo-mark) center / contain no-repeat !important;
+  mask: var(--codex-jellyfin-logo-mark) center / contain no-repeat !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo[style*="background"],
+.skinHeader .pageTitleWithLogo[style*="background"],
+.skinHeader .headerTitle[style*="background"],
+.skinHeader .appName[style*="background"] {
+  background-image: none !important;
+}
+
+@media (max-width: 50em) {
+  .skinHeader img[src*="banner-dark"],
+  .skinHeader img[src*="banner-light"],
+  .skinHeader .imgLogo,
+  .skinHeader .headerLogo,
+  .skinHeader .jellyfinLogo {
+    height: 2rem !important;
+    min-height: 2rem !important;
+    min-width: 8.8rem !important;
+    width: 8.8rem !important;
+  }
+
+  .skinHeader img[src*="icon-transparent"],
+  .skinHeader img[src*="touchicon"],
+  .skinHeader .imgLogoIcon,
+  .skinHeader .headerLogoIcon,
+  .skinHeader .logoIcon,
+  .skinHeader .jellyfinLogoIcon,
+  .skinHeader .pageTitleWithDefaultLogo::before,
+  .skinHeader .pageTitleWithLogo::before,
+  .skinHeader .headerTitle::before,
+  .skinHeader .appName::before {
+    height: 1.9rem !important;
+    min-height: 1.9rem !important;
+    min-width: 1.9rem !important;
+    width: 1.9rem !important;
+  }
+}
+/* Codex header active tab glow unclipped v3.2 */
+.skinHeader,
+.skinHeader-withBackground,
+.skinHeader .headerTop,
+.skinHeader .headerLeft,
+.skinHeader .headerRight,
+.skinHeader .headerTabs,
+.skinHeader .libraryViewNav,
+.skinHeader .tabs-viewmenubar,
+.skinHeader .emby-tabs,
+.skinHeader .emby-tabs-slider {
+  overflow: visible !important;
+}
+
+.skinHeader .headerTabs,
+.skinHeader .libraryViewNav {
+  padding-top: .45rem !important;
+  padding-bottom: .45rem !important;
+}
+
+.skinHeader .emby-tab-button,
+.skinHeader .MuiTab-root,
+.skinHeader .headerTabs .emby-button,
+.skinHeader .headerTabs button,
+.skinHeader .libraryViewNav .emby-button,
+.skinHeader .libraryViewNav button {
+  margin-top: .1rem !important;
+  margin-bottom: .1rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.skinHeader .emby-tab-button-active,
+.skinHeader .MuiTab-root.Mui-selected,
+.skinHeader .headerTabs .emby-button-active,
+.skinHeader .headerTabs button[aria-selected="true"],
+.skinHeader .libraryViewNav .emby-button-active,
+.skinHeader .libraryViewNav button[aria-selected="true"] {
+  box-shadow: 0 .35rem 1.15rem rgba(0, 229, 255, .28), 0 0 0 .28rem rgba(0, 229, 255, .08) !important;
+  z-index: 2 !important;
+}
+
+/* Codex final home surface cleanup v2.8.2: no row/card glow, tinted card surfaces only. */
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .section0,
+.homePage .section1,
+.homePage .section2,
+.homePage .section3,
+.homePage .section4,
+.homePage .section5,
+.homePage .section6,
+.homePage .section7,
+.homePage .section8,
+.homePage .section9 {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .card,
+.homePage .cardBox,
+.homePage .visualCardBox,
+.homePage .cardScalable,
+.homePage .cardImageContainer,
+.homePage .cardImage,
+.homePage .coveredImage,
+.homePage .cardFooter,
+.homePage .visualCardBox-cardFooter {
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+.homePage .cardBox,
+.homePage .visualCardBox {
+  background-color: #142a32 !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.homePage .card:nth-child(3n + 2) .cardBox,
+.homePage .card:nth-child(3n + 2) .visualCardBox {
+  background-color: #1a313a !important;
+}
+
+.homePage .card:nth-child(3n) .cardBox,
+.homePage .card:nth-child(3n) .visualCardBox {
+  background-color: #203942 !important;
+}
+
+.homePage .card:hover .cardBox,
+.homePage .card:hover .visualCardBox,
+.homePage .card:focus .cardBox,
+.homePage .card:focus .visualCardBox {
+  background-color: #284651 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.homePage .cardFooter,
+.homePage .visualCardBox-cardFooter {
+  background: rgba(20, 42, 50, .94) !important;
+}
+
+.homePage .card:nth-child(3n + 2) .cardFooter,
+.homePage .card:nth-child(3n + 2) .visualCardBox-cardFooter {
+  background: rgba(26, 49, 58, .94) !important;
+}
+
+.homePage .card:nth-child(3n) .cardFooter,
+.homePage .card:nth-child(3n) .visualCardBox-cardFooter {
+  background: rgba(32, 57, 66, .94) !important;
+}
+
+/* Codex flat accent cleanup v2.9: no gradients, cleaner More menus. */
+:root {
+  --my-primary: #00e5ff;
+  --my-primary-2: #8df6ff;
+  --my-primary-3: #00e5ff;
+  --my-primary-container: #004f5d;
+  --my-primary-container-soft: rgba(0, 229, 255, .18);
+  --my-expressive-gradient: rgba(0, 229, 255, .18);
+  --my-bg: #071014;
+  --my-bg-raised: #0a171c;
+  --my-surface: #10242b;
+  --my-surface-2: #152e36;
+  --my-surface-3: #1a3740;
+  --my-card-flat: #132a32;
+  --my-card-flat-alt: #18343d;
+  --my-card-flat-hover: #214751;
+}
+
+body,
+.backgroundContainer,
+.backgroundContainer.withBackdrop,
+.backgroundContainer-transparent,
+.page,
+.libraryPage,
+.mainAnimatedPage,
+.homePage,
+.skinHeader,
+.skinHeader-withBackground,
+.mainDrawer,
+.MuiDrawer-paper,
+.dialog,
+.MuiDialog-paper,
+.actionSheet,
+.MuiPopover-paper,
+.MuiMenu-paper,
+.toast,
+.snackbar,
+.MuiSnackbarContent-root,
+.nowPlayingBar,
+.appfooter,
+.formDialogHeader,
+.formDialogFooter,
+.MuiDialogTitle-root,
+.MuiDialogActions-root,
+.sectionTitleButton,
+.btnMoreFrom,
+.btnMoreItems,
+.button-submit,
+.emby-button-foreground,
+.raised,
+.paperList,
+.dashboardSectionContent,
+.metadataEditorInfo,
+.trackSelections,
+.playbackSettingsContainer,
+.MuiPaper-root,
+.MuiCard-root,
+.listItem,
+.actionSheetMenuItem,
+.MuiListItemButton-root,
+.MuiMenuItem-root,
+.navMenuOption,
+.navMenuOption-selected,
+.emby-tab-button,
+.MuiTab-root,
+.alphaPickerButton,
+.genreButton,
+.MuiChip-root,
+.countIndicator,
+.playedIndicator,
+.mediaSourceIndicator,
+.videoIndicator,
+.newTvProgram {
+  background-image: none !important;
+}
+
+.backgroundContainer,
+.backgroundContainer.withBackdrop,
+.backgroundContainer-transparent,
+.page,
+.libraryPage,
+.mainAnimatedPage,
+.homePage {
+  background-color: var(--my-bg) !important;
+}
+
+.skinHeader,
+.skinHeader-withBackground {
+  background-color: rgba(7, 16, 20, .96) !important;
+}
+
+.mainDrawer,
+.MuiDrawer-paper,
+.dialog,
+.MuiDialog-paper,
+.actionSheet,
+.MuiPopover-paper,
+.MuiMenu-paper {
+  background-color: var(--my-bg-raised) !important;
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .section0,
+.homePage .section1,
+.homePage .section2,
+.homePage .section3,
+.homePage .section4,
+.homePage .section5,
+.homePage .section6,
+.homePage .section7,
+.homePage .section8,
+.homePage .section9 {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.cardBox,
+.visualCardBox,
+.homePage .cardBox,
+.homePage .visualCardBox,
+.MuiCard-root {
+  background: var(--my-card-flat) !important;
+  background-color: var(--my-card-flat) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.homePage .card:nth-child(2n) .cardBox,
+.homePage .card:nth-child(2n) .visualCardBox {
+  background-color: var(--my-card-flat-alt) !important;
+}
+
+.card:hover .cardBox,
+.card:focus .cardBox,
+.card:hover .visualCardBox,
+.card:focus .visualCardBox,
+.homePage .card:hover .cardBox,
+.homePage .card:hover .visualCardBox,
+.MuiCard-root:hover {
+  background: var(--my-card-flat-hover) !important;
+  background-color: var(--my-card-flat-hover) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.cardFooter,
+.visualCardBox-cardFooter,
+.homePage .cardFooter,
+.homePage .visualCardBox-cardFooter {
+  background: rgba(19, 42, 50, .96) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.homePage .card:nth-child(2n) .cardFooter,
+.homePage .card:nth-child(2n) .visualCardBox-cardFooter {
+  background: rgba(24, 52, 61, .96) !important;
+}
+
+.button-submit,
+.emby-tab-button-active,
+.MuiTab-root.Mui-selected,
+.headerTabs .emby-button-active,
+.headerTabs button[aria-selected="true"],
+.libraryViewNav .emby-button-active,
+.libraryViewNav button[aria-selected="true"],
+.navMenuOption-selected,
+.MuiListItemButton-root.Mui-selected,
+.actionSheetMenuItem-selected,
+.MuiMenuItem-root.Mui-selected {
+  background: var(--my-primary) !important;
+  background-color: var(--my-primary) !important;
+  background-image: none !important;
+  color: var(--my-on-primary) !important;
+}
+
+.sectionTitleButton,
+.btnMoreFrom,
+.btnMoreItems,
+.alphaPickerButton,
+.genreButton,
+.MuiChip-root {
+  background: rgba(0, 229, 255, .14) !important;
+  background-image: none !important;
+  border-color: rgba(0, 229, 255, .24) !important;
+  color: var(--my-primary-2) !important;
+}
+
+.cardOverlayContainer {
+  background: rgba(0, 0, 0, .22) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.cardOverlayButton,
+.cardOverlayFab-primary,
+.cardOverlayContainer > .cardOverlayFab-primary {
+  background: rgba(239, 252, 255, .92) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.btnCardOptions,
+.cardMenuButton,
+.cardOptionsButton,
+.itemActionButton[title="More"],
+.itemActionButton[aria-label="More"],
+.paper-icon-button-light[title="More"],
+.paper-icon-button-light[aria-label="More"],
+button[title="More"],
+button[aria-label="More"],
+button[title*="More"],
+button[aria-label*="More"],
+button[title*="menu"],
+button[aria-label*="menu"],
+.card button[is="paper-icon-button-light"]:not(.cardOverlayButton-centered),
+.card .paper-icon-button-light:not(.cardOverlayButton-centered),
+.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) {
+  align-items: center !important;
+  aspect-ratio: 1 / 1 !important;
+  background: rgba(0, 229, 255, .14) !important;
+  background-color: rgba(0, 229, 255, .14) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  color: var(--my-primary-2) !important;
+  display: inline-flex !important;
+  filter: none !important;
+  height: 2.25rem !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  min-height: 2.25rem !important;
+  min-width: 2.25rem !important;
+  padding: 0 !important;
+  text-align: center !important;
+  width: 2.25rem !important;
+}
+
+.btnCardOptions:hover,
+.cardMenuButton:hover,
+.cardOptionsButton:hover,
+.itemActionButton[title="More"]:hover,
+.itemActionButton[aria-label="More"]:hover,
+.paper-icon-button-light[title="More"]:hover,
+.paper-icon-button-light[aria-label="More"]:hover,
+button[title="More"]:hover,
+button[aria-label="More"]:hover,
+button[title*="More"]:hover,
+button[aria-label*="More"]:hover,
+button[title*="menu"]:hover,
+button[aria-label*="menu"]:hover,
+.card button[is="paper-icon-button-light"]:not(.cardOverlayButton-centered):hover,
+.card .paper-icon-button-light:not(.cardOverlayButton-centered):hover,
+.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary):hover {
+  background: rgba(0, 229, 255, .24) !important;
+  background-image: none !important;
+  color: var(--my-text) !important;
+}
+
+.btnCardOptions > *,
+.cardMenuButton > *,
+.cardOptionsButton > *,
+.itemActionButton[title="More"] > *,
+.itemActionButton[aria-label="More"] > *,
+.paper-icon-button-light[title="More"] > *,
+.paper-icon-button-light[aria-label="More"] > *,
+button[title="More"] > *,
+button[aria-label="More"] > *,
+button[title*="More"] > *,
+button[aria-label*="More"] > *,
+button[title*="menu"] > *,
+button[aria-label*="menu"] > *,
+.card .paper-icon-button-light:not(.cardOverlayButton-centered) > *,
+.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) > * {
+  align-items: center !important;
+  display: inline-flex !important;
+  height: 1.25rem !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  min-height: 1.25rem !important;
+  min-width: 1.25rem !important;
+  padding: 0 !important;
+  transform: none !important;
+  width: 1.25rem !important;
+}
+
+.btnCardOptions .material-icons,
+.cardMenuButton .material-icons,
+.cardOptionsButton .material-icons,
+.itemActionButton[title="More"] .material-icons,
+.itemActionButton[aria-label="More"] .material-icons,
+.paper-icon-button-light[title="More"] .material-icons,
+.paper-icon-button-light[aria-label="More"] .material-icons,
+button[title="More"] .material-icons,
+button[aria-label="More"] .material-icons,
+button[title*="More"] .material-icons,
+button[aria-label*="More"] .material-icons,
+button[title*="menu"] .material-icons,
+button[aria-label*="menu"] .material-icons,
+.card .paper-icon-button-light:not(.cardOverlayButton-centered) .material-icons,
+.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) .material-icons {
+  font-size: 1.25rem !important;
+  height: 1.25rem !important;
+  line-height: 1.25rem !important;
+  width: 1.25rem !important;
+}
+
+.actionSheetMenuItem,
+.MuiMenuItem-root {
+  align-items: center !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 1rem !important;
+  min-height: 2.75rem !important;
+  padding: .55rem .8rem !important;
+}
+
+.actionSheetMenuItem:hover,
+.MuiMenuItem-root:hover {
+  background: rgba(0, 229, 255, .12) !important;
+  background-image: none !important;
+}
+
+@media (hover: hover) {
+  .card:hover .cardBox,
+  .card:hover .visualCardBox,
+  .card:hover .cardScalable,
+  .raised:hover,
+  .button-submit:hover,
+  .MuiButton-containedPrimary:hover {
+    transform: none !important;
+  }
+}
+
+/* Codex card check badge padding v2.10 */
+.card .playedIndicator,
+.card .countIndicator,
+.card .mediaSourceIndicator,
+.card .videoIndicator,
+.card .indicator,
+.card .cardIndicator,
+.card .cardIndicators .playedIndicator {
+  align-items: center !important;
+  background: rgba(0, 116, 135, .92) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-sizing: border-box !important;
+  color: var(--my-primary-2) !important;
+  display: inline-flex !important;
+  height: 1.75rem !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-height: 1.75rem !important;
+  min-width: 1.75rem !important;
+  overflow: visible !important;
+  padding: .22rem !important;
+  right: .45rem !important;
+  top: .45rem !important;
+  width: 1.75rem !important;
+}
+
+.card .playedIndicator .material-icons,
+.card .playedIndicator .material-symbols-rounded,
+.card .playedIndicator svg,
+.card .countIndicator .material-icons,
+.card .countIndicator .material-symbols-rounded,
+.card .countIndicator svg,
+.card .indicator .material-icons,
+.card .indicator .material-symbols-rounded,
+.card .indicator svg {
+  align-items: center !important;
+  display: inline-flex !important;
+  font-size: 1.08rem !important;
+  height: 1.08rem !important;
+  justify-content: center !important;
+  line-height: 1.08rem !important;
+  margin: 0 !important;
+  max-height: 1.08rem !important;
+  max-width: 1.08rem !important;
+  padding: 0 !important;
+  transform: none !important;
+  width: 1.08rem !important;
+}
+
+.card .playedIndicator::before,
+.card .playedIndicator::after,
+.card .countIndicator::before,
+.card .countIndicator::after,
+.card .indicator::before,
+.card .indicator::after {
+  line-height: 1 !important;
+}
+
+/* Codex squiggly progress v2.11: animated wavy seek bars and loaders. */
+:root {
+  --codex-wave-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='14' viewBox='0 0 48 14'%3E%3Cpath d='M0 7 Q6 1 12 7 T24 7 T36 7 T48 7' fill='none' stroke='%2300e5ff' stroke-width='4.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --codex-wave-line-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='14' viewBox='0 0 48 14'%3E%3Cpath d='M0 7 Q6 1 12 7 T24 7 T36 7 T48 7' fill='none' stroke='%2300e5ff' stroke-opacity='.22' stroke-width='4.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --codex-wave-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath d='M48 10 C54 10 56 17 61 19 C66 21 73 17 77 21 C81 25 77 32 79 37 C81 42 88 44 88 50 C88 56 80 58 78 63 C76 68 80 75 76 79 C72 83 65 79 60 81 C55 83 53 90 47 90 C41 90 39 83 34 81 C29 79 22 83 18 79 C14 75 18 68 16 63 C14 58 8 56 8 50 C8 44 15 42 17 37 C19 32 15 25 19 21 C23 17 30 21 35 19 C40 17 42 10 48 10 Z' fill='none' stroke='%2300e5ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M48 10 C54 10 56 17 61 19 C66 21 73 17 77 21' fill='none' stroke='%238df6ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+@keyframes codexSquiggleSeek {
+  to {
+    background-position-x: 48px;
+  }
+}
+
+@keyframes codexSquiggleSpin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes codexSquiggleBreathe {
+  0%,
+  100% {
+    opacity: .82;
+    transform: scale(.96) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04) rotate(.5turn);
+  }
+}
+
+.mdl-slider-background-flex,
+.mdl-slider-background-upper,
+.MuiSlider-rail,
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track,
+.MuiLinearProgress-root,
+.linearProgress,
+.progressbar,
+.progressBar,
+.itemProgressBar,
+.taskProgressOuter,
+.playbackProgress {
+  background-color: rgba(0, 229, 255, .12) !important;
+  background-image: var(--codex-wave-line-soft) !important;
+  background-position: 0 center !important;
+  background-repeat: repeat-x !important;
+  background-size: 48px 14px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  min-height: .7rem !important;
+  overflow: hidden !important;
+}
+
+.mdl-slider-background-lower,
+.MuiSlider-track,
+.MuiLinearProgress-bar,
+.linearProgress .bar,
+.progressbar .bar,
+.progressBar .bar,
+.itemProgressBarForeground,
+.playbackProgress > div,
+.taskProgressInner,
+input[type="range"]::-moz-range-progress {
+  animation: codexSquiggleSeek 1.1s linear infinite !important;
+  background-color: transparent !important;
+  background-image: var(--codex-wave-line) !important;
+  background-position: 0 center !important;
+  background-repeat: repeat-x !important;
+  background-size: 48px 14px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  min-height: .7rem !important;
+}
+
+.MuiSlider-track {
+  height: .7rem !important;
+}
+
+.MuiSlider-rail {
+  height: .7rem !important;
+  opacity: 1 !important;
+}
+
+.MuiSlider-thumb,
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+  background: var(--my-primary) !important;
+  border: .18rem solid var(--my-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  height: 1.15rem !important;
+  margin-top: -.24rem !important;
+  width: 1.15rem !important;
+}
+
+input[type="range"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  height: .9rem !important;
+}
+
+.itemProgressBar {
+  height: .7rem !important;
+}
+
+.splashLogo,
+.loadingSpinner,
+.busyIndicator,
+.spinner,
+.progressring,
+.paper-spinner,
+.mdl-spinner,
+.MuiCircularProgress-root {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  color: var(--my-primary) !important;
+  filter: none !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.splashLogo {
+  animation: none !important;
+  height: 5rem !important;
+  width: 5rem !important;
+}
+
+.splashLogo::before,
+.loadingSpinner::before,
+.busyIndicator::before,
+.spinner::before,
+.paper-spinner::before,
+.mdl-spinner::before,
+.MuiCircularProgress-root::before {
+  animation: codexSquiggleSpin 1.15s linear infinite !important;
+  background: transparent var(--codex-wave-ring) center / contain no-repeat !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  content: "" !important;
+  display: block !important;
+  height: 3rem !important;
+  inset: 50% auto auto 50% !important;
+  margin: -1.5rem 0 0 -1.5rem !important;
+  position: absolute !important;
+  transform-origin: center !important;
+  width: 3rem !important;
+}
+
+.splashLogo::before {
+  height: 5rem !important;
+  margin: -2.5rem 0 0 -2.5rem !important;
+  width: 5rem !important;
+}
+
+.splashLogo::after {
+  animation: codexSquiggleBreathe 1.8s ease-in-out infinite !important;
+  background: rgba(0, 229, 255, .12) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  content: "" !important;
+  inset: -.45rem !important;
+  position: absolute !important;
+  z-index: -1 !important;
+}
+
+.MuiCircularProgress-root svg,
+.progressring svg,
+.paper-spinner svg,
+.mdl-spinner svg,
+.MuiCircularProgress-circle,
+.progressring circle,
+.paper-spinner circle,
+.mdl-spinner circle,
+.mdl-spinner__circle {
+  opacity: 0 !important;
+  stroke: transparent !important;
+}
+
+/* Codex Material 3 motion layer v2.12 */
+:root {
+  --m3-motion-easing-standard: cubic-bezier(.2, 0, 0, 1);
+  --m3-motion-easing-standard-accelerate: cubic-bezier(.3, 0, 1, 1);
+  --m3-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --m3-motion-easing-emphasized: cubic-bezier(.2, 0, 0, 1);
+  --m3-motion-easing-emphasized-accelerate: cubic-bezier(.3, 0, .8, .15);
+  --m3-motion-easing-emphasized-decelerate: cubic-bezier(.05, .7, .1, 1);
+  --m3-duration-short1: 50ms;
+  --m3-duration-short2: 100ms;
+  --m3-duration-short3: 150ms;
+  --m3-duration-short4: 200ms;
+  --m3-duration-medium1: 250ms;
+  --m3-duration-medium2: 300ms;
+  --m3-duration-medium3: 350ms;
+  --m3-duration-medium4: 400ms;
+  --m3-duration-long1: 450ms;
+  --m3-duration-long2: 500ms;
+}
+
+@keyframes codexM3FadeThroughIn {
+  0% {
+    opacity: 0;
+    transform: translateY(.65rem) scale(.985);
+  }
+
+  45% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes codexM3SharedAxisIn {
+  0% {
+    opacity: 0;
+    transform: translateX(.9rem) scale(.99);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes codexM3DialogIn {
+  0% {
+    opacity: 0;
+    transform: translateY(1.15rem) scale(.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes codexM3MenuIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-.35rem) scale(.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes codexM3ToastIn {
+  0% {
+    opacity: 0;
+    transform: translateY(.75rem) scale(.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mainAnimatedPage:not(.hide),
+.page:not(.hide),
+.libraryPage:not(.hide) {
+  animation: codexM3FadeThroughIn var(--m3-duration-medium3) var(--m3-motion-easing-emphasized-decelerate) both !important;
+  transform-origin: center top !important;
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection {
+  animation: codexM3FadeThroughIn var(--m3-duration-medium2) var(--m3-motion-easing-emphasized-decelerate) both !important;
+}
+
+.card,
+.listItem,
+.MuiCard-root,
+.paperList,
+.dashboardSectionContent {
+  transition:
+    background-color var(--m3-duration-short4) var(--m3-motion-easing-standard),
+    color var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    opacity var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    transform var(--m3-duration-short4) var(--m3-motion-easing-standard) !important;
+}
+
+.card .cardBox,
+.card .visualCardBox,
+.card .cardScalable,
+.cardImageContainer,
+.cardOverlayButton,
+.cardOverlayFab-primary {
+  transition:
+    background-color var(--m3-duration-short4) var(--m3-motion-easing-standard),
+    opacity var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    transform var(--m3-duration-short4) var(--m3-motion-easing-standard) !important;
+}
+
+.card:active .cardScalable,
+.card:active .cardBox,
+.card:active .visualCardBox,
+.listItem:active,
+.MuiCard-root:active {
+  transform: scale(.985) !important;
+}
+
+.emby-button,
+.button-submit,
+.paper-icon-button-light,
+.headerButton,
+.detailButton,
+.MuiButton-root,
+.MuiIconButton-root,
+.emby-tab-button,
+.MuiTab-root,
+.navMenuOption,
+.MuiListItemButton-root,
+.actionSheetMenuItem,
+.MuiMenuItem-root,
+.btnCardOptions,
+.cardMenuButton,
+.cardOptionsButton {
+  transition:
+    background-color var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    color var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    opacity var(--m3-duration-short2) var(--m3-motion-easing-standard),
+    transform var(--m3-duration-short3) var(--m3-motion-easing-standard) !important;
+}
+
+.emby-button:active,
+.paper-icon-button-light:active,
+.headerButton:active,
+.detailButton:active,
+.MuiButton-root:active,
+.MuiIconButton-root:active,
+.navMenuOption:active,
+.MuiListItemButton-root:active,
+.actionSheetMenuItem:active,
+.MuiMenuItem-root:active {
+  transform: scale(.94) !important;
+}
+
+.dialog,
+.MuiDialog-paper,
+.actionSheet {
+  animation: codexM3DialogIn var(--m3-duration-medium3) var(--m3-motion-easing-emphasized-decelerate) both !important;
+  transform-origin: center !important;
+}
+
+.MuiPopover-paper,
+.MuiMenu-paper,
+.actionSheetMenu {
+  animation: codexM3MenuIn var(--m3-duration-short4) var(--m3-motion-easing-emphasized-decelerate) both !important;
+  transform-origin: top right !important;
+}
+
+.toast,
+.snackbar,
+.MuiSnackbarContent-root {
+  animation: codexM3ToastIn var(--m3-duration-medium2) var(--m3-motion-easing-emphasized-decelerate) both !important;
+}
+
+.mainDrawer,
+.MuiDrawer-paper {
+  transition:
+    transform var(--m3-duration-medium4) var(--m3-motion-easing-emphasized-decelerate),
+    background-color var(--m3-duration-short4) var(--m3-motion-easing-standard) !important;
+}
+
+.sectionTitle,
+.cardText,
+.cardText-first,
+.itemName {
+  transition:
+    color var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    opacity var(--m3-duration-short3) var(--m3-motion-easing-standard) !important;
+}
+
+input,
+textarea,
+select,
+.MuiInputBase-root,
+.MuiOutlinedInput-root,
+.selectContainer,
+.inputContainer {
+  transition:
+    background-color var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    border-color var(--m3-duration-short3) var(--m3-motion-easing-standard),
+    color var(--m3-duration-short3) var(--m3-motion-easing-standard) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+
+  .mdl-slider-background-lower,
+  .MuiSlider-track,
+  .MuiLinearProgress-bar,
+  .linearProgress .bar,
+  .progressbar .bar,
+  .progressBar .bar,
+  .itemProgressBarForeground,
+  .playbackProgress > div,
+  .taskProgressInner {
+    animation: none !important;
+  }
+}
+
+/* Codex home row and carousel arrow cleanup v2.13 */
+:root {
+  --codex-home-row-arrow-gutter: clamp(6.25rem, 7.5vw, 8.75rem);
+  --codex-home-row-arrow-size: 2.75rem;
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .section0,
+.homePage .section1,
+.homePage .section2,
+.homePage .section3,
+.homePage .section4,
+.homePage .section5,
+.homePage .section6,
+.homePage .section7,
+.homePage .section8,
+.homePage .section9,
+.verticalSection:has(.itemsContainer),
+.homePageSection:has(.itemsContainer),
+.verticalSection:has(.emby-scroller),
+.homePageSection:has(.emby-scroller) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  isolation: isolate !important;
+  position: relative !important;
+}
+
+.homePage .sectionTitleContainer,
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .contentScrollSlider,
+.homePage .padded-left,
+.homePage .padded-right,
+.verticalSection:has(.itemsContainer) .sectionTitleContainer,
+.verticalSection:has(.itemsContainer) .itemsContainer,
+.verticalSection:has(.itemsContainer) .emby-scroller,
+.verticalSection:has(.itemsContainer) .scrollSlider,
+.verticalSection:has(.itemsContainer) .contentScrollSlider,
+.homePageSection:has(.itemsContainer) .sectionTitleContainer,
+.homePageSection:has(.itemsContainer) .itemsContainer,
+.homePageSection:has(.itemsContainer) .emby-scroller,
+.homePageSection:has(.itemsContainer) .scrollSlider,
+.homePageSection:has(.itemsContainer) .contentScrollSlider {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .contentScrollSlider,
+.verticalSection:has(.emby-scrollbuttons) .itemsContainer,
+.verticalSection:has(.emby-scrollbuttons) .emby-scroller,
+.verticalSection:has(.emby-scrollbuttons) .scrollSlider,
+.verticalSection:has(.emby-scrollbuttons) .contentScrollSlider,
+.homePageSection:has(.emby-scrollbuttons) .itemsContainer,
+.homePageSection:has(.emby-scrollbuttons) .emby-scroller,
+.homePageSection:has(.emby-scrollbuttons) .scrollSlider,
+.homePageSection:has(.emby-scrollbuttons) .contentScrollSlider {
+  box-sizing: border-box !important;
+  overflow-y: visible !important;
+  padding-right: var(--codex-home-row-arrow-gutter) !important;
+  scroll-padding-right: var(--codex-home-row-arrow-gutter) !important;
+}
+
+.homePage .emby-scrollbuttons,
+.verticalSection:has(.emby-scrollbuttons) .emby-scrollbuttons,
+.homePageSection:has(.emby-scrollbuttons) .emby-scrollbuttons {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  gap: .55rem !important;
+  inset-inline-end: max(1rem, env(safe-area-inset-right)) !important;
+  pointer-events: none !important;
+  right: max(1rem, env(safe-area-inset-right)) !important;
+  z-index: 12 !important;
+}
+
+.homePage .btnNextPage,
+.homePage .btnPreviousPage,
+.homePage .emby-scrollbuttons-button,
+.verticalSection:has(.emby-scrollbuttons) .btnNextPage,
+.verticalSection:has(.emby-scrollbuttons) .btnPreviousPage,
+.verticalSection:has(.emby-scrollbuttons) .emby-scrollbuttons-button,
+.homePageSection:has(.emby-scrollbuttons) .btnNextPage,
+.homePageSection:has(.emby-scrollbuttons) .btnPreviousPage,
+.homePageSection:has(.emby-scrollbuttons) .emby-scrollbuttons-button {
+  align-items: center !important;
+  background: rgba(0, 229, 255, .12) !important;
+  background-color: rgba(0, 229, 255, .12) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  color: var(--my-primary-2) !important;
+  display: inline-flex !important;
+  filter: none !important;
+  height: var(--codex-home-row-arrow-size) !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  min-height: var(--codex-home-row-arrow-size) !important;
+  min-width: var(--codex-home-row-arrow-size) !important;
+  padding: 0 !important;
+  pointer-events: auto !important;
+  width: var(--codex-home-row-arrow-size) !important;
+}
+
+.homePage .btnNextPage:hover,
+.homePage .btnPreviousPage:hover,
+.homePage .emby-scrollbuttons-button:hover,
+.verticalSection:has(.emby-scrollbuttons) .btnNextPage:hover,
+.verticalSection:has(.emby-scrollbuttons) .btnPreviousPage:hover,
+.verticalSection:has(.emby-scrollbuttons) .emby-scrollbuttons-button:hover {
+  background: rgba(0, 229, 255, .2) !important;
+  background-color: rgba(0, 229, 255, .2) !important;
+  background-image: none !important;
+}
+
+.homePage .btnNextPage svg,
+.homePage .btnPreviousPage svg,
+.homePage .emby-scrollbuttons-button svg,
+.verticalSection:has(.emby-scrollbuttons) .btnNextPage svg,
+.verticalSection:has(.emby-scrollbuttons) .btnPreviousPage svg,
+.verticalSection:has(.emby-scrollbuttons) .emby-scrollbuttons-button svg,
+.homePage .btnNextPage .material-icons,
+.homePage .btnPreviousPage .material-icons,
+.homePage .emby-scrollbuttons-button .material-icons,
+.verticalSection:has(.emby-scrollbuttons) .btnNextPage .material-icons,
+.verticalSection:has(.emby-scrollbuttons) .btnPreviousPage .material-icons,
+.verticalSection:has(.emby-scrollbuttons) .emby-scrollbuttons-button .material-icons {
+  display: block !important;
+  height: 1.25rem !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  width: 1.25rem !important;
+}
+
+@media (max-width: 48em) {
+  :root {
+    --codex-home-row-arrow-gutter: 4.25rem;
+    --codex-home-row-arrow-size: 2.4rem;
+  }
+}
+
+/* Codex header logo de-dupe v3.3 */
+.skinHeader .pageTitleWithDefaultLogo,
+.skinHeader .pageTitleWithLogo,
+.skinHeader .pageTitle.pageTitleWithDefaultLogo,
+.skinHeader .pageTitle.pageTitleWithLogo,
+.skinHeader h3.pageTitleWithDefaultLogo,
+.skinHeader h3.pageTitleWithLogo {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  background-position: 0 0 !important;
+  background-repeat: no-repeat !important;
+  background-size: 0 0 !important;
+  gap: .42rem !important;
+  min-width: 0 !important;
+  padding-left: 0 !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo::before,
+.skinHeader .pageTitleWithLogo::before,
+.skinHeader .pageTitle.pageTitleWithDefaultLogo::before,
+.skinHeader .pageTitle.pageTitleWithLogo::before,
+.skinHeader h3.pageTitleWithDefaultLogo::before,
+.skinHeader h3.pageTitleWithLogo::before {
+  aspect-ratio: 1 / 1 !important;
+  background: var(--codex-logo-accent-fill) !important;
+  background-color: var(--codex-logo-accent-fill) !important;
+  background-image: none !important;
+  content: "" !important;
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  height: 2.05rem !important;
+  margin: 0 .42rem 0 0 !important;
+  min-height: 2.05rem !important;
+  min-width: 2.05rem !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  width: 2.05rem !important;
+  -webkit-mask: var(--codex-jellyfin-logo-mark) center / contain no-repeat !important;
+  mask: var(--codex-jellyfin-logo-mark) center / contain no-repeat !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo::after,
+.skinHeader .pageTitleWithLogo::after,
+.skinHeader .pageTitle.pageTitleWithDefaultLogo::after,
+.skinHeader .pageTitle.pageTitleWithLogo::after,
+.skinHeader h3.pageTitleWithDefaultLogo::after,
+.skinHeader h3.pageTitleWithLogo::after {
+  background: transparent !important;
+  background-image: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width: 50em) {
+  .skinHeader .pageTitleWithDefaultLogo::before,
+  .skinHeader .pageTitleWithLogo::before,
+  .skinHeader .pageTitle.pageTitleWithDefaultLogo::before,
+  .skinHeader .pageTitle.pageTitleWithLogo::before,
+  .skinHeader h3.pageTitleWithDefaultLogo::before,
+  .skinHeader h3.pageTitleWithLogo::before {
+    height: 1.9rem !important;
+    min-height: 1.9rem !important;
+    min-width: 1.9rem !important;
+    width: 1.9rem !important;
+  }
+}
+
+/* Codex clean home lanes and centered carousel arrows v2.14 */
+:root {
+  --codex-home-row-arrow-gutter: clamp(6.75rem, 8vw, 9.25rem);
+  --codex-home-row-arrow-size: 2.55rem;
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .homeSection,
+.homePage .section0,
+.homePage .section1,
+.homePage .section2,
+.homePage .section3,
+.homePage .section4,
+.homePage .section5,
+.homePage .section6,
+.homePage .section7,
+.homePage .section8,
+.homePage .section9,
+.homePage [class*="Section"],
+.homePage [class*="section"],
+.homePage .sectionTitleContainer,
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .contentScrollSlider,
+.homePage .smoothScrollX,
+.homePage .padded-left,
+.homePage .padded-right,
+.homePage .collectionItems {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: 0 !important;
+}
+
+.homePage .verticalSection::before,
+.homePage .verticalSection::after,
+.homePage .homePageSection::before,
+.homePage .homePageSection::after,
+.homePage .latestItemsSection::before,
+.homePage .latestItemsSection::after,
+.homePage .resumeSection::before,
+.homePage .resumeSection::after,
+.homePage .nextUpSection::before,
+.homePage .nextUpSection::after,
+.homePage .homeSection::before,
+.homePage .homeSection::after,
+.homePage .sectionTitleContainer::before,
+.homePage .sectionTitleContainer::after,
+.homePage .itemsContainer::before,
+.homePage .itemsContainer::after,
+.homePage .emby-scroller::before,
+.homePage .emby-scroller::after,
+.homePage .scrollSlider::before,
+.homePage .scrollSlider::after,
+.homePage .contentScrollSlider::before,
+.homePage .contentScrollSlider::after,
+.homePage .smoothScrollX::before,
+.homePage .smoothScrollX::after,
+.homePage [class*="Section"]::before,
+.homePage [class*="Section"]::after,
+.homePage [class*="section"]::before,
+.homePage [class*="section"]::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  display: none !important;
+  filter: none !important;
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .homeSection {
+  margin-bottom: 1.35rem !important;
+  overflow: visible !important;
+  padding-bottom: .35rem !important;
+  padding-top: .15rem !important;
+  position: relative !important;
+}
+
+.homePage .sectionTitle,
+.homePage .sectionTitleContainer {
+  min-height: 2.9rem !important;
+  padding-right: calc((var(--codex-home-row-arrow-size) * 2) + 1.25rem) !important;
+}
+
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .contentScrollSlider,
+.homePage .smoothScrollX {
+  box-sizing: border-box !important;
+  margin-top: 0 !important;
+  overflow-y: visible !important;
+  padding-right: var(--codex-home-row-arrow-gutter) !important;
+  scroll-padding-right: var(--codex-home-row-arrow-gutter) !important;
+}
+
+.homePage .emby-scrollbuttons,
+.homePage .scrollButtons,
+.homePage .scrollbuttons {
+  align-items: center !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  filter: none !important;
+  gap: .55rem !important;
+  height: var(--codex-home-row-arrow-size) !important;
+  inset-block-start: .25rem !important;
+  inset-inline-end: max(1.25rem, env(safe-area-inset-right)) !important;
+  justify-content: flex-end !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  right: max(1.25rem, env(safe-area-inset-right)) !important;
+  top: .25rem !important;
+  transform: none !important;
+  z-index: 14 !important;
+}
+
+.homePage .btnNextPage,
+.homePage .btnPreviousPage,
+.homePage .emby-scrollbuttons-button {
+  align-items: center !important;
+  appearance: none !important;
+  background: rgba(0, 229, 255, .1) !important;
+  background-color: rgba(0, 229, 255, .1) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  color: var(--my-primary-2) !important;
+  display: inline-flex !important;
+  filter: none !important;
+  flex: 0 0 var(--codex-home-row-arrow-size) !important;
+  height: var(--codex-home-row-arrow-size) !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  min-height: var(--codex-home-row-arrow-size) !important;
+  min-width: var(--codex-home-row-arrow-size) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  text-align: center !important;
+  width: var(--codex-home-row-arrow-size) !important;
+}
+
+.homePage .btnNextPage:hover,
+.homePage .btnPreviousPage:hover,
+.homePage .emby-scrollbuttons-button:hover {
+  background: rgba(0, 229, 255, .18) !important;
+  background-color: rgba(0, 229, 255, .18) !important;
+  background-image: none !important;
+}
+
+.homePage .btnNextPage > *,
+.homePage .btnPreviousPage > *,
+.homePage .emby-scrollbuttons-button > *,
+.homePage .btnNextPage svg,
+.homePage .btnPreviousPage svg,
+.homePage .emby-scrollbuttons-button svg,
+.homePage .btnNextPage .material-icons,
+.homePage .btnPreviousPage .material-icons,
+.homePage .emby-scrollbuttons-button .material-icons,
+.homePage .btnNextPage .material-icons-round,
+.homePage .btnPreviousPage .material-icons-round,
+.homePage .emby-scrollbuttons-button .material-icons-round,
+.homePage .btnNextPage [class*="material-symbol"],
+.homePage .btnPreviousPage [class*="material-symbol"],
+.homePage .emby-scrollbuttons-button [class*="material-symbol"] {
+  align-items: center !important;
+  display: inline-flex !important;
+  font-size: 1.35rem !important;
+  height: 100% !important;
+  justify-content: center !important;
+  line-height: var(--codex-home-row-arrow-size) !important;
+  margin: 0 !important;
+  max-height: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  position: static !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  width: 100% !important;
+}
+
+.homePage .btnNextPage svg,
+.homePage .btnPreviousPage svg,
+.homePage .emby-scrollbuttons-button svg {
+  height: 1.25rem !important;
+  width: 1.25rem !important;
+}
+
+@media (max-width: 48em) {
+  :root {
+    --codex-home-row-arrow-gutter: 4.75rem;
+    --codex-home-row-arrow-size: 2.35rem;
+  }
+
+  .homePage .emby-scrollbuttons,
+  .homePage .scrollButtons,
+  .homePage .scrollbuttons {
+    inset-inline-end: .85rem !important;
+    right: .85rem !important;
+    top: .25rem !important;
+  }
+}
+
+/* Codex official Jellyfin header brand repair v3.4 */
+:root {
+  --codex-jellyfin-official-brand: url("/web/banner-dark.31011bc0c5e6acb07879.png");
+  --codex-jellyfin-official-mark: url("/web/icon-transparent.baba78f2a106d9baee83.png");
+  --codex-header-brand-height: 2.15rem;
+  --codex-header-brand-width: 9.15rem;
+}
+
+.skinHeader img[src*="icon-transparent"],
+.skinHeader img[src*="touchicon"],
+.skinHeader img[src*="banner-dark"],
+.skinHeader img[src*="banner-light"],
+.skinHeader .imgLogoIcon,
+.skinHeader .headerLogoIcon,
+.skinHeader .logoIcon,
+.skinHeader .jellyfinLogoIcon,
+.skinHeader .imgLogo,
+.skinHeader .headerLogo,
+.skinHeader .jellyfinLogo {
+  aspect-ratio: 1302 / 378 !important;
+  background: var(--my-primary-2) !important;
+  background-color: var(--my-primary-2) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: var(--codex-jellyfin-logo-blank) !important;
+  display: inline-block !important;
+  filter: none !important;
+  flex: 0 0 var(--codex-header-brand-width) !important;
+  height: var(--codex-header-brand-height) !important;
+  margin: 0 0 0 .35rem !important;
+  max-height: var(--codex-header-brand-height) !important;
+  max-width: var(--codex-header-brand-width) !important;
+  min-height: var(--codex-header-brand-height) !important;
+  min-width: var(--codex-header-brand-width) !important;
+  object-fit: contain !important;
+  object-position: -9999px -9999px !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  transform: none !important;
+  width: var(--codex-header-brand-width) !important;
+  -webkit-mask: var(--codex-jellyfin-official-brand) left center / contain no-repeat !important;
+  mask: var(--codex-jellyfin-official-brand) left center / contain no-repeat !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo,
+.skinHeader .pageTitleWithLogo,
+.skinHeader .pageTitle.pageTitleWithDefaultLogo,
+.skinHeader .pageTitle.pageTitleWithLogo,
+.skinHeader h3.pageTitleWithDefaultLogo,
+.skinHeader h3.pageTitleWithLogo,
+.skinHeader .headerTitle,
+.skinHeader .appName {
+  align-items: center !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  display: inline-flex !important;
+  filter: none !important;
+  flex: 0 0 var(--codex-header-brand-width) !important;
+  font-size: 0 !important;
+  gap: 0 !important;
+  height: var(--codex-header-brand-height) !important;
+  line-height: 1 !important;
+  margin: 0 0 0 .35rem !important;
+  max-height: var(--codex-header-brand-height) !important;
+  max-width: var(--codex-header-brand-width) !important;
+  min-height: var(--codex-header-brand-height) !important;
+  min-width: var(--codex-header-brand-width) !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: relative !important;
+  text-shadow: none !important;
+  white-space: nowrap !important;
+  width: var(--codex-header-brand-width) !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo::before,
+.skinHeader .pageTitleWithLogo::before,
+.skinHeader .pageTitle.pageTitleWithDefaultLogo::before,
+.skinHeader .pageTitle.pageTitleWithLogo::before,
+.skinHeader h3.pageTitleWithDefaultLogo::before,
+.skinHeader h3.pageTitleWithLogo::before,
+.skinHeader .headerTitle::before,
+.skinHeader .appName::before {
+  aspect-ratio: 1302 / 378 !important;
+  background: var(--my-primary-2) !important;
+  background-color: var(--my-primary-2) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: "" !important;
+  display: inline-block !important;
+  filter: none !important;
+  flex: 0 0 var(--codex-header-brand-width) !important;
+  height: var(--codex-header-brand-height) !important;
+  margin: 0 !important;
+  max-height: var(--codex-header-brand-height) !important;
+  max-width: var(--codex-header-brand-width) !important;
+  min-height: var(--codex-header-brand-height) !important;
+  min-width: var(--codex-header-brand-width) !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  transform: none !important;
+  width: var(--codex-header-brand-width) !important;
+  -webkit-mask: var(--codex-jellyfin-official-brand) left center / contain no-repeat !important;
+  mask: var(--codex-jellyfin-official-brand) left center / contain no-repeat !important;
+}
+
+.skinHeader .pageTitleWithDefaultLogo::after,
+.skinHeader .pageTitleWithLogo::after,
+.skinHeader .pageTitle.pageTitleWithDefaultLogo::after,
+.skinHeader .pageTitle.pageTitleWithLogo::after,
+.skinHeader h3.pageTitleWithDefaultLogo::after,
+.skinHeader h3.pageTitleWithLogo::after,
+.skinHeader .headerTitle::after,
+.skinHeader .appName::after {
+  background: transparent !important;
+  background-image: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width: 38em) {
+  :root {
+    --codex-header-brand-height: 1.95rem;
+    --codex-header-brand-width: 8.25rem;
+  }
+}
+
+/* Codex episode counter inset and padding repair v2.15 */
+.card .countIndicator,
+.card .cardIndicator.countIndicator,
+.card .cardIndicators .countIndicator,
+.homePage .card .countIndicator,
+.itemsContainer .card .countIndicator {
+  align-items: center !important;
+  aspect-ratio: auto !important;
+  border-radius: 999px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  font-size: .78rem !important;
+  font-weight: 850 !important;
+  height: 1.55rem !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  min-height: 1.55rem !important;
+  min-width: 1.85rem !important;
+  overflow: visible !important;
+  padding: .18rem .48rem .2rem !important;
+  right: .62rem !important;
+  text-align: center !important;
+  top: .62rem !important;
+  transform: none !important;
+  width: auto !important;
+  z-index: 6 !important;
+}
+
+.card .playedIndicator:not(.countIndicator),
+.card .cardIndicator.playedIndicator:not(.countIndicator),
+.card .cardIndicators .playedIndicator:not(.countIndicator) {
+  right: .62rem !important;
+  top: .62rem !important;
+}
+
+.card .countIndicator *,
+.card .cardIndicator.countIndicator *,
+.card .cardIndicators .countIndicator * {
+  align-items: center !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  text-align: center !important;
+  transform: none !important;
+}
+
+.card .countIndicator::before,
+.card .countIndicator::after,
+.card .cardIndicator.countIndicator::before,
+.card .cardIndicator.countIndicator::after,
+.card .cardIndicators .countIndicator::before,
+.card .cardIndicators .countIndicator::after {
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.card .cardScalable,
+.card .cardImageContainer,
+.card .coveredImage,
+.card .cardImage {
+  overflow: hidden !important;
+}
+
+@media (max-width: 48em) {
+  .card .countIndicator,
+  .card .cardIndicator.countIndicator,
+  .card .cardIndicators .countIndicator,
+  .homePage .card .countIndicator,
+  .itemsContainer .card .countIndicator {
+    font-size: .72rem !important;
+    height: 1.45rem !important;
+    min-height: 1.45rem !important;
+    min-width: 1.75rem !important;
+    padding: .15rem .42rem .18rem !important;
+    right: .55rem !important;
+    top: .55rem !important;
+  }
+}
+
+/* Codex rounded card text inset repair v2.16 */
+.card .cardFooter,
+.card .visualCardBox-cardFooter,
+.homePage .card .cardFooter,
+.homePage .card .visualCardBox-cardFooter,
+.itemsContainer .card .cardFooter,
+.itemsContainer .card .visualCardBox-cardFooter {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding-left: .9rem !important;
+  padding-right: .9rem !important;
+  width: 100% !important;
+}
+
+.card .cardText,
+.card .cardText-first,
+.card .cardText-secondary,
+.card .itemName,
+.homePage .card .cardText,
+.homePage .card .cardText-first,
+.homePage .card .cardText-secondary,
+.homePage .card .itemName,
+.itemsContainer .card .cardText,
+.itemsContainer .card .cardText-first,
+.itemsContainer .card .cardText-secondary,
+.itemsContainer .card .itemName {
+  box-sizing: border-box !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: calc(100% - .5rem) !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  overflow-wrap: normal !important;
+  padding-left: .38rem !important;
+  padding-right: .38rem !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+}
+
+.card .cardFooter .cardText,
+.card .cardFooter .cardText-first,
+.card .cardFooter .cardText-secondary,
+.card .visualCardBox-cardFooter .cardText,
+.card .visualCardBox-cardFooter .cardText-first,
+.card .visualCardBox-cardFooter .cardText-secondary {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.card .cardText-secondary,
+.homePage .card .cardText-secondary,
+.itemsContainer .card .cardText-secondary {
+  font-size: .82rem !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 48em) {
+  .card .cardFooter,
+  .card .visualCardBox-cardFooter,
+  .homePage .card .cardFooter,
+  .homePage .card .visualCardBox-cardFooter,
+  .itemsContainer .card .cardFooter,
+  .itemsContainer .card .visualCardBox-cardFooter {
+    padding-left: .72rem !important;
+    padding-right: .72rem !important;
+  }
+
+  .card .cardText,
+  .card .cardText-first,
+  .card .cardText-secondary,
+  .card .itemName,
+  .homePage .card .cardText,
+  .homePage .card .cardText-first,
+  .homePage .card .cardText-secondary,
+  .homePage .card .itemName,
+  .itemsContainer .card .cardText,
+  .itemsContainer .card .cardText-first,
+  .itemsContainer .card .cardText-secondary,
+  .itemsContainer .card .itemName {
+    max-width: calc(100% - .35rem) !important;
+    padding-left: .28rem !important;
+    padding-right: .28rem !important;
+  }
+}
+
+/* Codex centered poster action rail v2.17 */
+:root {
+  --codex-card-action-size: 2.15rem;
+  --codex-card-action-gap: .38rem;
+  --codex-card-action-offset: calc(var(--codex-card-action-size) + var(--codex-card-action-gap));
+}
+
+.card .cardOverlayContainer,
+.card .cardScalable,
+.card .cardImageContainer {
+  position: relative !important;
+}
+
+.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
+.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
+.card .cardOverlayContainer .btnCardOptions,
+.card .cardOverlayContainer .cardMenuButton,
+.card .cardOverlayContainer .cardOptionsButton,
+.card .cardOverlayContainer button[title*="More" i],
+.card .cardOverlayContainer button[aria-label*="More" i],
+.card .cardOverlayContainer button[title*="Menu" i],
+.card .cardOverlayContainer button[aria-label*="Menu" i],
+.card .cardOverlayContainer button[title*="Favorite" i],
+.card .cardOverlayContainer button[aria-label*="Favorite" i],
+.card .cardOverlayContainer button[title*="Favourite" i],
+.card .cardOverlayContainer button[aria-label*="Favourite" i],
+.card .cardOverlayContainer button[title*="Played" i],
+.card .cardOverlayContainer button[aria-label*="Played" i],
+.card .cardOverlayContainer button[title*="Watched" i],
+.card .cardOverlayContainer button[aria-label*="Watched" i] {
+  align-items: center !important;
+  background: rgba(0, 229, 255, .16) !important;
+  background-color: rgba(0, 229, 255, .16) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  bottom: .62rem !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  color: var(--my-primary-2) !important;
+  display: inline-flex !important;
+  filter: none !important;
+  height: var(--codex-card-action-size) !important;
+  justify-content: center !important;
+  left: 50% !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  min-height: var(--codex-card-action-size) !important;
+  min-width: var(--codex-card-action-size) !important;
+  padding: 0 !important;
+  position: absolute !important;
+  right: auto !important;
+  text-align: center !important;
+  top: auto !important;
+  width: var(--codex-card-action-size) !important;
+  z-index: 8 !important;
+}
+
+.card .cardOverlayContainer button[title*="Played" i],
+.card .cardOverlayContainer button[aria-label*="Played" i],
+.card .cardOverlayContainer button[title*="Watched" i],
+.card .cardOverlayContainer button[aria-label*="Watched" i] {
+  transform: translateX(calc(-50% - var(--codex-card-action-offset))) !important;
+}
+
+.card .cardOverlayContainer button[title*="Favorite" i],
+.card .cardOverlayContainer button[aria-label*="Favorite" i],
+.card .cardOverlayContainer button[title*="Favourite" i],
+.card .cardOverlayContainer button[aria-label*="Favourite" i] {
+  transform: translateX(-50%) !important;
+}
+
+.card .cardOverlayContainer .btnCardOptions,
+.card .cardOverlayContainer .cardMenuButton,
+.card .cardOverlayContainer .cardOptionsButton,
+.card .cardOverlayContainer button[title*="More" i],
+.card .cardOverlayContainer button[aria-label*="More" i],
+.card .cardOverlayContainer button[title*="Menu" i],
+.card .cardOverlayContainer button[aria-label*="Menu" i] {
+  transform: translateX(calc(-50% + var(--codex-card-action-offset))) !important;
+}
+
+.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary):hover,
+.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary):hover,
+.card .cardOverlayContainer .btnCardOptions:hover,
+.card .cardOverlayContainer .cardMenuButton:hover,
+.card .cardOverlayContainer .cardOptionsButton:hover {
+  background: rgba(0, 229, 255, .24) !important;
+  background-color: rgba(0, 229, 255, .24) !important;
+  background-image: none !important;
+}
+
+.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) > *,
+.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) > *,
+.card .cardOverlayContainer .btnCardOptions > *,
+.card .cardOverlayContainer .cardMenuButton > *,
+.card .cardOverlayContainer .cardOptionsButton > *,
+.card .cardOverlayContainer button[title*="More" i] > *,
+.card .cardOverlayContainer button[aria-label*="More" i] > *,
+.card .cardOverlayContainer button[title*="Menu" i] > *,
+.card .cardOverlayContainer button[aria-label*="Menu" i] > *,
+.card .cardOverlayContainer button[title*="Favorite" i] > *,
+.card .cardOverlayContainer button[aria-label*="Favorite" i] > *,
+.card .cardOverlayContainer button[title*="Favourite" i] > *,
+.card .cardOverlayContainer button[aria-label*="Favourite" i] > *,
+.card .cardOverlayContainer button[title*="Played" i] > *,
+.card .cardOverlayContainer button[aria-label*="Played" i] > *,
+.card .cardOverlayContainer button[title*="Watched" i] > *,
+.card .cardOverlayContainer button[aria-label*="Watched" i] > * {
+  align-items: center !important;
+  display: inline-flex !important;
+  height: 100% !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  max-height: 100% !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  text-align: center !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) .material-icons,
+.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) .material-icons,
+.card .cardOverlayContainer .btnCardOptions .material-icons,
+.card .cardOverlayContainer .cardMenuButton .material-icons,
+.card .cardOverlayContainer .cardOptionsButton .material-icons,
+.card .cardOverlayContainer button[title*="More" i] .material-icons,
+.card .cardOverlayContainer button[aria-label*="More" i] .material-icons,
+.card .cardOverlayContainer button[title*="Menu" i] .material-icons,
+.card .cardOverlayContainer button[aria-label*="Menu" i] .material-icons,
+.card .cardOverlayContainer button[title*="Favorite" i] .material-icons,
+.card .cardOverlayContainer button[aria-label*="Favorite" i] .material-icons,
+.card .cardOverlayContainer button[title*="Favourite" i] .material-icons,
+.card .cardOverlayContainer button[aria-label*="Favourite" i] .material-icons,
+.card .cardOverlayContainer button[title*="Played" i] .material-icons,
+.card .cardOverlayContainer button[aria-label*="Played" i] .material-icons,
+.card .cardOverlayContainer button[title*="Watched" i] .material-icons,
+.card .cardOverlayContainer button[aria-label*="Watched" i] .material-icons {
+  font-size: 1.22rem !important;
+  height: 1.22rem !important;
+  line-height: 1.22rem !important;
+  width: 1.22rem !important;
+}
+
+@media (max-width: 48em) {
+  :root {
+    --codex-card-action-size: 2rem;
+    --codex-card-action-gap: .3rem;
+  }
+
+  .card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
+  .card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
+  .card .cardOverlayContainer .btnCardOptions,
+  .card .cardOverlayContainer .cardMenuButton,
+  .card .cardOverlayContainer .cardOptionsButton {
+    bottom: .55rem !important;
+  }
+}
+/* Codex media-safe guard v3.5: keep Jellyfin artwork and playback surfaces visible. */
+.cardImageContainer,
+.cardImage,
+.coveredImage,
+.primaryImageWrapper,
+.primaryImageWrapper img,
+.detailImageContainer img,
+.itemDetailImage,
+.listItemImage,
+.listItemImageButton,
+.listItemImageButton-icon,
+.listItemImage-large,
+.backdropImage,
+.itemBackdrop,
+img[src*="/Items/"][src*="/Images/"],
+[style*="/Items/"][style*="/Images/"] {
+  background-blend-mode: normal !important;
+  filter: none !important;
+  image-rendering: auto !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.cardImageContainer canvas,
+.cardImageContainer .blurhash,
+.cardImageContainer .blurHash,
+.cardImageContainer .blurhashCanvas,
+.cardImageContainer [class*="blurhash" i],
+.cardImageContainer [class*="placeholder" i],
+.cardImageContainer [class*="skeleton" i] {
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.htmlvideoplayer,
+.videoPlayerContainer,
+.videoContainer,
+.videoPlayer,
+.osdVideoPlayer {
+  background-color: #000 !important;
+}
+
+.htmlvideoplayer video,
+.videoPlayerContainer video,
+.videoContainer video,
+.videoPlayer video,
+video.videoElement,
+.jw-video {
+  display: block !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
