@@ -18,7 +18,7 @@ It is built for people searching for:
 - Rounded cards, buttons, dialogs, menus, and library tiles.
 - Cleaner home rows with tinted card surfaces instead of heavy borders.
 - Centered poster hover actions and better padding for badges and long titles.
-- Media-safe rules that avoid hiding posters, blur placeholders, or playback video.
+- Safe rounded styling that avoids overriding Jellyfin's internal poster, blurhash, lazy-load, and card click layers.
 - Included spooky-cute library artwork for Movies, Shows, Music, Collections, Anime, Cartoons, Audio Books, ASMR, Kids, Photos, Music Videos, Playlists, and an extra X library image.
 
 ## Who This Is For
@@ -87,6 +87,7 @@ Change these variables to recolor the theme:
 
 - This is a Jellyfin custom CSS theme, not a server plugin.
 - Tested against Jellyfin 10.11.x web UI.
+- The theme intentionally keeps media image/click internals light so posters, libraries, and playback controls keep behaving like stock Jellyfin.
 - Always keep a copy of your old custom CSS before replacing it.
 - If posters look stale after installing, hard refresh the browser or clear Jellyfin web cache.
 

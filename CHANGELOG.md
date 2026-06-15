@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2
+
+- Rebuilt `theme.css` from the working safe rounded Jellyfin CSS.
+- Removed older card artwork, blurhash, placeholder, and overlay rules that could block clicks or keep poster placeholders visible.
+- Removed local user avatar references from the public theme.
+- Removed the glow from the active Home/Favorites tab buttons.
+
 ## 1.0.1
 
 - Fixed Jellyfin card artwork placeholders staying visible over real images.

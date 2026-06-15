@@ -1,7 +1,8 @@
-﻿/*
+/*
  * Spookyfin for Jellyfin
  * A fast, rounded, cyan-accent Material You inspired custom CSS theme.
  * Repository: https://github.com/endoflineservice/spookyfin
+ * Build: 2026-06-15 safe rounded CSS-only release.
  */
 /* Codex Material You Fast Rounded v2.6 for Jellyfin
    Installed 2026-06-14. Local CSS only: no imports, no blur, no heavy animation. */
@@ -427,110 +428,6 @@ a,
   line-height: 1.25 !important;
 }
 
-/* Cards and artwork */
-.cardBox,
-.visualCardBox,
-.cardScalable,
-.cardOverlayContainer,
-.itemDetailImage,
-.primaryImageWrapper,
-.channelPrograms,
-.listItem,
-.paperList,
-.chapterThumbContainer,
-.metadataEditorInfo,
-.formDialogContent,
-.actionSheetMenuItem,
-.toast,
-.dialog,
-.emby-select-withcolor,
-.emby-input,
-.emby-textarea,
-.emby-select,
-.trackSelections,
-.playbackSettingsContainer,
-.dashboardSection,
-.dashboardSectionContent {
-  border-radius: var(--my-radius-md) !important;
-}
-
-.cardBox,
-.visualCardBox,
-.paperList,
-.trackSelections,
-.playbackSettingsContainer,
-.dashboardSectionContent,
-.metadataEditorInfo {
-  background: var(--my-surface) !important;
-  border: 1px solid var(--my-outline) !important;
-  box-shadow: none !important;
-}
-
-.cardScalable,
-.cardImageContainer,
-.cardImage,
-.coveredImage,
-.cardContent,
-.cardOverlayContainer,
-.itemDetailImage,
-.primaryImageWrapper img,
-.chapterThumb,
-.detailImageContainer .card,
-.backdropImage,
-.listItemImage,
-.listItemImageButton,
-.listItemImageButton-icon,
-.listItemImage-large {
-  border-radius: var(--my-radius-md) !important;
-  overflow: hidden !important;
-}
-
-.cardScalable {
-  contain: paint;
-}
-
-/* Center the hover play affordance after the global button styles run. */
-.cardOverlayButton-centered,
-.cardOverlayContainer > .cardOverlayFab-primary {
-  bottom: auto !important;
-  left: 50% !important;
-  margin: 0 !important;
-  min-height: 3rem !important;
-  min-width: 3rem !important;
-  padding: 0 !important;
-  position: absolute !important;
-  right: auto !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 3rem !important;
-  height: 3rem !important;
-}
-
-.cardOverlayButton-centered {
-  align-items: center !important;
-  display: flex !important;
-  justify-content: center !important;
-}
-
-.cardOverlayButton-centered .material-icons,
-.cardOverlayButton-centered .cardOverlayButtonIcon,
-.cardOverlayContainer > .cardOverlayFab-primary .material-icons {
-  align-items: center !important;
-  display: flex !important;
-  height: 100% !important;
-  justify-content: center !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: center !important;
-  width: 100% !important;
-}
-
-.cardOverlayButton-centered:hover,
-.cardOverlayContainer > .cardOverlayFab-primary:hover {
-  transform: translate(-50%, -50%) scale(1.08) !important;
-}
-
 .cardText,
 .cardText-first,
 .cardText-secondary,
@@ -571,27 +468,7 @@ h4 {
   letter-spacing: 0 !important;
 }
 
-.card:hover .cardBox,
-.card:focus .cardBox,
-.listItem:hover,
-.listItem:focus,
-.actionSheetMenuItem:hover {
-  background: var(--my-surface-2) !important;
-  border-color: var(--my-outline-strong) !important;
-}
-
 @media (hover: hover) {
-  .card .cardBox,
-  .listItem,
-  .emby-button,
-  .headerButton,
-  .paper-icon-button-light {
-    transition: background-color .12s ease, border-color .12s ease, color .12s ease, transform .12s ease;
-  }
-
-  .card:hover .cardBox {
-    transform: translateY(-1px);
-  }
 }
 
 /* Lists and dense screens */
@@ -794,15 +671,6 @@ textarea:focus {
   margin: 0 !important;
 }
 
-.dialog:has(.availableImagesList) .imageEditorCard .cardBox,
-.dialog:has(.availableImagesList) .imageEditorCard .visualCardBox {
-  width: 100% !important;
-}
-
-.dialog:has(.availableImagesList) .imageEditorCard .cardFooter {
-  padding: .55rem .5rem .65rem !important;
-}
-
 .dialog:has(.availableImagesList) .imageEditorCard .cardText {
   max-width: 100% !important;
   line-height: 1.25 !important;
@@ -836,7 +704,7 @@ textarea:focus {
 
 .itemBackdrop::after,
 .backdropContainer::after {
-  background: rgba(7, 16, 20, .82) !important;
+  background-color: rgba(7, 16, 20, .82) !important;
 }
 
 .detailPagePrimaryContainer {
@@ -915,7 +783,7 @@ textarea:focus {
   background: var(--my-primary) !important;
   border-color: rgba(169, 247, 255, .42) !important;
   color: var(--my-on-primary) !important;
-  box-shadow: 0 .45rem 1.3rem rgba(0, 229, 255, .18) !important;
+  box-shadow: none !important;
 }
 
 .emby-tab-button:hover,
@@ -984,62 +852,6 @@ textarea:focus {
   color: var(--my-primary-2) !important;
   min-height: 2.35rem !important;
   padding: .35rem .85rem !important;
-}
-
-.cardBox,
-.visualCardBox,
-.paperList,
-.dashboardSectionContent,
-.metadataEditorInfo,
-.trackSelections,
-.playbackSettingsContainer,
-.MuiPaper-root,
-.MuiCard-root {
-  background: var(--my-surface) !important;
-  border-color: rgba(213, 243, 247, .13) !important;
-  border-radius: var(--my-radius-lg) !important;
-}
-
-.cardScalable,
-.cardImageContainer,
-.cardImage,
-.coveredImage,
-.cardContent,
-.cardOverlayContainer,
-.primaryImageWrapper img,
-.backdropImage,
-.listItemImage,
-.listItemImageButton,
-.listItemImageButton-icon,
-.listItemImage-large {
-  border-radius: var(--my-radius-lg) !important;
-}
-
-.card:hover .cardBox,
-.card:focus .cardBox,
-.listItem:hover,
-.listItem:focus,
-.MuiCard-root:hover {
-  background: var(--my-surface-2) !important;
-  border-color: rgba(0, 229, 255, .34) !important;
-  box-shadow: 0 .55rem 1.7rem rgba(0, 0, 0, .26), 0 0 0 1px rgba(0, 229, 255, .08) !important;
-}
-
-.cardOverlayContainer {
-  background: rgba(0, 0, 0, .28) !important;
-}
-
-.cardOverlayButton,
-.cardOverlayFab-primary,
-.cardOverlayContainer > .cardOverlayFab-primary {
-  background: rgba(239, 252, 255, .92) !important;
-  color: var(--my-on-primary) !important;
-  box-shadow: 0 .45rem 1.2rem rgba(0, 0, 0, .34) !important;
-}
-
-.cardFooter,
-.visualCardBox-cardFooter {
-  padding-top: .7rem !important;
 }
 
 .cardText-first,
@@ -1207,31 +1019,6 @@ textarea:focus,
 }
 
 @media (hover: hover) {
-  .emby-tab-button,
-  .navMenuOption,
-  .headerButton,
-  .paper-icon-button-light,
-  .detailButton,
-  .card .cardBox,
-  .listItem,
-  .raised,
-  .button-submit,
-  .MuiButton-root,
-  .MuiIconButton-root {
-    transition:
-      background-color .16s cubic-bezier(.2, 0, 0, 1),
-      border-color .16s cubic-bezier(.2, 0, 0, 1),
-      box-shadow .16s cubic-bezier(.2, 0, 0, 1),
-      color .16s cubic-bezier(.2, 0, 0, 1),
-      transform .16s cubic-bezier(.2, 0, 0, 1) !important;
-  }
-
-  .card:hover .cardBox,
-  .raised:hover,
-  .button-submit:hover,
-  .MuiButton-containedPrimary:hover {
-    transform: translateY(-2px) !important;
-  }
 }
 
 /* Android-style loading */
@@ -1393,14 +1180,6 @@ textarea:focus,
   .loginPage h1,
   .loginPage .pageTitle {
     font-size: 1.65rem !important;
-  }
-
-  .cardBox,
-  .visualCardBox,
-  .cardImageContainer,
-  .cardImage,
-  .coveredImage {
-    border-radius: var(--my-radius-md) !important;
   }
 
   .dialog {
@@ -1600,6 +1379,51 @@ textarea:focus,
 .headerUserButton:has(img)::before {
   content: none !important;
 }
+/* Codex signed-in avatar and header icon polish v2.8 */
+.skinHeader .headerButton,
+.skinHeader .paper-icon-button-light,
+.skinHeader .MuiIconButton-root,
+.skinHeader button[is="emby-button"],
+.skinHeader button[aria-label],
+.skinHeader button[title] {
+  align-items: center !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+}
+
+.skinHeader .headerButton > .material-icons,
+.skinHeader .paper-icon-button-light > .material-icons,
+.skinHeader .MuiIconButton-root > .material-icons,
+.skinHeader button[is="emby-button"] > .material-icons,
+.skinHeader .headerButton > [class*="material-symbol"],
+.skinHeader .paper-icon-button-light > [class*="material-symbol"],
+.skinHeader .MuiIconButton-root > [class*="material-symbol"],
+.skinHeader button[is="emby-button"] > [class*="material-symbol"],
+.skinHeader .headerButton > .material-icons-round,
+.skinHeader .paper-icon-button-light > .material-icons-round,
+.skinHeader .MuiIconButton-root > .material-icons-round,
+.skinHeader button[is="emby-button"] > .material-icons-round,
+.skinHeader .headerButton > .material-icons-outlined,
+.skinHeader .paper-icon-button-light > .material-icons-outlined,
+.skinHeader .MuiIconButton-root > .material-icons-outlined,
+.skinHeader button[is="emby-button"] > .material-icons-outlined,
+.skinHeader .headerButton > i,
+.skinHeader .paper-icon-button-light > i,
+.skinHeader .MuiIconButton-root > i,
+.skinHeader button[is="emby-button"] > i,
+.skinHeader .headerButton > svg,
+.skinHeader .paper-icon-button-light > svg,
+.skinHeader .MuiIconButton-root > svg,
+.skinHeader button[is="emby-button"] > svg {
+  inset: auto !important;
+  margin: auto !important;
+  position: static !important;
+  transform: none !important;
+}
+
 /* Codex Material You v2.8: flatter home rows and tinted cards, no glow halos. */
 :root {
   --my-row-flat: rgba(5, 24, 29, .42);
@@ -1624,25 +1448,7 @@ textarea:focus,
   box-shadow: none !important;
   filter: none !important;
   outline: 0 !important;
-}
-
-.homePage .verticalSection:nth-of-type(odd),
-.homePage .homePageSection:nth-of-type(odd),
-.homePage .latestItemsSection:nth-of-type(odd),
-.homePage .resumeSection:nth-of-type(odd),
-.homePage .nextUpSection:nth-of-type(odd) {
-  background-color: var(--my-row-flat) !important;
-}
-
-.homePage .verticalSection:nth-of-type(even),
-.homePage .homePageSection:nth-of-type(even),
-.homePage .latestItemsSection:nth-of-type(even),
-.homePage .resumeSection:nth-of-type(even),
-.homePage .nextUpSection:nth-of-type(even) {
-  background-color: var(--my-row-flat-alt) !important;
-}
-
-.homePage .sectionTitleContainer,
+}.homePage .sectionTitleContainer,
 .homePage .itemsContainer,
 .homePage .emby-scroller,
 .homePage .scrollSlider,
@@ -1652,92 +1458,7 @@ textarea:focus,
   filter: none !important;
 }
 
-.card,
-.cardBox,
-.visualCardBox,
-.cardScalable,
-.cardImageContainer,
-.cardContent,
-.cardFooter,
-.visualCardBox-cardFooter,
-.portraitCard,
-.squareCard,
-.overflowBackdropCard,
-.overflowPortraitCard {
-  box-shadow: none !important;
-  filter: none !important;
-  text-shadow: none !important;
-}
-
-.cardBox,
-.visualCardBox,
-.MuiCard-root {
-  background: var(--my-card-tint) !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.card:nth-child(3n + 1) .cardBox,
-.card:nth-child(3n + 1) .visualCardBox {
-  background: var(--my-card-tint) !important;
-}
-
-.card:nth-child(3n + 2) .cardBox,
-.card:nth-child(3n + 2) .visualCardBox {
-  background: var(--my-card-tint-2) !important;
-}
-
-.card:nth-child(3n) .cardBox,
-.card:nth-child(3n) .visualCardBox {
-  background: var(--my-card-tint-3) !important;
-}
-
-.card:hover .cardBox,
-.card:focus .cardBox,
-.card:hover .visualCardBox,
-.card:focus .visualCardBox,
-.MuiCard-root:hover {
-  background: var(--my-card-hover-tint) !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
 @media (hover: hover) {
-  .card:hover .cardBox,
-  .card:hover .visualCardBox,
-  .card:hover .cardScalable {
-    transform: none !important;
-  }
-}
-
-.cardFooter,
-.visualCardBox-cardFooter {
-  background: var(--my-card-text-tint) !important;
-  border-radius: 0 0 var(--my-radius-lg) var(--my-radius-lg) !important;
-  margin-top: 0 !important;
-}
-
-.cardText,
-.cardText-first,
-.cardText-secondary,
-.itemName,
-.cardFooter .cardText {
-  text-shadow: none !important;
-}
-
-.cardOverlayContainer {
-  background: rgba(0, 0, 0, .2) !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.cardOverlayButton,
-.cardOverlayFab-primary,
-.cardOverlayContainer > .cardOverlayFab-primary {
-  box-shadow: none !important;
-  filter: none !important;
 }
 
 .homePage .btnNextPage,
@@ -1887,69 +1608,6 @@ textarea:focus,
   background: rgba(8, 18, 23, .98) !important;
 }
 
-.cardBox,
-.visualCardBox,
-.paperList,
-.dashboardSectionContent,
-.metadataEditorInfo,
-.trackSelections,
-.playbackSettingsContainer,
-.MuiPaper-root,
-.MuiCard-root,
-.listItem,
-.detailImageContainer,
-.primaryImageWrapper,
-.dialog,
-.toast,
-.actionSheet,
-.formDialogHeader,
-.formDialogFooter,
-.itemsContainer > .card,
-.itemDetailPage .detailPagePrimaryContainer,
-.itemDetailPage .detailPageContent,
-.collectionItems,
-.verticalSection,
-.homeSection,
-.section0,
-.section1,
-.section2,
-.section3,
-.section4,
-.section5,
-.section6,
-.section7,
-.section8,
-.section9 {
-  background: var(--my-tint-surface) !important;
-  border: 0 !important;
-  border-color: transparent !important;
-  box-shadow: var(--my-glow-soft) !important;
-}
-
-.cardBox,
-.visualCardBox,
-.MuiCard-root,
-.paperList,
-.dialog,
-.actionSheet,
-.toast,
-.MuiPaper-root {
-  outline: 0 !important;
-}
-
-.card:hover .cardBox,
-.card:focus-within .cardBox,
-.listItem:hover,
-.listItem:focus-within,
-.MuiCard-root:hover,
-.MuiPaper-root:hover,
-.paperList:hover {
-  background: var(--my-tint-surface-2) !important;
-  border: 0 !important;
-  border-color: transparent !important;
-  box-shadow: var(--my-glow-hover) !important;
-}
-
 .headerButton,
 .paper-icon-button-light,
 .detailButton,
@@ -2018,7 +1676,7 @@ textarea:focus,
 .alphaPickerButton.selected {
   background: var(--my-primary) !important;
   border: 0 !important;
-  box-shadow: var(--my-glow-selected) !important;
+  box-shadow: none !important;
   color: var(--my-on-primary) !important;
 }
 
@@ -2109,17 +1767,6 @@ tr:hover,
 .listItem:hover,
 .metadataField:hover {
   background: var(--my-tint-surface-2) !important;
-}
-
-.cardOverlayContainer,
-.cardOverlayButton,
-.cardOverlayFab-primary,
-.cardOverlayFab-secondary,
-.cardOverlayContainer > .cardOverlayFab-primary,
-.cardOverlayContainer > .cardOverlayFab-secondary {
-  border: 0 !important;
-  border-color: transparent !important;
-  box-shadow: 0 .55rem 1.35rem rgba(0, 0, 0, .32) !important;
 }
 
 .progressbar,
@@ -2306,7 +1953,7 @@ tr:hover,
 .skinHeader .headerTabs button[aria-selected="true"],
 .skinHeader .libraryViewNav .emby-button-active,
 .skinHeader .libraryViewNav button[aria-selected="true"] {
-  box-shadow: 0 .35rem 1.15rem rgba(0, 229, 255, .28), 0 0 0 .28rem rgba(0, 229, 255, .08) !important;
+  box-shadow: none !important;
   z-index: 2 !important;
 }
 
@@ -2331,67 +1978,6 @@ tr:hover,
   background-image: none !important;
   box-shadow: none !important;
   filter: none !important;
-}
-
-.homePage .itemsContainer,
-.homePage .emby-scroller,
-.homePage .scrollSlider,
-.homePage .card,
-.homePage .cardBox,
-.homePage .visualCardBox,
-.homePage .cardScalable,
-.homePage .cardImageContainer,
-.homePage .cardImage,
-.homePage .coveredImage,
-.homePage .cardFooter,
-.homePage .visualCardBox-cardFooter {
-  box-shadow: none !important;
-  filter: none !important;
-  text-shadow: none !important;
-}
-
-.homePage .cardBox,
-.homePage .visualCardBox {
-  background-color: #142a32 !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.homePage .card:nth-child(3n + 2) .cardBox,
-.homePage .card:nth-child(3n + 2) .visualCardBox {
-  background-color: #1a313a !important;
-}
-
-.homePage .card:nth-child(3n) .cardBox,
-.homePage .card:nth-child(3n) .visualCardBox {
-  background-color: #203942 !important;
-}
-
-.homePage .card:hover .cardBox,
-.homePage .card:hover .visualCardBox,
-.homePage .card:focus .cardBox,
-.homePage .card:focus .visualCardBox {
-  background-color: #284651 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-.homePage .cardFooter,
-.homePage .visualCardBox-cardFooter {
-  background: rgba(20, 42, 50, .94) !important;
-}
-
-.homePage .card:nth-child(3n + 2) .cardFooter,
-.homePage .card:nth-child(3n + 2) .visualCardBox-cardFooter {
-  background: rgba(26, 49, 58, .94) !important;
-}
-
-.homePage .card:nth-child(3n) .cardFooter,
-.homePage .card:nth-child(3n) .visualCardBox-cardFooter {
-  background: rgba(32, 57, 66, .94) !important;
 }
 
 /* Codex flat accent cleanup v2.9: no gradients, cleaner More menus. */
@@ -2517,54 +2103,6 @@ body,
   filter: none !important;
 }
 
-.cardBox,
-.visualCardBox,
-.homePage .cardBox,
-.homePage .visualCardBox,
-.MuiCard-root {
-  background: var(--my-card-flat) !important;
-  background-color: var(--my-card-flat) !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.homePage .card:nth-child(2n) .cardBox,
-.homePage .card:nth-child(2n) .visualCardBox {
-  background-color: var(--my-card-flat-alt) !important;
-}
-
-.card:hover .cardBox,
-.card:focus .cardBox,
-.card:hover .visualCardBox,
-.card:focus .visualCardBox,
-.homePage .card:hover .cardBox,
-.homePage .card:hover .visualCardBox,
-.MuiCard-root:hover {
-  background: var(--my-card-flat-hover) !important;
-  background-color: var(--my-card-flat-hover) !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.cardFooter,
-.visualCardBox-cardFooter,
-.homePage .cardFooter,
-.homePage .visualCardBox-cardFooter {
-  background: rgba(19, 42, 50, .96) !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.homePage .card:nth-child(2n) .cardFooter,
-.homePage .card:nth-child(2n) .visualCardBox-cardFooter {
-  background: rgba(24, 52, 61, .96) !important;
-}
-
 .button-submit,
 .emby-tab-button-active,
 .MuiTab-root.Mui-selected,
@@ -2594,129 +2132,6 @@ body,
   color: var(--my-primary-2) !important;
 }
 
-.cardOverlayContainer {
-  background: rgba(0, 0, 0, .22) !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.cardOverlayButton,
-.cardOverlayFab-primary,
-.cardOverlayContainer > .cardOverlayFab-primary {
-  background: rgba(239, 252, 255, .92) !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.btnCardOptions,
-.cardMenuButton,
-.cardOptionsButton,
-.itemActionButton[title="More"],
-.itemActionButton[aria-label="More"],
-.paper-icon-button-light[title="More"],
-.paper-icon-button-light[aria-label="More"],
-button[title="More"],
-button[aria-label="More"],
-button[title*="More"],
-button[aria-label*="More"],
-button[title*="menu"],
-button[aria-label*="menu"],
-.card button[is="paper-icon-button-light"]:not(.cardOverlayButton-centered),
-.card .paper-icon-button-light:not(.cardOverlayButton-centered),
-.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) {
-  align-items: center !important;
-  aspect-ratio: 1 / 1 !important;
-  background: rgba(0, 229, 255, .14) !important;
-  background-color: rgba(0, 229, 255, .14) !important;
-  background-image: none !important;
-  border: 0 !important;
-  border-radius: 999px !important;
-  box-shadow: none !important;
-  color: var(--my-primary-2) !important;
-  display: inline-flex !important;
-  filter: none !important;
-  height: 2.25rem !important;
-  justify-content: center !important;
-  margin: 0 !important;
-  min-height: 2.25rem !important;
-  min-width: 2.25rem !important;
-  padding: 0 !important;
-  text-align: center !important;
-  width: 2.25rem !important;
-}
-
-.btnCardOptions:hover,
-.cardMenuButton:hover,
-.cardOptionsButton:hover,
-.itemActionButton[title="More"]:hover,
-.itemActionButton[aria-label="More"]:hover,
-.paper-icon-button-light[title="More"]:hover,
-.paper-icon-button-light[aria-label="More"]:hover,
-button[title="More"]:hover,
-button[aria-label="More"]:hover,
-button[title*="More"]:hover,
-button[aria-label*="More"]:hover,
-button[title*="menu"]:hover,
-button[aria-label*="menu"]:hover,
-.card button[is="paper-icon-button-light"]:not(.cardOverlayButton-centered):hover,
-.card .paper-icon-button-light:not(.cardOverlayButton-centered):hover,
-.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary):hover {
-  background: rgba(0, 229, 255, .24) !important;
-  background-image: none !important;
-  color: var(--my-text) !important;
-}
-
-.btnCardOptions > *,
-.cardMenuButton > *,
-.cardOptionsButton > *,
-.itemActionButton[title="More"] > *,
-.itemActionButton[aria-label="More"] > *,
-.paper-icon-button-light[title="More"] > *,
-.paper-icon-button-light[aria-label="More"] > *,
-button[title="More"] > *,
-button[aria-label="More"] > *,
-button[title*="More"] > *,
-button[aria-label*="More"] > *,
-button[title*="menu"] > *,
-button[aria-label*="menu"] > *,
-.card .paper-icon-button-light:not(.cardOverlayButton-centered) > *,
-.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) > * {
-  align-items: center !important;
-  display: inline-flex !important;
-  height: 1.25rem !important;
-  justify-content: center !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  min-height: 1.25rem !important;
-  min-width: 1.25rem !important;
-  padding: 0 !important;
-  transform: none !important;
-  width: 1.25rem !important;
-}
-
-.btnCardOptions .material-icons,
-.cardMenuButton .material-icons,
-.cardOptionsButton .material-icons,
-.itemActionButton[title="More"] .material-icons,
-.itemActionButton[aria-label="More"] .material-icons,
-.paper-icon-button-light[title="More"] .material-icons,
-.paper-icon-button-light[aria-label="More"] .material-icons,
-button[title="More"] .material-icons,
-button[aria-label="More"] .material-icons,
-button[title*="More"] .material-icons,
-button[aria-label*="More"] .material-icons,
-button[title*="menu"] .material-icons,
-button[aria-label*="menu"] .material-icons,
-.card .paper-icon-button-light:not(.cardOverlayButton-centered) .material-icons,
-.card .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) .material-icons {
-  font-size: 1.25rem !important;
-  height: 1.25rem !important;
-  line-height: 1.25rem !important;
-  width: 1.25rem !important;
-}
-
 .actionSheetMenuItem,
 .MuiMenuItem-root {
   align-items: center !important;
@@ -2735,14 +2150,6 @@ button[aria-label*="menu"] .material-icons,
 }
 
 @media (hover: hover) {
-  .card:hover .cardBox,
-  .card:hover .visualCardBox,
-  .card:hover .cardScalable,
-  .raised:hover,
-  .button-submit:hover,
-  .MuiButton-containedPrimary:hover {
-    transform: none !important;
-  }
 }
 
 /* Codex card check badge padding v2.10 */
@@ -3099,26 +2506,6 @@ input[type="range"] {
     color var(--m3-duration-short3) var(--m3-motion-easing-standard),
     opacity var(--m3-duration-short3) var(--m3-motion-easing-standard),
     transform var(--m3-duration-short4) var(--m3-motion-easing-standard) !important;
-}
-
-.card .cardBox,
-.card .visualCardBox,
-.card .cardScalable,
-.cardImageContainer,
-.cardOverlayButton,
-.cardOverlayFab-primary {
-  transition:
-    background-color var(--m3-duration-short4) var(--m3-motion-easing-standard),
-    opacity var(--m3-duration-short3) var(--m3-motion-easing-standard),
-    transform var(--m3-duration-short4) var(--m3-motion-easing-standard) !important;
-}
-
-.card:active .cardScalable,
-.card:active .cardBox,
-.card:active .visualCardBox,
-.listItem:active,
-.MuiCard-root:active {
-  transform: scale(.985) !important;
 }
 
 .emby-button,
@@ -3873,13 +3260,6 @@ select,
   padding: 0 !important;
 }
 
-.card .cardScalable,
-.card .cardImageContainer,
-.card .coveredImage,
-.card .cardImage {
-  overflow: hidden !important;
-}
-
 @media (max-width: 48em) {
   .card .countIndicator,
   .card .cardIndicator.countIndicator,
@@ -3894,21 +3274,6 @@ select,
     right: .55rem !important;
     top: .55rem !important;
   }
-}
-
-/* Codex rounded card text inset repair v2.16 */
-.card .cardFooter,
-.card .visualCardBox-cardFooter,
-.homePage .card .cardFooter,
-.homePage .card .visualCardBox-cardFooter,
-.itemsContainer .card .cardFooter,
-.itemsContainer .card .visualCardBox-cardFooter {
-  box-sizing: border-box !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  padding-left: .9rem !important;
-  padding-right: .9rem !important;
-  width: 100% !important;
 }
 
 .card .cardText,
@@ -3938,17 +3303,6 @@ select,
   width: 100% !important;
 }
 
-.card .cardFooter .cardText,
-.card .cardFooter .cardText-first,
-.card .cardFooter .cardText-secondary,
-.card .visualCardBox-cardFooter .cardText,
-.card .visualCardBox-cardFooter .cardText-first,
-.card .visualCardBox-cardFooter .cardText-secondary {
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
 .card .cardText-secondary,
 .homePage .card .cardText-secondary,
 .itemsContainer .card .cardText-secondary {
@@ -3957,15 +3311,6 @@ select,
 }
 
 @media (max-width: 48em) {
-  .card .cardFooter,
-  .card .visualCardBox-cardFooter,
-  .homePage .card .cardFooter,
-  .homePage .card .visualCardBox-cardFooter,
-  .itemsContainer .card .cardFooter,
-  .itemsContainer .card .visualCardBox-cardFooter {
-    padding-left: .72rem !important;
-    padding-right: .72rem !important;
-  }
 
   .card .cardText,
   .card .cardText-first,
@@ -3992,262 +3337,299 @@ select,
   --codex-card-action-offset: calc(var(--codex-card-action-size) + var(--codex-card-action-gap));
 }
 
-.card .cardOverlayContainer,
-.card .cardScalable,
-.card .cardImageContainer {
-  position: relative !important;
-}
-
-.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
-.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
-.card .cardOverlayContainer .btnCardOptions,
-.card .cardOverlayContainer .cardMenuButton,
-.card .cardOverlayContainer .cardOptionsButton,
-.card .cardOverlayContainer button[title*="More" i],
-.card .cardOverlayContainer button[aria-label*="More" i],
-.card .cardOverlayContainer button[title*="Menu" i],
-.card .cardOverlayContainer button[aria-label*="Menu" i],
-.card .cardOverlayContainer button[title*="Favorite" i],
-.card .cardOverlayContainer button[aria-label*="Favorite" i],
-.card .cardOverlayContainer button[title*="Favourite" i],
-.card .cardOverlayContainer button[aria-label*="Favourite" i],
-.card .cardOverlayContainer button[title*="Played" i],
-.card .cardOverlayContainer button[aria-label*="Played" i],
-.card .cardOverlayContainer button[title*="Watched" i],
-.card .cardOverlayContainer button[aria-label*="Watched" i] {
-  align-items: center !important;
-  background: rgba(0, 229, 255, .16) !important;
-  background-color: rgba(0, 229, 255, .16) !important;
-  background-image: none !important;
-  border: 0 !important;
-  border-radius: 999px !important;
-  bottom: .62rem !important;
-  box-shadow: none !important;
-  box-sizing: border-box !important;
-  color: var(--my-primary-2) !important;
-  display: inline-flex !important;
-  filter: none !important;
-  height: var(--codex-card-action-size) !important;
-  justify-content: center !important;
-  left: 50% !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  min-height: var(--codex-card-action-size) !important;
-  min-width: var(--codex-card-action-size) !important;
-  padding: 0 !important;
-  position: absolute !important;
-  right: auto !important;
-  text-align: center !important;
-  top: auto !important;
-  width: var(--codex-card-action-size) !important;
-  z-index: 8 !important;
-}
-
-.card .cardOverlayContainer button[title*="Played" i],
-.card .cardOverlayContainer button[aria-label*="Played" i],
-.card .cardOverlayContainer button[title*="Watched" i],
-.card .cardOverlayContainer button[aria-label*="Watched" i] {
-  transform: translateX(calc(-50% - var(--codex-card-action-offset))) !important;
-}
-
-.card .cardOverlayContainer button[title*="Favorite" i],
-.card .cardOverlayContainer button[aria-label*="Favorite" i],
-.card .cardOverlayContainer button[title*="Favourite" i],
-.card .cardOverlayContainer button[aria-label*="Favourite" i] {
-  transform: translateX(-50%) !important;
-}
-
-.card .cardOverlayContainer .btnCardOptions,
-.card .cardOverlayContainer .cardMenuButton,
-.card .cardOverlayContainer .cardOptionsButton,
-.card .cardOverlayContainer button[title*="More" i],
-.card .cardOverlayContainer button[aria-label*="More" i],
-.card .cardOverlayContainer button[title*="Menu" i],
-.card .cardOverlayContainer button[aria-label*="Menu" i] {
-  transform: translateX(calc(-50% + var(--codex-card-action-offset))) !important;
-}
-
-.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary):hover,
-.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary):hover,
-.card .cardOverlayContainer .btnCardOptions:hover,
-.card .cardOverlayContainer .cardMenuButton:hover,
-.card .cardOverlayContainer .cardOptionsButton:hover {
-  background: rgba(0, 229, 255, .24) !important;
-  background-color: rgba(0, 229, 255, .24) !important;
-  background-image: none !important;
-}
-
-.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) > *,
-.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) > *,
-.card .cardOverlayContainer .btnCardOptions > *,
-.card .cardOverlayContainer .cardMenuButton > *,
-.card .cardOverlayContainer .cardOptionsButton > *,
-.card .cardOverlayContainer button[title*="More" i] > *,
-.card .cardOverlayContainer button[aria-label*="More" i] > *,
-.card .cardOverlayContainer button[title*="Menu" i] > *,
-.card .cardOverlayContainer button[aria-label*="Menu" i] > *,
-.card .cardOverlayContainer button[title*="Favorite" i] > *,
-.card .cardOverlayContainer button[aria-label*="Favorite" i] > *,
-.card .cardOverlayContainer button[title*="Favourite" i] > *,
-.card .cardOverlayContainer button[aria-label*="Favourite" i] > *,
-.card .cardOverlayContainer button[title*="Played" i] > *,
-.card .cardOverlayContainer button[aria-label*="Played" i] > *,
-.card .cardOverlayContainer button[title*="Watched" i] > *,
-.card .cardOverlayContainer button[aria-label*="Watched" i] > * {
-  align-items: center !important;
-  display: inline-flex !important;
-  height: 100% !important;
-  justify-content: center !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  max-height: 100% !important;
-  max-width: 100% !important;
-  min-height: 0 !important;
-  min-width: 0 !important;
-  padding: 0 !important;
-  position: static !important;
-  text-align: center !important;
-  transform: none !important;
-  width: 100% !important;
-}
-
-.card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) .material-icons,
-.card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary) .material-icons,
-.card .cardOverlayContainer .btnCardOptions .material-icons,
-.card .cardOverlayContainer .cardMenuButton .material-icons,
-.card .cardOverlayContainer .cardOptionsButton .material-icons,
-.card .cardOverlayContainer button[title*="More" i] .material-icons,
-.card .cardOverlayContainer button[aria-label*="More" i] .material-icons,
-.card .cardOverlayContainer button[title*="Menu" i] .material-icons,
-.card .cardOverlayContainer button[aria-label*="Menu" i] .material-icons,
-.card .cardOverlayContainer button[title*="Favorite" i] .material-icons,
-.card .cardOverlayContainer button[aria-label*="Favorite" i] .material-icons,
-.card .cardOverlayContainer button[title*="Favourite" i] .material-icons,
-.card .cardOverlayContainer button[aria-label*="Favourite" i] .material-icons,
-.card .cardOverlayContainer button[title*="Played" i] .material-icons,
-.card .cardOverlayContainer button[aria-label*="Played" i] .material-icons,
-.card .cardOverlayContainer button[title*="Watched" i] .material-icons,
-.card .cardOverlayContainer button[aria-label*="Watched" i] .material-icons {
-  font-size: 1.22rem !important;
-  height: 1.22rem !important;
-  line-height: 1.22rem !important;
-  width: 1.22rem !important;
-}
-
 @media (max-width: 48em) {
   :root {
     --codex-card-action-size: 2rem;
     --codex-card-action-gap: .3rem;
   }
-
-  .card .cardOverlayContainer .paper-icon-button-light:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
-  .card .cardOverlayContainer .cardOverlayButton:not(.cardOverlayButton-centered):not(.cardOverlayFab-primary),
-  .card .cardOverlayContainer .btnCardOptions,
-  .card .cardOverlayContainer .cardMenuButton,
-  .card .cardOverlayContainer .cardOptionsButton {
-    bottom: .55rem !important;
-  }
 }
-/* Codex media-safe guard v3.5: keep Jellyfin artwork and playback surfaces visible. */
+/* Codex Jellyfin home row strip cleanup v3.8
+   Final override for leftover odd/even row tints, section glows, and short
+   background bars below home rows. Cards keep their tint; row containers do not. */
+.homePage,
+.homePage > .pageTabContent,
+.homePage .pageTabContent,
+.homePage .sections,
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .homeSection,
+.homePage .section0,
+.homePage .section1,
+.homePage .section2,
+.homePage .section3,
+.homePage .section4,
+.homePage .section5,
+.homePage .section6,
+.homePage .section7,
+.homePage .section8,
+.homePage .section9,
+.homePage [class*="Section"],
+.homePage [class*="section"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: 0 !important;
+}
+
+.homePage .verticalSection:nth-of-type(odd),
+.homePage .verticalSection:nth-of-type(even),
+.homePage .homePageSection:nth-of-type(odd),
+.homePage .homePageSection:nth-of-type(even),
+.homePage .latestItemsSection:nth-of-type(odd),
+.homePage .latestItemsSection:nth-of-type(even),
+.homePage .resumeSection:nth-of-type(odd),
+.homePage .resumeSection:nth-of-type(even),
+.homePage .nextUpSection:nth-of-type(odd),
+.homePage .nextUpSection:nth-of-type(even),
+.homePage .homeSection:nth-of-type(odd),
+.homePage .homeSection:nth-of-type(even) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.homePage .sectionTitleContainer,
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .contentScrollSlider,
+.homePage .smoothScrollX,
+.homePage .padded-left,
+.homePage .padded-right,
+.homePage .collectionItems,
+.homePage .itemsContainer::before,
+.homePage .itemsContainer::after,
+.homePage .emby-scroller::before,
+.homePage .emby-scroller::after,
+.homePage .scrollSlider::before,
+.homePage .scrollSlider::after,
+.homePage .contentScrollSlider::before,
+.homePage .contentScrollSlider::after,
+.homePage .smoothScrollX::before,
+.homePage .smoothScrollX::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  filter: none !important;
+  outline: 0 !important;
+}
+
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .homeSection {
+  margin-bottom: .95rem !important;
+  overflow: visible !important;
+  padding-bottom: 0 !important;
+}
+/* End Codex Jellyfin home row strip cleanup v3.8 */
+/* Codex Jellyfin media tile internals purge v4.2
+   CSS-only fix: the theme no longer styles Jellyfin's internal poster, blurhash,
+   lazy-load, overlay, or card click stack. Only row decorative pseudo-layers stay off. */
+.backgroundContainer,
+.backdropContainer,
+.itemBackdrop,
+.backdropImage,
+.backgroundContainer::before,
+.backgroundContainer::after,
+.backdropContainer::before,
+.backdropContainer::after,
+.itemBackdrop::before,
+.itemBackdrop::after,
+.mainAnimatedPage::before,
+.mainAnimatedPage::after,
+.page::before,
+.page::after,
+.libraryPage::before,
+.libraryPage::after,
+.homePage::before,
+.homePage::after {
+  pointer-events: none !important;
+}
+
+.homePage,
+.homePage > .pageTabContent,
+.homePage .pageTabContent,
+.homePage .sections,
+.homePage .verticalSection,
+.homePage .homePageSection,
+.homePage .latestItemsSection,
+.homePage .resumeSection,
+.homePage .nextUpSection,
+.homePage .homeSection,
+.homePage .sectionTitleContainer,
+.homePage .itemsContainer,
+.homePage .emby-scroller,
+.homePage .scrollSlider,
+.homePage .contentScrollSlider,
+.homePage .smoothScrollX,
+.homePage .collectionItems {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: 0 !important;
+  pointer-events: auto !important;
+}
+
+.homePage .verticalSection::before,
+.homePage .verticalSection::after,
+.homePage .homePageSection::before,
+.homePage .homePageSection::after,
+.homePage .latestItemsSection::before,
+.homePage .latestItemsSection::after,
+.homePage .resumeSection::before,
+.homePage .resumeSection::after,
+.homePage .nextUpSection::before,
+.homePage .nextUpSection::after,
+.homePage .homeSection::before,
+.homePage .homeSection::after,
+.homePage .sectionTitleContainer::before,
+.homePage .sectionTitleContainer::after,
+.homePage .itemsContainer::before,
+.homePage .itemsContainer::after,
+.homePage .emby-scroller::before,
+.homePage .emby-scroller::after,
+.homePage .scrollSlider::before,
+.homePage .scrollSlider::after,
+.homePage .contentScrollSlider::before,
+.homePage .contentScrollSlider::after,
+.homePage .smoothScrollX::before,
+.homePage .smoothScrollX::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  display: none !important;
+  filter: none !important;
+  pointer-events: none !important;
+}
+/* Codex Jellyfin media tile internals purge v4.2 end */
+/* Codex Jellyfin safe rounded corners only v4.4 */
+:root {
+  --codex-round-lg: 1.35rem;
+  --codex-round-md: 1rem;
+  --codex-round-sm: .72rem;
+  --codex-round-pill: 999px;
+}
+
+.card,
+.cardBox,
+.visualCardBox,
+.cardScalable,
+.cardContent,
+.cardPadder,
+[class*="cardPadder"],
+.itemsContainer > .card,
+.portraitCard,
+.squareCard,
+.overflowBackdropCard,
+.overflowPortraitCard {
+  border-radius: var(--codex-round-lg) !important;
+}
+
 .cardImageContainer,
+[class*="cardImageContainer"],
 .cardImage,
 .coveredImage,
+.cardImageContainer img,
+.cardImageContainer picture,
+.cardImageContainer canvas,
 .primaryImageWrapper,
 .primaryImageWrapper img,
-.detailImageContainer img,
 .itemDetailImage,
+.detailImageContainer img,
 .listItemImage,
 .listItemImageButton,
 .listItemImageButton-icon,
 .listItemImage-large,
-.backdropImage,
-.itemBackdrop,
-img[src*="/Items/"][src*="/Images/"],
-[style*="/Items/"][style*="/Images/"] {
-  background-blend-mode: normal !important;
-  filter: none !important;
-  image-rendering: auto !important;
-  mix-blend-mode: normal !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+.chapterThumb,
+.chapterThumbContainer,
+.backdropImage {
+  border-radius: var(--codex-round-lg) !important;
 }
 
-.cardImageContainer canvas,
-.cardImageContainer .blurhash,
-.cardImageContainer .blurHash,
-.cardImageContainer .blurhashCanvas,
-.cardImageContainer [class*="blurhash" i],
-.cardImageContainer [class*="placeholder" i],
-.cardImageContainer [class*="skeleton" i] {
-  filter: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+.cardFooter,
+.visualCardBox-cardFooter {
+  border-radius: 0 0 var(--codex-round-lg) var(--codex-round-lg) !important;
 }
 
-.htmlvideoplayer,
-.videoPlayerContainer,
-.videoContainer,
-.videoPlayer,
-.osdVideoPlayer {
-  background-color: #000 !important;
+.paper-icon-button-light,
+.headerButton,
+.detailButton,
+.emby-button,
+.raised,
+.button-submit,
+.emby-tab-button,
+.navMenuOption,
+.actionSheetMenuItem,
+.MuiButton-root,
+.MuiIconButton-root,
+.MuiChip-root,
+.MuiTab-root,
+.MuiMenuItem-root,
+.MuiListItemButton-root,
+.btnMoreFrom,
+.btnMoreItems,
+.sectionTitleButton,
+.alphaPickerButton,
+.genreButton {
+  border-radius: var(--codex-round-pill) !important;
 }
 
-.htmlvideoplayer video,
-.videoPlayerContainer video,
-.videoContainer video,
-.videoPlayer video,
-video.videoElement,
-.jw-video {
-  display: block !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
+.dialog,
+.MuiDialog-paper,
+.actionSheet,
+.MuiPopover-paper,
+.MuiMenu-paper,
+.toast,
+.snackbar,
+.paperList,
+.dashboardSectionContent,
+.metadataEditorInfo,
+.trackSelections,
+.playbackSettingsContainer,
+.MuiPaper-root,
+.MuiCard-root,
+.listItem,
+.emby-input,
+.emby-select,
+.emby-textarea,
+.emby-select-withcolor {
+  border-radius: var(--codex-round-md) !important;
 }
 
-/* Codex Jellyfin image/click recovery v3.6
-   Do not force Jellyfin blurhash/skeleton layers to stay visible. They sit
-   above real artwork while loading and can block card clicks if kept alive. */
-.cardImageContainer,
-.cardImage,
-.coveredImage,
-.primaryImageWrapper,
-.itemDetailImage,
-.listItemImage,
-.listItemImageButton,
-.listItemImageButton-icon,
-.listItemImage-large {
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
+.itemProgressBar,
+.progressbar,
+.progressBar,
+.taskProgressOuter,
+.taskProgressInner,
+.mdl-slider-background-flex,
+.mdl-slider-background-lower,
+.mdl-slider-background-upper,
+.MuiLinearProgress-root,
+.MuiLinearProgress-bar,
+.MuiSlider-rail,
+.MuiSlider-track,
+.MuiSlider-thumb,
+input[type="range"] {
+  border-radius: var(--codex-round-pill) !important;
 }
-
-.cardImageContainer canvas,
-.cardImageContainer .blurhash,
-.cardImageContainer .blurHash,
-.cardImageContainer .blurhashCanvas,
-.cardImageContainer [class*="blurhash" i],
-.cardImageContainer [class*="placeholder" i],
-.cardImageContainer [class*="skeleton" i] {
-  display: none !important;
-  pointer-events: none !important;
-}
-
-.card .cardOverlayContainer {
-  background: transparent !important;
-  box-shadow: none !important;
-  pointer-events: none !important;
-}
-
-.card .cardOverlayContainer button,
-.card .cardOverlayContainer .emby-button,
-.card .cardOverlayContainer .paper-icon-button-light,
-.card .cardOverlayContainer .cardOverlayButton,
-.card .cardOverlayContainer .cardOverlayFab-primary,
-.card .cardOverlayContainer .cardOverlayFab-secondary,
-.card .cardOverlayContainer .btnCardOptions,
-.card .cardOverlayContainer .cardMenuButton,
-.card .cardOverlayContainer .cardOptionsButton {
-  pointer-events: auto !important;
-}
+/* Codex Jellyfin safe rounded corners only v4.4 end */
