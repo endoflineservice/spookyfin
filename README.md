@@ -70,6 +70,7 @@ The full-size PNGs are in [`assets/library-images`](assets/library-images).
 | Library | Image |
 | --- | --- |
 | Collections | <img src="assets/library-images/collections.png" alt="Collections library art" width="220"> |
+| 3D Movies | <img src="assets/library-images/3d-movies.png" alt="3D Movies library art" width="220"> |
 | Movies | <img src="assets/library-images/movies.png" alt="Movies library art" width="220"> |
 | TV Shows | <img src="assets/library-images/tv-shows.png" alt="TV Shows library art" width="220"> |
 | Music | <img src="assets/library-images/music.png" alt="Music library art" width="220"> |

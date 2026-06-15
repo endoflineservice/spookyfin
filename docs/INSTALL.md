@@ -77,6 +77,7 @@ Suggested mapping:
 | Jellyfin library | File |
 | --- | --- |
 | Collections | `assets/library-images/collections.png` |
+| 3D Movies | `assets/library-images/3d-movies.png` |
 | Movies | `assets/library-images/movies.png` |
 | Shows | `assets/library-images/tv-shows.png` |
 | Music | `assets/library-images/music.png` |

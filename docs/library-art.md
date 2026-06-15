@@ -7,6 +7,7 @@ These images are meant for Jellyfin library primary images and backdrops. They u
 ## Files
 
 - `collections.png`
+- `3d-movies.png`
 - `movies.png`
 - `tv-shows.png`
 - `music.png`
