@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2
+
+- Added a new home spotlight preview screenshot showing the current purple accent, scalloped header, MediaBar spotlight, and library rows.
+
 ## 1.2.1
 
 - Rebuilt the repository preview screenshots to match the current Spookyfin header, rows, cards, and accent styling.

@@ -4,7 +4,7 @@
 [![Android inspired](https://img.shields.io/badge/Android-inspired-101b20?style=for-the-badge)](https://m3.material.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-a9f7ff?style=for-the-badge)](LICENSE)
 
-![Spookyfin home preview](docs/screenshots/home-preview.png)
+![Spookyfin home spotlight preview](docs/screenshots/home-spotlight-preview.png)
 
 Spookyfin is a rounded Android/Material You inspired theme for Jellyfin Web. It keeps Jellyfin fast and readable while adding softer surfaces, pill controls, floating progress bars, a scalloped header, Material-style dialogs, and an optional header color switcher.
 
@@ -72,7 +72,9 @@ More details are in [docs/INSTALL.md](docs/INSTALL.md).
 
 ## Screenshots
 
-![Home preview](docs/screenshots/home-preview.png)
+![Home spotlight preview](docs/screenshots/home-spotlight-preview.png)
+
+![Home row preview](docs/screenshots/home-preview.png)
 
 ![Library art preview](docs/screenshots/library-art-preview.png)
 
