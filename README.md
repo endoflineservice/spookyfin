@@ -23,6 +23,18 @@ It is built for people searching for:
 - Static scalloped top bar that follows the selected accent background.
 - Home page image blanking repair for lazy-loaded Jellyfin card art.
 - Included spooky-cute library artwork for common media libraries, including 3D Movies.
+- Jellyfin Enhanced-friendly styling for custom tabs, calendar views, watchlist pages, and the remote/music player.
+
+## Quick Setup Walkthrough
+
+1. Install the CSS from [`theme.css`](theme.css) in Jellyfin's `Dashboard` -> `General` -> `Custom CSS code`.
+2. Hard refresh Jellyfin with `Ctrl+F5`.
+3. Add [`spookyfin-helper.js`](spookyfin-helper.js) to Jellyfin Web if you want the accent button, custom home rows, image repair, and custom tab cleanup.
+4. Upload the matching images from [`assets/library-images`](assets/library-images) to your Jellyfin libraries.
+5. Optional: install [Jellyfin Enhanced](https://github.com/n00bcodr/Jellyfin-Enhanced), then enable only the tabs and pages you use.
+6. Restart Jellyfin after plugin or helper changes, then hard refresh again.
+
+More detailed steps are in [docs/INSTALL.md](docs/INSTALL.md).
 
 ## Install
 
@@ -63,6 +75,31 @@ More details are in [docs/INSTALL.md](docs/INSTALL.md).
 ![Home preview](docs/screenshots/home-preview.png)
 
 ![Library art preview](docs/screenshots/library-art-preview.png)
+
+![Jellyfin Enhanced preview](docs/screenshots/enhanced-plugin-preview.png)
+
+![Music player preview](docs/screenshots/music-player-preview.png)
+
+## Jellyfin Enhanced Recommendations
+
+Spookyfin works well with [Jellyfin Enhanced](https://github.com/n00bcodr/Jellyfin-Enhanced), but keep the plugin setup focused so the UI stays clean.
+
+Recommended companion plugins from the Jellyfin Enhanced project:
+
+- `File Transformation`: recommended for safer web-file modifications.
+- `Custom Tabs`: use this for top navigation entries such as `Watchlist` and `Calendar`.
+- `Plugin Pages`: useful when Enhanced pages need to appear as real Jellyfin pages.
+- `Kefin Tweaks`: optional, mostly useful if you want the extra watchlist tooling.
+
+Suggested Enhanced settings:
+
+- Enable `Bookmarks`, `Custom Pause Screen`, and `Tab-switch actions`.
+- Add `Watchlist` and `Calendar` as custom tabs if you use them.
+- Connect Radarr/Sonarr in the `*arr` section before expecting the calendar to show useful release data.
+- Leave extra theme/CSS features off unless you specifically need them; Spookyfin should own the global colors and surfaces.
+- Use media tags and badges lightly. Spookyfin styles them, but too many badges can crowd rows.
+
+See [docs/enhanced-plugin.md](docs/enhanced-plugin.md) for the setup notes.
 
 ## Included Library Images
 

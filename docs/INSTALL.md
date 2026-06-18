@@ -5,6 +5,15 @@ Spookyfin has two parts:
 - `theme.css`: the Jellyfin Custom CSS theme.
 - `spookyfin-helper.js`: an optional web client helper for the header color switcher, home row ordering, and lazy-image repair.
 
+## Simple setup walkthrough
+
+1. Paste `theme.css` into Jellyfin's `Dashboard` -> `General` -> `Custom CSS code`.
+2. Save and hard refresh with `Ctrl+F5`.
+3. If you want the accent color button, custom rows, and image rehydration fixes, install `spookyfin-helper.js`.
+4. Upload the library images from `assets/library-images` through each library's `Edit Images` screen.
+5. Optional: install Jellyfin Enhanced and use the recommendations in [`enhanced-plugin.md`](enhanced-plugin.md).
+6. Restart Jellyfin after plugin or helper changes, then hard refresh again.
+
 ## Install the CSS theme
 
 1. Open Jellyfin in a browser.
@@ -90,6 +99,24 @@ Suggested mapping:
 | Music Videos | `assets/library-images/music-videos.png` |
 | Playlists | `assets/library-images/playlists.png` |
 
+## Optional Jellyfin Enhanced setup
+
+Jellyfin Enhanced is optional. Spookyfin does not require it, but the theme includes styling for the Enhanced panel, Calendar, Watchlist, custom tabs, pause screen, and remote/music player.
+
+Basic Enhanced install path:
+
+1. In Jellyfin, go to `Dashboard` -> `Plugins` -> `Repositories`.
+2. Add the Jellyfin Enhanced 10.11 repository:
+
+   ```text
+   https://raw.githubusercontent.com/n00bcodr/jellyfin-plugins/main/10.11/manifest.json
+   ```
+
+3. Go to `Catalog`, install `Jellyfin Enhanced`, then restart Jellyfin.
+4. Install `File Transformation` if available. The Enhanced project recommends it to avoid web-file permission issues.
+5. Open `Dashboard` -> `Plugins` -> `Jellyfin Enhanced`.
+6. Start with the recommended settings in [`enhanced-plugin.md`](enhanced-plugin.md).
+
 ## Troubleshooting
 
 - If the theme does not appear, hard refresh with `Ctrl+F5`.
@@ -97,3 +124,4 @@ Suggested mapping:
 - If the web app still looks old, clear the browser cache for the Jellyfin site.
 - If you use a reverse proxy or aggressive caching, purge that cache after changing CSS or scripts.
 - If something looks wrong, remove the Custom CSS field, save, then re-add the theme.
+- If Enhanced pages such as Calendar or Watchlist are blank, confirm the matching Enhanced feature is enabled, any required companion plugin is installed, and Radarr/Sonarr or Seerr API settings are saved where needed.

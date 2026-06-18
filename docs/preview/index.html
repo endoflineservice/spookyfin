@@ -6,17 +6,24 @@
   <title>Spookyfin Preview</title>
   <style>
     :root {
-      --bg: #071014;
-      --surface: #101b20;
-      --surface-2: #15242a;
-      --surface-3: #183139;
+      --bg: #061013;
+      --bg-2: #082226;
+      --top: #073c42;
+      --surface: #0b1a1e;
+      --surface-2: #102b31;
+      --surface-3: #123941;
       --text: #effcff;
-      --muted: #b8ced4;
-      --primary: #00e5ff;
-      --primary-2: #a9f7ff;
-      --on-primary: #001f26;
-      --radius-lg: 28px;
-      --radius-md: 18px;
+      --muted: #bdd6dd;
+      --accent: #00e5ff;
+      --accent-2: #a9f7ff;
+      --accent-soft: rgba(0, 229, 255, .16);
+      --pink: #ff6fcf;
+      --purple: #c78cff;
+      --on-accent: #002026;
+      --shadow: rgba(0, 0, 0, .34);
+      --radius: 18px;
+      color-scheme: dark;
+      font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
     }
 
     * {
@@ -26,247 +33,181 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
       margin: 0;
       min-height: 100vh;
+      overflow: hidden;
     }
 
-    .app {
-      min-height: 100vh;
+    .shot {
+      background:
+        radial-gradient(circle at 8% 8%, rgba(0, 229, 255, .08), transparent 34rem),
+        linear-gradient(180deg, var(--bg-2), var(--bg) 18rem);
+      display: none;
+      height: 100vh;
       overflow: hidden;
-      padding: 16px 32px 48px;
+      padding: 0 34px 34px;
+      width: 100vw;
+    }
+
+    body[data-shot="home"] .home-shot,
+    body[data-shot="library"] .library-shot,
+    body[data-shot="enhanced"] .enhanced-shot,
+    body[data-shot="music"] .music-shot {
+      display: block;
     }
 
     .topbar {
+      background: var(--top);
+      border-bottom: 1px solid rgba(0, 229, 255, .1);
+      box-shadow: 0 14px 24px rgba(0, 0, 0, .24);
+      margin: 0 -34px 28px;
+      min-height: 130px;
+      padding: 18px 30px 28px;
+      position: relative;
+    }
+
+    .topbar::after {
+      background: radial-gradient(circle at 16px -10px, transparent 24px, var(--top) 25px);
+      background-size: 32px 24px;
+      bottom: -24px;
+      content: "";
+      height: 24px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: 0;
+    }
+
+    .topbar > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-line {
       align-items: center;
       display: flex;
-      gap: 12px;
       justify-content: space-between;
-      min-height: 52px;
     }
 
     .brand,
-    .nav-icons,
-    .right-icons {
+    .header-icons,
+    .tabs {
       align-items: center;
       display: flex;
       gap: 10px;
     }
 
     .logo-mark {
-      align-items: center;
-      border: 4px solid var(--primary);
-      border-radius: 12px;
-      color: var(--primary);
-      display: inline-flex;
-      font-size: 18px;
-      font-weight: 900;
-      height: 34px;
-      justify-content: center;
-      transform: rotate(-8deg);
-      width: 34px;
+      border: 4px solid var(--accent);
+      border-radius: 10px;
+      height: 32px;
+      position: relative;
+      transform: rotate(-6deg);
+      width: 32px;
+    }
+
+    .logo-mark::after {
+      border-bottom: 9px solid var(--accent);
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      content: "";
+      left: 5px;
+      position: absolute;
+      top: 7px;
     }
 
     .brand-name {
-      color: var(--primary);
-      font-size: 26px;
+      color: var(--accent);
+      font-size: 28px;
       font-weight: 850;
+      letter-spacing: 0;
     }
 
-    .icon-button {
+    .icon-btn {
       align-items: center;
-      background: rgba(8, 28, 34, .76);
-      border: 1px solid rgba(169, 247, 255, .12);
+      background: rgba(8, 30, 35, .74);
+      border: 1px solid rgba(169, 247, 255, .09);
       border-radius: 999px;
-      box-shadow: 0 9px 24px rgba(0, 0, 0, .18);
-      color: var(--primary-2);
+      color: var(--accent-2);
       display: inline-flex;
       font-size: 20px;
-      font-weight: 850;
-      height: 42px;
+      font-weight: 800;
+      height: 40px;
       justify-content: center;
       line-height: 1;
-      width: 42px;
-    }
-
-    .css-icon {
-      display: block;
-      height: 20px;
-      position: relative;
-      width: 20px;
-    }
-
-    .users-icon::before,
-    .users-icon::after,
-    .users-icon span,
-    .search-icon::before,
-    .cast-icon::before,
-    .cast-icon::after {
-      content: "";
-      position: absolute;
-    }
-
-    .users-icon::before,
-    .users-icon::after,
-    .users-icon span {
-      background: var(--primary-2);
-      border-radius: 999px;
-    }
-
-    .users-icon::before {
-      height: 8px;
-      left: 6px;
-      top: 2px;
-      width: 8px;
-    }
-
-    .users-icon::after {
-      height: 7px;
-      left: 2px;
-      top: 10px;
-      width: 16px;
-    }
-
-    .users-icon span {
-      height: 5px;
-      opacity: .85;
-      right: -1px;
-      top: 7px;
-      width: 5px;
-    }
-
-    .cast-icon::before {
-      border: 2px solid var(--primary-2);
-      border-radius: 3px;
-      height: 13px;
-      left: 2px;
-      top: 3px;
-      width: 16px;
-    }
-
-    .cast-icon::after {
-      border-bottom: 2px solid var(--primary-2);
-      border-left: 2px solid var(--primary-2);
-      border-radius: 0 0 0 8px;
-      bottom: 2px;
-      height: 7px;
-      left: 2px;
-      width: 7px;
-    }
-
-    .search-icon::before {
-      border: 3px solid var(--primary-2);
-      border-radius: 999px;
-      height: 10px;
-      left: 2px;
-      top: 2px;
-      width: 10px;
-    }
-
-    .search-icon::after {
-      background: var(--primary-2);
-      border-radius: 999px;
-      content: "";
-      height: 8px;
-      left: 13px;
-      position: absolute;
-      top: 13px;
-      transform: rotate(-45deg);
-      width: 3px;
-    }
-
-    .palette-button {
-      gap: 4px;
-    }
-
-    .palette-dot {
-      border-radius: 999px;
-      display: block;
-      height: 10px;
-      width: 10px;
+      min-width: 40px;
+      padding: 0 12px;
     }
 
     .avatar {
       background:
-        radial-gradient(circle at 65% 38%, #ff67cb 0 12%, transparent 13%),
-        radial-gradient(circle at 35% 44%, #7b4dff 0 16%, transparent 17%),
-        linear-gradient(145deg, #110725, #2b0632 58%, #ff4ecb);
-      border: 1px solid rgba(169, 247, 255, .24);
+        radial-gradient(circle at 65% 38%, #ff69ce 0 11%, transparent 12%),
+        radial-gradient(circle at 40% 45%, #6e3dff 0 18%, transparent 19%),
+        linear-gradient(145deg, #100624, #270931 58%, #ff4fc9);
+      width: 44px;
     }
 
     .tabs {
-      display: flex;
-      gap: 10px;
       justify-content: center;
-      margin: 16px 0 10px;
+      margin-top: 34px;
     }
 
     .tab {
-      background: rgba(0, 229, 255, .12);
+      background: color-mix(in srgb, var(--accent) 11%, var(--surface-2));
       border-radius: 999px;
-      color: var(--primary-2);
-      font-size: 14px;
-      font-weight: 780;
-      padding: 10px 19px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 11px 21px;
     }
 
     .tab.active {
-      background: var(--primary);
-      color: var(--on-primary);
+      background: var(--accent);
+      color: var(--on-accent);
     }
 
-    .palette-wrap {
-      position: relative;
-    }
-
-    .palette-menu {
-      background: rgba(24, 49, 57, .98);
-      border: 1px solid rgba(169, 247, 255, .18);
+    .palette-pop {
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface-2));
+      border: 1px solid rgba(169, 247, 255, .16);
       border-radius: 18px;
-      box-shadow: 0 20px 54px rgba(0, 0, 0, .42);
+      box-shadow: 0 22px 54px rgba(0, 0, 0, .42);
       display: grid;
-      gap: 4px;
-      min-width: 170px;
+      gap: 3px;
       padding: 8px;
       position: absolute;
-      right: 0;
-      top: 50px;
-      z-index: 4;
+      right: 62px;
+      top: 60px;
+      width: 162px;
+      z-index: 5;
     }
 
-    .palette-choice {
+    .palette-row {
       align-items: center;
-      border-radius: 14px;
+      border-radius: 12px;
+      color: var(--accent-2);
       display: grid;
-      font-weight: 760;
+      font-weight: 800;
       gap: 10px;
       grid-template-columns: 18px 1fr;
-      min-height: 38px;
-      padding: 8px 11px;
+      padding: 9px 11px;
     }
 
-    .palette-choice.active,
-    .palette-choice:hover {
-      background: rgba(0, 229, 255, .14);
-      color: var(--primary-2);
+    .palette-row.active {
+      background: color-mix(in srgb, var(--accent) 14%, transparent);
     }
 
     .swatch {
       border-radius: 999px;
-      height: 18px;
-      width: 18px;
+      height: 16px;
+      width: 16px;
     }
 
-    .blue { background: #00e5ff; }
-    .purple { background: #c78cff; }
-    .pink { background: #ff6fcf; }
-
-    .content {
-      margin-top: 8px;
-    }
+    .swatch.blue { background: var(--accent); }
+    .swatch.purple { background: var(--purple); }
+    .swatch.pink { background: var(--pink); }
 
     .section {
-      margin-top: 34px;
+      margin-top: 28px;
     }
 
     .section-head {
@@ -276,110 +217,130 @@
       margin-bottom: 14px;
     }
 
+    h1,
+    h2,
     .section-title {
-      color: #c8f6ff;
+      color: var(--accent-2);
       font-size: 22px;
       font-weight: 850;
+      letter-spacing: 0;
       margin: 0;
     }
 
-    .scroll-buttons {
-      display: flex;
-      gap: 10px;
+    .section-title {
+      align-items: center;
+      display: inline-flex;
+      gap: 9px;
+    }
+
+    .title-icon {
+      color: var(--accent);
+      font-size: 18px;
     }
 
     .row {
       display: grid;
       gap: 18px;
-      grid-auto-columns: minmax(250px, 1fr);
+      grid-auto-columns: 300px;
       grid-auto-flow: column;
       overflow: hidden;
     }
 
-    .library-card,
-    .media-card {
-      border-radius: var(--radius-lg);
-      color: inherit;
+    .poster-row {
+      grid-auto-columns: 176px;
+      gap: 22px;
+    }
+
+    .card {
+      min-width: 0;
+      position: relative;
+    }
+
+    .thumb,
+    .poster {
+      background: #141a1d;
+      border-radius: 18px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .18);
       overflow: hidden;
       position: relative;
     }
 
-    .library-art,
-    .media-art {
-      background: #1b2022;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .library-art {
+    .thumb {
       aspect-ratio: 16 / 9;
     }
 
-    .media-art {
-      aspect-ratio: 16 / 9;
+    .poster {
+      aspect-ratio: 2 / 3;
+      border-radius: 16px 16px 4px 4px;
     }
 
-    .library-art img,
-    .media-art img {
+    .thumb img,
+    .poster img {
       display: block;
       height: 100%;
       object-fit: cover;
       width: 100%;
     }
 
-    .state-layer::after {
-      background: rgba(169, 247, 255, .075);
-      border-radius: inherit;
-      content: "";
-      inset: 0;
-      position: absolute;
+    .fake-poster {
+      align-items: end;
+      background:
+        radial-gradient(circle at 72% 18%, rgba(255, 255, 255, .14), transparent 7rem),
+        linear-gradient(145deg, #071014, #11292e 40%, #020607);
+      display: flex;
+      justify-content: center;
+      padding: 18px;
     }
 
-    .card-title {
-      color: var(--primary);
+    .fake-poster.marvel {
+      background: radial-gradient(circle at 52% 36%, rgba(255, 41, 41, .33), transparent 7rem), linear-gradient(145deg, #240808, #060708 62%);
+    }
+
+    .fake-poster.wizard {
+      background: radial-gradient(circle at 50% 24%, rgba(199, 140, 255, .34), transparent 7rem), linear-gradient(145deg, #180c2f, #05070b 62%);
+    }
+
+    .poster-logo {
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 950;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      background: color-mix(in srgb, var(--accent) 13%, var(--surface-2));
+      border-radius: 0 0 14px 14px;
+      margin-top: 0;
+      padding: 10px 10px 11px;
+      text-align: center;
+    }
+
+    .thumb + .label,
+    .label {
+      color: var(--accent);
       font-size: 16px;
       font-weight: 850;
       margin-top: 8px;
+      overflow: hidden;
       text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .card-subtitle {
+    .sub {
       color: var(--muted);
       font-size: 13px;
-      margin-top: 5px;
+      margin-top: 4px;
       text-align: center;
-    }
-
-    .play-fab {
-      align-items: center;
-      background: var(--primary);
-      border-radius: 999px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, .32);
-      display: flex;
-      height: 54px;
-      justify-content: center;
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 54px;
-    }
-
-    .play-fab::before {
-      border-bottom: 11px solid transparent;
-      border-left: 16px solid var(--on-primary);
-      border-top: 11px solid transparent;
-      content: "";
-      margin-left: 4px;
     }
 
     .progress {
-      background: rgba(7, 16, 20, .7);
+      background: rgba(6, 16, 19, .78);
       border: 1px solid rgba(169, 247, 255, .18);
       border-radius: 999px;
       bottom: 12px;
-      height: 8px;
+      height: 7px;
       left: 14px;
       overflow: hidden;
       position: absolute;
@@ -387,159 +348,361 @@
     }
 
     .progress span {
-      background: var(--primary);
+      background: var(--accent);
       border-radius: inherit;
       display: block;
       height: 100%;
     }
 
-    .dialog-preview {
-      background: rgba(24, 49, 57, .94);
-      border: 1px solid rgba(169, 247, 255, .18);
-      border-radius: 28px;
-      box-shadow: 0 26px 70px rgba(0, 0, 0, .38);
+    .play {
+      align-items: center;
+      background: var(--accent);
+      border-radius: 999px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .35);
+      color: var(--on-accent);
+      display: flex;
+      font-size: 22px;
+      height: 54px;
+      justify-content: center;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 54px;
+      z-index: 2;
+    }
+
+    .hover-footer {
+      background: color-mix(in srgb, var(--accent) 13%, var(--surface-2));
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, .2);
+      padding: 12px 14px 13px;
+    }
+
+    .calendar-shell,
+    .player-shell,
+    .enhanced-panel {
+      background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+      border: 1px solid rgba(169, 247, 255, .12);
+      border-radius: 18px;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .26);
+    }
+
+    .enhanced-shot .grid {
       display: grid;
-      gap: 10px;
-      margin-top: 32px;
-      max-width: 520px;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      margin-top: 22px;
+    }
+
+    .calendar-shell {
       padding: 22px;
     }
 
-    .dialog-preview h2 {
-      margin: 0;
+    .calendar-controls,
+    .filter-panel,
+    .plugin-tabs,
+    .player-controls {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
     }
 
-    .dialog-preview p {
+    .pill {
+      background: color-mix(in srgb, var(--accent) 12%, var(--surface-2));
+      border: 1px solid rgba(169, 247, 255, .08);
+      border-radius: 999px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 10px 16px;
+    }
+
+    .pill.active {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    .filter-panel {
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface-2));
+      border-radius: 18px;
+      margin: 22px auto;
+      max-width: 720px;
+      padding: 18px;
+    }
+
+    .calendar-days {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .day {
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface-2));
+      border: 1px solid rgba(169, 247, 255, .08);
+      border-radius: 10px;
+      min-height: 185px;
+      padding: 10px;
+    }
+
+    .date {
+      color: var(--accent-2);
+      font-size: 20px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .event {
+      background:
+        linear-gradient(180deg, transparent 44%, rgba(0, 0, 0, .68)),
+        linear-gradient(135deg, #b7e6ff, #274751 45%, #0d1518);
+      border-radius: 10px;
+      height: 120px;
+      margin-top: 10px;
+      padding: 72px 8px 8px;
+    }
+
+    .event span {
+      color: #fff;
+      display: block;
+      font-size: 13px;
+      font-weight: 900;
+      text-shadow: 0 1px 8px #000;
+    }
+
+    .enhanced-panel {
+      padding: 18px;
+    }
+
+    .feature-card {
+      background: color-mix(in srgb, var(--accent) 6%, var(--surface-2));
+      border: 1px solid rgba(169, 247, 255, .1);
+      border-radius: 14px;
+      margin-top: 12px;
+      padding: 14px;
+    }
+
+    .feature-card strong {
+      color: var(--accent-2);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .feature-card span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .library-shot .art-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 32px;
+    }
+
+    .library-shot .thumb {
+      border-radius: 20px 20px 0 0;
+    }
+
+    .player-shell {
+      margin: 42px auto 0;
+      max-width: 980px;
+      padding: 24px;
+    }
+
+    .timeline {
+      background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+      border-radius: 999px;
+      height: 8px;
+      overflow: hidden;
+    }
+
+    .timeline span {
+      background: var(--accent);
+      border-radius: inherit;
+      display: block;
+      height: 100%;
+      width: 28%;
+    }
+
+    .player-controls {
+      background: color-mix(in srgb, var(--accent) 7%, var(--surface-2));
+      border: 1px solid rgba(169, 247, 255, .11);
+      border-radius: 999px;
+      margin: 22px auto 0;
+      padding: 9px;
+      width: fit-content;
+    }
+
+    .player-button {
+      align-items: center;
+      background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+      border-radius: 999px;
+      color: var(--accent-2);
+      display: flex;
+      font-size: 18px;
+      font-weight: 900;
+      height: 42px;
+      justify-content: center;
+      width: 42px;
+    }
+
+    .player-button.primary {
+      background: var(--accent);
+      color: var(--on-accent);
+      height: 50px;
+      width: 50px;
+    }
+
+    .now-playing {
+      align-items: center;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 110px 1fr auto;
+      margin-top: 28px;
+    }
+
+    .album {
+      background: radial-gradient(circle at 50% 40%, rgba(255, 111, 207, .28), transparent 48%), linear-gradient(145deg, #071014, #172b31);
+      border-radius: 18px;
+      height: 110px;
+      width: 110px;
+    }
+
+    .track h1 {
+      color: var(--accent-2);
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .track p {
       color: var(--muted);
       margin: 0;
     }
-
-    .dialog-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      margin-top: 8px;
-    }
-
-    .action {
-      border-radius: 999px;
-      font-weight: 780;
-      padding: 11px 18px;
-    }
-
-    .action.primary {
-      background: var(--primary);
-      color: var(--on-primary);
-    }
-
-    .action.secondary {
-      background: rgba(0, 229, 255, .12);
-      color: var(--primary-2);
-    }
   </style>
 </head>
-<body>
-  <main class="app">
+<body data-shot="home">
+  <main class="shot home-shot">
     <header class="topbar">
-      <div class="brand">
-        <div class="nav-icons">
-          <div class="icon-button" aria-label="Back">&#8592;</div>
-          <div class="icon-button" aria-label="Home">&#8962;</div>
-          <div class="icon-button" aria-label="Menu">&#9776;</div>
+      <div class="header-line">
+        <div class="brand">
+          <span class="icon-btn">‹</span><span class="icon-btn">⌂</span><span class="icon-btn">≡</span>
+          <span class="logo-mark"></span><span class="brand-name">Jellyfin</span>
         </div>
-        <span class="logo-mark">S</span>
-        <span class="brand-name">Spookyfin</span>
+        <div class="header-icons">
+          <span class="icon-btn">▦</span><span class="icon-btn">▶</span><span class="icon-btn">♟</span><span class="icon-btn">♪</span><span class="icon-btn">◱</span><span class="icon-btn">⌕</span><span class="icon-btn">◉</span><span class="icon-btn avatar"></span>
+        </div>
       </div>
-
-      <div class="right-icons">
-        <div class="icon-button" aria-label="Users"><span class="css-icon users-icon"><span></span></span></div>
-        <div class="icon-button" aria-label="Music">&#9835;</div>
-        <div class="icon-button" aria-label="Cast"><span class="css-icon cast-icon"></span></div>
-        <div class="icon-button" aria-label="Search"><span class="css-icon search-icon"></span></div>
-        <div class="palette-wrap">
-          <div class="icon-button palette-button" aria-label="Accent color">
-            <span class="palette-dot purple"></span>
-            <span class="palette-dot pink"></span>
-          </div>
-          <div class="palette-menu">
-            <div class="palette-choice active"><span class="swatch blue"></span>Blue</div>
-            <div class="palette-choice"><span class="swatch purple"></span>Purple</div>
-            <div class="palette-choice"><span class="swatch pink"></span>Pink</div>
-          </div>
-        </div>
-        <div class="icon-button avatar"></div>
+      <div class="tabs"><span class="tab active">Home</span><span class="tab">Favorites</span><span class="tab">Watchlist</span><span class="tab">Calendar</span></div>
+      <div class="palette-pop">
+        <div class="palette-row active"><span class="swatch blue"></span>Blue</div>
+        <div class="palette-row"><span class="swatch purple"></span>Purple</div>
+        <div class="palette-row"><span class="swatch pink"></span>Pink</div>
       </div>
     </header>
 
-    <nav class="tabs">
-      <span class="tab active">Home</span>
-      <span class="tab">Favorites</span>
-    </nav>
+    <section class="section">
+      <div class="section-head"><h1 class="section-title"><span class="title-icon">▦</span>My Media</h1><div><span class="icon-btn">‹</span><span class="icon-btn">›</span></div></div>
+      <div class="row">
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/3d-movies.png" alt=""></div><div class="label">3D Movies</div></article>
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/anime.png" alt=""></div><div class="label">Anime</div></article>
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/asmr.png" alt=""></div><div class="label">ASMR</div></article>
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/audio-books.png" alt=""></div><div class="label">Audio Books</div></article>
+      </div>
+    </section>
 
-    <section class="content">
-      <section class="section">
-        <div class="section-head">
-          <h1 class="section-title">My Media</h1>
-          <div class="scroll-buttons"><span class="icon-button" aria-label="Previous">&#8249;</span><span class="icon-button" aria-label="Next">&#8250;</span></div>
-        </div>
-        <div class="row">
-          <article class="library-card">
-            <div class="library-art state-layer"><img src="../../assets/library-images/anime.png" alt=""></div>
-            <div class="card-title">Anime</div>
-          </article>
-          <article class="library-card">
-            <div class="library-art"><img src="../../assets/library-images/asmr.png" alt=""></div>
-            <div class="card-title">ASMR</div>
-          </article>
-          <article class="library-card">
-            <div class="library-art"><img src="../../assets/library-images/audio-books.png" alt=""></div>
-            <div class="card-title">Audio Books</div>
-          </article>
-          <article class="library-card">
-            <div class="library-art"><img src="../../assets/library-images/cartoons.png" alt=""></div>
-            <div class="card-title">Cartoons</div>
-          </article>
-        </div>
-      </section>
+    <section class="section">
+      <div class="section-head"><h1 class="section-title"><span class="title-icon">▶</span>Continue Watching</h1><div><span class="icon-btn">‹</span><span class="icon-btn">›</span></div></div>
+      <div class="row">
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/movies.png" alt=""><div class="progress"><span style="width: 38%"></span></div></div><div class="label">Point Break</div><div class="sub">1991</div></article>
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/tv-shows.png" alt=""><span class="play">▶</span><div class="progress"><span style="width: 63%"></span></div></div><div class="hover-footer"><div class="label">Last Breath</div><div class="sub">2025</div></div></article>
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/music-videos.png" alt=""><div class="progress"><span style="width: 12%"></span></div></div><div class="label">The Passenger</div><div class="sub">2026</div></article>
+        <article class="card"><div class="thumb"><img src="../../assets/library-images/photos.png" alt=""><div class="progress"><span style="width: 48%"></span></div></div><div class="label">Outlaw Prophet</div><div class="sub">2014</div></article>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="section-head">
-          <h1 class="section-title">Continue Watching</h1>
-          <div class="scroll-buttons"><span class="icon-button" aria-label="Previous">&#8249;</span><span class="icon-button" aria-label="Next">&#8250;</span></div>
-        </div>
-        <div class="row">
-          <article class="media-card">
-            <div class="media-art"><img src="../../assets/library-images/movies.png" alt=""><div class="progress"><span style="width: 43%"></span></div></div>
-            <div class="card-title">Point Break</div>
-            <div class="card-subtitle">1991</div>
-          </article>
-          <article class="media-card">
-            <div class="media-art state-layer"><img src="../../assets/library-images/music-videos.png" alt=""><span class="play-fab"></span><div class="progress"><span style="width: 11%"></span></div></div>
-            <div class="card-title">Mortal Kombat II</div>
-            <div class="card-subtitle">2026</div>
-          </article>
-          <article class="media-card">
-            <div class="media-art"><img src="../../assets/library-images/tv-shows.png" alt=""><div class="progress"><span style="width: 58%"></span></div></div>
-            <div class="card-title">The Passenger</div>
-            <div class="card-subtitle">2026</div>
-          </article>
-          <article class="media-card">
-            <div class="media-art"><img src="../../assets/library-images/photos.png" alt=""><div class="progress"><span style="width: 74%"></span></div></div>
-            <div class="card-title">Last Breath</div>
-            <div class="card-subtitle">2025</div>
-          </article>
-        </div>
-      </section>
-
-      <aside class="dialog-preview">
-        <h2>Android-style dialogs</h2>
-        <p>Softer tonal surfaces, rounded corners, and pill actions match the rest of the Jellyfin theme.</p>
-        <div class="dialog-actions">
-          <span class="action secondary">Cancel</span>
-          <span class="action primary">Resume</span>
-        </div>
-      </aside>
+    <section class="section">
+      <div class="section-head"><h1 class="section-title"><span class="title-icon">▸</span>Marvel Cinematic Universe</h1></div>
+      <div class="row poster-row">
+        <article class="card"><div class="poster fake-poster marvel"><div class="poster-logo">Iron Man</div></div><div class="footer"><div class="label">Iron Man</div><div class="sub">2008</div></div></article>
+        <article class="card"><div class="poster fake-poster marvel"><div class="poster-logo">Thor</div></div><div class="footer"><div class="label">Thor</div><div class="sub">2011</div></div></article>
+        <article class="card"><div class="poster fake-poster marvel"><div class="poster-logo">Avengers</div></div><div class="footer"><div class="label">The Avengers</div><div class="sub">2012</div></div></article>
+        <article class="card"><div class="poster fake-poster wizard"><div class="poster-logo">Wizarding World</div></div><div class="footer"><div class="label">Harry Potter</div><div class="sub">2001</div></div></article>
+      </div>
     </section>
   </main>
+
+  <main class="shot library-shot">
+    <header class="topbar">
+      <div class="header-line"><div class="brand"><span class="logo-mark"></span><span class="brand-name">Spookyfin Library Art</span></div><div class="header-icons"><span class="icon-btn">Blue</span><span class="icon-btn">Purple</span><span class="icon-btn">Pink</span></div></div>
+      <div class="tabs"><span class="tab active">Wide artwork</span><span class="tab">Rounded cards</span><span class="tab">Accent footer</span></div>
+    </header>
+    <div class="art-grid">
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/3d-movies.png" alt=""></div><div class="footer"><div class="label">3D Movies</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/anime.png" alt=""></div><div class="footer"><div class="label">Anime</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/asmr.png" alt=""></div><div class="footer"><div class="label">ASMR</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/audio-books.png" alt=""></div><div class="footer"><div class="label">Audio Books</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/movies.png" alt=""></div><div class="footer"><div class="label">Movies</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/tv-shows.png" alt=""></div><div class="footer"><div class="label">Shows</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/music.png" alt=""></div><div class="footer"><div class="label">Music</div></div></article>
+      <article class="card"><div class="thumb"><img src="../../assets/library-images/playlists.png" alt=""></div><div class="footer"><div class="label">Playlists</div></div></article>
+    </div>
+  </main>
+
+  <main class="shot enhanced-shot">
+    <header class="topbar">
+      <div class="header-line"><div class="brand"><span class="logo-mark"></span><span class="brand-name">Jellyfin Enhanced + Spookyfin</span></div><div class="header-icons"><span class="icon-btn">⚙</span><span class="icon-btn avatar"></span></div></div>
+      <div class="tabs"><span class="tab">Home</span><span class="tab">Favorites</span><span class="tab">Watchlist</span><span class="tab active">Calendar</span></div>
+    </header>
+    <div class="grid">
+      <section class="calendar-shell">
+        <div class="section-head"><h1>Jun 15 - Jun 21</h1><div class="calendar-controls"><span class="pill">‹</span><span class="pill">Today</span><span class="pill">›</span></div></div>
+        <div class="calendar-controls"><span class="pill">Day</span><span class="pill active">Week</span><span class="pill">Month</span><span class="pill">Agenda</span><span class="pill">▤</span><span class="pill">▧</span></div>
+        <div class="filter-panel"><span class="pill active">OR</span><span class="pill">Cinema Release</span><span class="pill">Digital Release</span><span class="pill">Episode</span><span class="pill">Watchlist</span><span class="pill">Watched</span></div>
+        <div class="calendar-days">
+          <div class="day"><div class="date">15</div><div class="sub">Mon</div><div class="event"><span>Busboys</span></div></div>
+          <div class="day"><div class="date">16</div><div class="sub">Tue</div><div class="event"><span>Toy Story 5</span></div></div>
+          <div class="day"><div class="date">17</div><div class="sub">Wed</div></div>
+          <div class="day"><div class="date">18</div><div class="sub">Thu</div></div>
+          <div class="day"><div class="date">19</div><div class="sub">Fri</div></div>
+          <div class="day"><div class="date">20</div><div class="sub">Sat</div></div>
+          <div class="day"><div class="date">21</div><div class="sub">Sun</div><div class="event"><span>Ready or Not 2</span></div></div>
+        </div>
+      </section>
+      <aside class="enhanced-panel">
+        <div class="plugin-tabs"><span class="pill active">Overview</span><span class="pill">Playback</span><span class="pill">Pages</span><span class="pill">*arr</span></div>
+        <div class="feature-card"><strong>Recommended dependencies</strong><span>File Transformation, Custom Tabs, Plugin Pages, Intro Skipper when needed.</span></div>
+        <div class="feature-card"><strong>Nice with Spookyfin</strong><span>Calendar tab, Watchlist tab, bookmarks, custom pause screen, and quality/rating tags.</span></div>
+        <div class="feature-card"><strong>Keep it clean</strong><span>Let Spookyfin own global colors; enable only the Enhanced pages and badges you actually use.</span></div>
+      </aside>
+    </div>
+  </main>
+
+  <main class="shot music-shot">
+    <header class="topbar">
+      <div class="header-line"><div class="brand"><span class="icon-btn">‹</span><span class="icon-btn">⌂</span><span class="icon-btn">≡</span><span class="logo-mark"></span><span class="brand-name">Music Player</span></div><div class="header-icons"><span class="icon-btn">♪</span><span class="icon-btn">◱</span><span class="icon-btn avatar"></span></div></div>
+    </header>
+    <section class="player-shell">
+      <div class="timeline"><span></span></div>
+      <div class="player-controls">
+        <span class="player-button">↻</span><span class="player-button">10</span><span class="player-button">|‹</span><span class="player-button primary">▶</span><span class="player-button">■</span><span class="player-button">›|</span><span class="player-button">30</span><span class="player-button">×</span>
+      </div>
+      <div class="player-controls">
+        <span class="player-button">♪</span><span class="player-button">cc</span><span class="player-button">□</span><span class="player-button">▤</span><span class="player-button">↔</span><span class="player-button">↻</span><span class="player-button">◔</span>
+      </div>
+      <div class="now-playing">
+        <div class="album"></div>
+        <div class="track"><h1>Now playing deck</h1><p>Navigation, Send Message, and Enter Text are hidden so the player stays focused.</p></div>
+        <span class="pill active">Spookyfin v10.11</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const shot = new URLSearchParams(location.search).get("shot") || "home";
+    document.body.dataset.shot = shot;
+  </script>
 </body>
 </html>

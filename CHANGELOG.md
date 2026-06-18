@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.1
+
+- Rebuilt the repository preview screenshots to match the current Spookyfin header, rows, cards, and accent styling.
+- Added Jellyfin Enhanced and music player preview images.
+- Added a simple setup walkthrough to the README and install guide.
+- Added Jellyfin Enhanced setup recommendations, companion plugin notes, and Calendar/Watchlist guidance.
+
 ## 1.2.0
 
 - Synced `theme.css` with the current live Spookyfin Jellyfin theme.
