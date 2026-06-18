@@ -9,6 +9,7 @@
   const MARVEL_SECTION_ID = "codex-marvel-home-section";
   const WIZARDING_COLLECTION_ID = "f356014e0bd58bb53436e8a640032e82";
   const WIZARDING_SECTION_ID = "codex-wizarding-home-section";
+  const CUSTOM_TAB_BASE_INDEX = 2;
   const THEMES = {
     blue: {
       label: "Blue",
@@ -68,6 +69,297 @@
   };
 
   const cleanText = (node) => (node?.textContent || "").replace(/\s+/g, " ").trim();
+
+  let customTabsConfigPromise = null;
+
+  const isCustomTabsHomeRoute = () => {
+    const hash = window.location.hash || "";
+    return hash === "" || /^#\/home(?:\.html)?(?:[?&/]|$)/i.test(hash);
+  };
+
+  const getCustomTabsConfig = () => {
+    if (customTabsConfigPromise) return customTabsConfigPromise;
+    if (!window.ApiClient?.fetch || !window.ApiClient?.getUrl) return Promise.resolve([]);
+
+    customTabsConfigPromise = window.ApiClient.fetch({
+      url: window.ApiClient.getUrl("CustomTabs/Config"),
+      type: "GET",
+      dataType: "json",
+      headers: { accept: "application/json" }
+    }).catch(() => []);
+
+    return customTabsConfigPromise;
+  };
+
+  const normalizeCustomTabHtml = (tab) => {
+    const title = String(tab?.Title || "");
+    const html = String(tab?.ContentHtml || "").trim();
+
+    if (/calendar/i.test(title) && /jellyfinenhanced\s+calendar/i.test(html)) {
+      return '<div class="jellyfinenhanced calendar"></div>';
+    }
+
+    return html;
+  };
+
+  const ensureCustomTabStyles = () => {
+    if (document.getElementById("codex-custom-tabs-repair-style")) return;
+
+    const style = document.createElement("style");
+    style.id = "codex-custom-tabs-repair-style";
+    style.textContent = `
+      .homePage .codex-custom-tabContent:not(.is-active) {
+        display: none !important;
+      }
+
+      .homePage .codex-custom-tabContent.is-active {
+        display: block !important;
+        min-height: 12rem !important;
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const ensureCustomTabPanes = async () => {
+    if (!isCustomTabsHomeRoute()) return;
+
+    const homePage = document.querySelector("#indexPage.homePage, .homePage#indexPage");
+    const tabsSlider = document.querySelector(".headerTabs .emby-tabs-slider, .emby-tabs-slider");
+    if (!homePage || !tabsSlider) return;
+
+    const configs = await getCustomTabsConfig();
+    if (!Array.isArray(configs) || !configs.length) return;
+
+    ensureCustomTabStyles();
+
+    configs.forEach((tab, offset) => {
+      const index = CUSTOM_TAB_BASE_INDEX + offset;
+      const paneId = `codexCustomTabContent_${offset}`;
+      const html = normalizeCustomTabHtml(tab);
+      if (!html) return;
+
+      let pane = homePage.querySelector(`.tabContent[data-index="${index}"]`);
+      if (!pane) {
+        pane = document.createElement("div");
+        pane.className = "tabContent pageTabContent libraryPage codex-custom-tabContent";
+        pane.id = paneId;
+        pane.setAttribute("data-index", String(index));
+        homePage.appendChild(pane);
+      } else {
+        pane.classList.add("tabContent", "pageTabContent", "libraryPage", "codex-custom-tabContent");
+        if (!pane.id) pane.id = paneId;
+      }
+
+      if (pane.getAttribute("data-codex-custom-tab-html") !== html) {
+        pane.innerHTML = html;
+        pane.setAttribute("data-codex-custom-tab-html", html);
+      }
+    });
+  };
+
+  const ensureCalendarColorStyles = () => {
+    if (document.getElementById("codex-calendar-color-style")) return;
+
+    const style = document.createElement("style");
+    style.id = "codex-calendar-color-style";
+    style.textContent = `
+      .jellyfinenhanced.calendar,
+      .je-calendar-page {
+        background: var(--my-bg, #071014) !important;
+        background-color: var(--my-bg, #071014) !important;
+        color: var(--my-text, #effcff) !important;
+      }
+
+      .homePage .codex-custom-tabContent.is-active:has(.jellyfinenhanced.calendar) {
+        padding-top: calc(var(--codex-header-wave-clearance, 2.4rem) + .25rem) !important;
+      }
+
+      .homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar {
+        padding-top: 0 !important;
+      }
+
+      .homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar .je-calendar-page,
+      .homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar .content-primary.je-calendar-page {
+        padding-top: 0 !important;
+      }
+
+      .homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar .je-calendar-header {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      .jellyfinenhanced.calendar .je-calendar-title,
+      .jellyfinenhanced.calendar h1,
+      .jellyfinenhanced.calendar h2,
+      .jellyfinenhanced.calendar h3,
+      .je-calendar-page .je-calendar-title,
+      .je-calendar-page h1,
+      .je-calendar-page h2,
+      .je-calendar-page h3 {
+        color: var(--my-primary-2, #a9f7ff) !important;
+        font-weight: 850 !important;
+      }
+
+      .jellyfinenhanced.calendar .je-calendar-header,
+      .jellyfinenhanced.calendar .je-calendar-actions,
+      .jellyfinenhanced.calendar .je-calendar-legend,
+      .jellyfinenhanced.calendar .je-calendar-filter-controls,
+      .jellyfinenhanced.calendar .je-calendar-legend-item,
+      .je-calendar-page .je-calendar-header,
+      .je-calendar-page .je-calendar-actions,
+      .je-calendar-page .je-calendar-legend,
+      .je-calendar-page .je-calendar-filter-controls,
+      .je-calendar-page .je-calendar-legend-item {
+        color: var(--my-text, #effcff) !important;
+      }
+
+      .jellyfinenhanced.calendar .je-calendar-card,
+      .jellyfinenhanced.calendar .je-calendar-agenda-row,
+      .jellyfinenhanced.calendar .je-calendar-day,
+      .jellyfinenhanced.calendar .je-calendar-empty,
+      .je-calendar-page .je-calendar-card,
+      .je-calendar-page .je-calendar-agenda-row,
+      .je-calendar-page .je-calendar-day,
+      .je-calendar-page .je-calendar-empty {
+        background: color-mix(in srgb, var(--my-primary, #00e5ff) 7%, var(--my-bg-raised, #0b151a)) !important;
+        background-color: color-mix(in srgb, var(--my-primary, #00e5ff) 7%, var(--my-bg-raised, #0b151a)) !important;
+        border-color: color-mix(in srgb, var(--my-primary, #00e5ff) 12%, transparent) !important;
+        color: var(--my-text, #effcff) !important;
+      }
+
+      .jellyfinenhanced.calendar .je-calendar-card-title,
+      .jellyfinenhanced.calendar .je-calendar-card-title-text,
+      .jellyfinenhanced.calendar .je-calendar-event-title,
+      .jellyfinenhanced.calendar .je-calendar-agenda-event-title,
+      .jellyfinenhanced.calendar .je-calendar-agenda-title-text,
+      .je-calendar-page .je-calendar-card-title,
+      .je-calendar-page .je-calendar-card-title-text,
+      .je-calendar-page .je-calendar-event-title,
+      .je-calendar-page .je-calendar-agenda-event-title,
+      .je-calendar-page .je-calendar-agenda-title-text {
+        color: var(--my-text, #effcff) !important;
+        font-weight: 800 !important;
+      }
+
+      .jellyfinenhanced.calendar .je-calendar-card-subtitle,
+      .jellyfinenhanced.calendar .je-calendar-card-meta,
+      .jellyfinenhanced.calendar .je-calendar-event-subtitle,
+      .jellyfinenhanced.calendar .je-calendar-event-type,
+      .jellyfinenhanced.calendar .je-calendar-agenda-subtitle,
+      .jellyfinenhanced.calendar .je-calendar-agenda-event-meta,
+      .je-calendar-page .je-calendar-card-subtitle,
+      .je-calendar-page .je-calendar-card-meta,
+      .je-calendar-page .je-calendar-event-subtitle,
+      .je-calendar-page .je-calendar-event-type,
+      .je-calendar-page .je-calendar-agenda-subtitle,
+      .je-calendar-page .je-calendar-agenda-event-meta {
+        color: var(--my-muted, #b8ced4) !important;
+      }
+
+      .jellyfinenhanced.calendar .je-calendar-day-name,
+      .jellyfinenhanced.calendar .je-calendar-day-number,
+      .jellyfinenhanced.calendar .je-calendar-agenda-date,
+      .je-calendar-page .je-calendar-day-name,
+      .je-calendar-page .je-calendar-day-number,
+      .je-calendar-page .je-calendar-agenda-date {
+        color: var(--my-primary-2, #a9f7ff) !important;
+      }
+
+      .jellyfinenhanced.calendar button,
+      .jellyfinenhanced.calendar .emby-button,
+      .jellyfinenhanced.calendar .je-calendar-nav-btn,
+      .jellyfinenhanced.calendar .je-calendar-view-btn,
+      .jellyfinenhanced.calendar .je-calendar-mode-btn,
+      .jellyfinenhanced.calendar .je-calendar-filter-btn,
+      .je-calendar-page button,
+      .je-calendar-page .emby-button,
+      .je-calendar-page .je-calendar-nav-btn,
+      .je-calendar-page .je-calendar-view-btn,
+      .je-calendar-page .je-calendar-mode-btn,
+      .je-calendar-page .je-calendar-filter-btn {
+        background: color-mix(in srgb, var(--my-primary, #00e5ff) 10%, transparent) !important;
+        background-color: color-mix(in srgb, var(--my-primary, #00e5ff) 10%, transparent) !important;
+        border-color: color-mix(in srgb, var(--my-primary, #00e5ff) 16%, transparent) !important;
+        box-shadow: none !important;
+        color: var(--my-primary-2, #a9f7ff) !important;
+      }
+
+      .jellyfinenhanced.calendar button:hover,
+      .jellyfinenhanced.calendar .emby-button:hover,
+      .jellyfinenhanced.calendar .je-calendar-nav-btn:hover,
+      .jellyfinenhanced.calendar .je-calendar-view-btn:hover,
+      .jellyfinenhanced.calendar .je-calendar-mode-btn:hover,
+      .jellyfinenhanced.calendar .je-calendar-filter-btn:hover,
+      .je-calendar-page button:hover,
+      .je-calendar-page .emby-button:hover,
+      .je-calendar-page .je-calendar-nav-btn:hover,
+      .je-calendar-page .je-calendar-view-btn:hover,
+      .je-calendar-page .je-calendar-mode-btn:hover,
+      .je-calendar-page .je-calendar-filter-btn:hover {
+        background: var(--my-state-hover, rgba(0, 229, 255, .14)) !important;
+        background-color: var(--my-state-hover, rgba(0, 229, 255, .14)) !important;
+        color: var(--my-primary-2, #a9f7ff) !important;
+      }
+
+      .jellyfinenhanced.calendar .active,
+      .jellyfinenhanced.calendar button.active,
+      .jellyfinenhanced.calendar .je-calendar-view-btn.active,
+      .jellyfinenhanced.calendar .je-calendar-mode-btn.active,
+      .jellyfinenhanced.calendar .je-calendar-filter-btn.active,
+      .je-calendar-page .active,
+      .je-calendar-page button.active,
+      .je-calendar-page .je-calendar-view-btn.active,
+      .je-calendar-page .je-calendar-mode-btn.active,
+      .je-calendar-page .je-calendar-filter-btn.active {
+        background: var(--my-primary, #00e5ff) !important;
+        background-color: var(--my-primary, #00e5ff) !important;
+        border-color: var(--my-primary, #00e5ff) !important;
+        color: var(--my-on-primary, #001f26) !important;
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const ensureDrawerColorStyles = () => {
+    if (document.getElementById("codex-drawer-color-style")) return;
+
+    const style = document.createElement("style");
+    style.id = "codex-drawer-color-style";
+    style.textContent = `
+      .mainDrawer,
+      .drawer-open .mainDrawer,
+      .MuiDrawer-paper {
+        color: var(--my-primary-2, #a9f7ff) !important;
+      }
+
+      .mainDrawer .navMenuSectionTitle,
+      .mainDrawer .navSectionTitle,
+      .mainDrawer .navMenuHeader,
+      .mainDrawer .navHeader,
+      .mainDrawer .drawerSectionTitle,
+      .mainDrawer .sidebarSectionTitle,
+      .mainDrawer .sectionHeader,
+      .mainDrawer .listGroupHeader,
+      .mainDrawer h2,
+      .mainDrawer h3,
+      .mainDrawer h4,
+      .mainDrawer label {
+        color: var(--my-primary-2, #a9f7ff) !important;
+        font-weight: 750 !important;
+        opacity: .92 !important;
+      }
+
+      .mainDrawer .navMenuOption,
+      .mainDrawer .navMenuOptionText,
+      .mainDrawer .navMenuOptionIcon,
+      .mainDrawer .material-icons,
+      .mainDrawer .material-symbols-rounded,
+      .mainDrawer .emby-button {
+        color: var(--my-primary-2, #a9f7ff) !important;
+      }
+    `;
+    document.head.appendChild(style);
+  };
 
   const getThemeName = () => {
     const stored = window.localStorage?.getItem(THEME_KEY);
@@ -979,6 +1271,9 @@
       applyingOrder = false;
     }
 
+    ensureCalendarColorStyles();
+    ensureDrawerColorStyles();
+    ensureCustomTabPanes();
     hydrateHomeImages();
   };
 
@@ -988,7 +1283,10 @@
     queued = true;
     window.requestAnimationFrame(() => {
       queued = false;
+      ensureCalendarColorStyles();
+      ensureDrawerColorStyles();
       reorderHome();
+      ensureCustomTabPanes();
       hydrateHomeImages();
     });
   };
@@ -1008,6 +1306,9 @@
   const start = () => {
     applyTheme(getThemeName());
     ensureColorSwitcher();
+    ensureCalendarColorStyles();
+    ensureDrawerColorStyles();
+    ensureCustomTabPanes();
     queueReorder();
     observer.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("hashchange", queueReorder, { passive: true });

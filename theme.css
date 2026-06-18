@@ -7017,3 +7017,335 @@ body:has(#slides-container) .homeSectionsContainer {
   }
 }
 /* Codex MediaBar spotlight polish v10.1 end */
+
+/* Codex Jellyfin Enhanced calendar colors v10.2 */
+.homePage .jellyfinenhanced.calendar,
+.homePage .je-calendar-page,
+.jellyfinenhanced.calendar,
+.je-calendar-page {
+  background: var(--my-bg) !important;
+  background-color: var(--my-bg) !important;
+  color: var(--my-text) !important;
+}
+
+.homePage .jellyfinenhanced.calendar *,
+.homePage .je-calendar-page *,
+.jellyfinenhanced.calendar *,
+.je-calendar-page * {
+  color: inherit;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-title,
+.homePage .jellyfinenhanced.calendar h1,
+.homePage .jellyfinenhanced.calendar h2,
+.homePage .jellyfinenhanced.calendar h3,
+.homePage .je-calendar-page .je-calendar-title,
+.homePage .je-calendar-page h1,
+.homePage .je-calendar-page h2,
+.homePage .je-calendar-page h3,
+.jellyfinenhanced.calendar .je-calendar-title,
+.jellyfinenhanced.calendar h1,
+.jellyfinenhanced.calendar h2,
+.jellyfinenhanced.calendar h3,
+.je-calendar-page .je-calendar-title,
+.je-calendar-page h1,
+.je-calendar-page h2,
+.je-calendar-page h3 {
+  color: var(--my-primary-2) !important;
+  font-weight: 850 !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-header,
+.homePage .jellyfinenhanced.calendar .je-calendar-actions,
+.homePage .jellyfinenhanced.calendar .je-calendar-legend,
+.homePage .jellyfinenhanced.calendar .je-calendar-filter-controls,
+.homePage .je-calendar-page .je-calendar-header,
+.homePage .je-calendar-page .je-calendar-actions,
+.homePage .je-calendar-page .je-calendar-legend,
+.homePage .je-calendar-page .je-calendar-filter-controls,
+.jellyfinenhanced.calendar .je-calendar-header,
+.jellyfinenhanced.calendar .je-calendar-actions,
+.jellyfinenhanced.calendar .je-calendar-legend,
+.jellyfinenhanced.calendar .je-calendar-filter-controls,
+.je-calendar-page .je-calendar-header,
+.je-calendar-page .je-calendar-actions,
+.je-calendar-page .je-calendar-legend,
+.je-calendar-page .je-calendar-filter-controls {
+  color: var(--my-text) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-card,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-row,
+.homePage .jellyfinenhanced.calendar .je-calendar-day,
+.homePage .jellyfinenhanced.calendar .je-calendar-empty,
+.homePage .je-calendar-page .je-calendar-card,
+.homePage .je-calendar-page .je-calendar-agenda-row,
+.homePage .je-calendar-page .je-calendar-day,
+.homePage .je-calendar-page .je-calendar-empty,
+.jellyfinenhanced.calendar .je-calendar-card,
+.jellyfinenhanced.calendar .je-calendar-agenda-row,
+.jellyfinenhanced.calendar .je-calendar-day,
+.jellyfinenhanced.calendar .je-calendar-empty,
+.je-calendar-page .je-calendar-card,
+.je-calendar-page .je-calendar-agenda-row,
+.je-calendar-page .je-calendar-day,
+.je-calendar-page .je-calendar-empty {
+  background: color-mix(in srgb, var(--my-primary) 7%, var(--my-bg-raised)) !important;
+  background-color: color-mix(in srgb, var(--my-primary) 7%, var(--my-bg-raised)) !important;
+  border-color: color-mix(in srgb, var(--my-primary) 12%, transparent) !important;
+  color: var(--my-text) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-card:hover,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-row:hover,
+.homePage .jellyfinenhanced.calendar .je-calendar-event:hover,
+.homePage .je-calendar-page .je-calendar-card:hover,
+.homePage .je-calendar-page .je-calendar-agenda-row:hover,
+.homePage .je-calendar-page .je-calendar-event:hover,
+.jellyfinenhanced.calendar .je-calendar-card:hover,
+.jellyfinenhanced.calendar .je-calendar-agenda-row:hover,
+.jellyfinenhanced.calendar .je-calendar-event:hover,
+.je-calendar-page .je-calendar-card:hover,
+.je-calendar-page .je-calendar-agenda-row:hover,
+.je-calendar-page .je-calendar-event:hover {
+  background: color-mix(in srgb, var(--my-primary) 12%, var(--my-bg-raised)) !important;
+  background-color: color-mix(in srgb, var(--my-primary) 12%, var(--my-bg-raised)) !important;
+  color: var(--my-text) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-card-title,
+.homePage .jellyfinenhanced.calendar .je-calendar-card-title-text,
+.homePage .jellyfinenhanced.calendar .je-calendar-event-title,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-event-title,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-title-text,
+.homePage .je-calendar-page .je-calendar-card-title,
+.homePage .je-calendar-page .je-calendar-card-title-text,
+.homePage .je-calendar-page .je-calendar-event-title,
+.homePage .je-calendar-page .je-calendar-agenda-event-title,
+.homePage .je-calendar-page .je-calendar-agenda-title-text,
+.jellyfinenhanced.calendar .je-calendar-card-title,
+.jellyfinenhanced.calendar .je-calendar-card-title-text,
+.jellyfinenhanced.calendar .je-calendar-event-title,
+.jellyfinenhanced.calendar .je-calendar-agenda-event-title,
+.jellyfinenhanced.calendar .je-calendar-agenda-title-text,
+.je-calendar-page .je-calendar-card-title,
+.je-calendar-page .je-calendar-card-title-text,
+.je-calendar-page .je-calendar-event-title,
+.je-calendar-page .je-calendar-agenda-event-title,
+.je-calendar-page .je-calendar-agenda-title-text {
+  color: var(--my-text) !important;
+  font-weight: 800 !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-card-subtitle,
+.homePage .jellyfinenhanced.calendar .je-calendar-card-meta,
+.homePage .jellyfinenhanced.calendar .je-calendar-event-subtitle,
+.homePage .jellyfinenhanced.calendar .je-calendar-event-type,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-subtitle,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-event-meta,
+.homePage .je-calendar-page .je-calendar-card-subtitle,
+.homePage .je-calendar-page .je-calendar-card-meta,
+.homePage .je-calendar-page .je-calendar-event-subtitle,
+.homePage .je-calendar-page .je-calendar-event-type,
+.homePage .je-calendar-page .je-calendar-agenda-subtitle,
+.homePage .je-calendar-page .je-calendar-agenda-event-meta,
+.jellyfinenhanced.calendar .je-calendar-card-subtitle,
+.jellyfinenhanced.calendar .je-calendar-card-meta,
+.jellyfinenhanced.calendar .je-calendar-event-subtitle,
+.jellyfinenhanced.calendar .je-calendar-event-type,
+.jellyfinenhanced.calendar .je-calendar-agenda-subtitle,
+.jellyfinenhanced.calendar .je-calendar-agenda-event-meta,
+.je-calendar-page .je-calendar-card-subtitle,
+.je-calendar-page .je-calendar-card-meta,
+.je-calendar-page .je-calendar-event-subtitle,
+.je-calendar-page .je-calendar-event-type,
+.je-calendar-page .je-calendar-agenda-subtitle,
+.je-calendar-page .je-calendar-agenda-event-meta {
+  color: var(--my-muted) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-day-name,
+.homePage .jellyfinenhanced.calendar .je-calendar-day-number,
+.homePage .jellyfinenhanced.calendar .je-calendar-agenda-date,
+.homePage .je-calendar-page .je-calendar-day-name,
+.homePage .je-calendar-page .je-calendar-day-number,
+.homePage .je-calendar-page .je-calendar-agenda-date,
+.jellyfinenhanced.calendar .je-calendar-day-name,
+.jellyfinenhanced.calendar .je-calendar-day-number,
+.jellyfinenhanced.calendar .je-calendar-agenda-date,
+.je-calendar-page .je-calendar-day-name,
+.je-calendar-page .je-calendar-day-number,
+.je-calendar-page .je-calendar-agenda-date {
+  color: var(--my-primary-2) !important;
+}
+
+.homePage .jellyfinenhanced.calendar button,
+.homePage .jellyfinenhanced.calendar .emby-button,
+.homePage .jellyfinenhanced.calendar .je-calendar-nav-btn,
+.homePage .jellyfinenhanced.calendar .je-calendar-view-btn,
+.homePage .jellyfinenhanced.calendar .je-calendar-mode-btn,
+.homePage .jellyfinenhanced.calendar .je-calendar-filter-btn,
+.homePage .je-calendar-page button,
+.homePage .je-calendar-page .emby-button,
+.homePage .je-calendar-page .je-calendar-nav-btn,
+.homePage .je-calendar-page .je-calendar-view-btn,
+.homePage .je-calendar-page .je-calendar-mode-btn,
+.homePage .je-calendar-page .je-calendar-filter-btn,
+.jellyfinenhanced.calendar button,
+.jellyfinenhanced.calendar .emby-button,
+.jellyfinenhanced.calendar .je-calendar-nav-btn,
+.jellyfinenhanced.calendar .je-calendar-view-btn,
+.jellyfinenhanced.calendar .je-calendar-mode-btn,
+.jellyfinenhanced.calendar .je-calendar-filter-btn,
+.je-calendar-page button,
+.je-calendar-page .emby-button,
+.je-calendar-page .je-calendar-nav-btn,
+.je-calendar-page .je-calendar-view-btn,
+.je-calendar-page .je-calendar-mode-btn,
+.je-calendar-page .je-calendar-filter-btn {
+  background: color-mix(in srgb, var(--my-primary) 10%, transparent) !important;
+  background-color: color-mix(in srgb, var(--my-primary) 10%, transparent) !important;
+  border-color: color-mix(in srgb, var(--my-primary) 16%, transparent) !important;
+  box-shadow: none !important;
+  color: var(--my-primary-2) !important;
+}
+
+.homePage .jellyfinenhanced.calendar button:hover,
+.homePage .jellyfinenhanced.calendar .emby-button:hover,
+.homePage .jellyfinenhanced.calendar .je-calendar-nav-btn:hover,
+.homePage .jellyfinenhanced.calendar .je-calendar-view-btn:hover,
+.homePage .jellyfinenhanced.calendar .je-calendar-mode-btn:hover,
+.homePage .jellyfinenhanced.calendar .je-calendar-filter-btn:hover,
+.homePage .je-calendar-page button:hover,
+.homePage .je-calendar-page .emby-button:hover,
+.homePage .je-calendar-page .je-calendar-nav-btn:hover,
+.homePage .je-calendar-page .je-calendar-view-btn:hover,
+.homePage .je-calendar-page .je-calendar-mode-btn:hover,
+.homePage .je-calendar-page .je-calendar-filter-btn:hover,
+.jellyfinenhanced.calendar button:hover,
+.jellyfinenhanced.calendar .emby-button:hover,
+.jellyfinenhanced.calendar .je-calendar-nav-btn:hover,
+.jellyfinenhanced.calendar .je-calendar-view-btn:hover,
+.jellyfinenhanced.calendar .je-calendar-mode-btn:hover,
+.jellyfinenhanced.calendar .je-calendar-filter-btn:hover,
+.je-calendar-page button:hover,
+.je-calendar-page .emby-button:hover,
+.je-calendar-page .je-calendar-nav-btn:hover,
+.je-calendar-page .je-calendar-view-btn:hover,
+.je-calendar-page .je-calendar-mode-btn:hover,
+.je-calendar-page .je-calendar-filter-btn:hover {
+  background: var(--my-state-hover) !important;
+  background-color: var(--my-state-hover) !important;
+  color: var(--my-primary-2) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .active,
+.homePage .jellyfinenhanced.calendar button.active,
+.homePage .jellyfinenhanced.calendar .je-calendar-view-btn.active,
+.homePage .jellyfinenhanced.calendar .je-calendar-mode-btn.active,
+.homePage .jellyfinenhanced.calendar .je-calendar-filter-btn.active,
+.homePage .je-calendar-page .active,
+.homePage .je-calendar-page button.active,
+.homePage .je-calendar-page .je-calendar-view-btn.active,
+.homePage .je-calendar-page .je-calendar-mode-btn.active,
+.homePage .je-calendar-page .je-calendar-filter-btn.active,
+.jellyfinenhanced.calendar .active,
+.jellyfinenhanced.calendar button.active,
+.jellyfinenhanced.calendar .je-calendar-view-btn.active,
+.jellyfinenhanced.calendar .je-calendar-mode-btn.active,
+.jellyfinenhanced.calendar .je-calendar-filter-btn.active,
+.je-calendar-page .active,
+.je-calendar-page button.active,
+.je-calendar-page .je-calendar-view-btn.active,
+.je-calendar-page .je-calendar-mode-btn.active,
+.je-calendar-page .je-calendar-filter-btn.active {
+  background: var(--my-primary) !important;
+  background-color: var(--my-primary) !important;
+  border-color: var(--my-primary) !important;
+  color: var(--my-on-primary) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .je-calendar-filter-invert,
+.homePage .jellyfinenhanced.calendar .je-calendar-legend-item,
+.homePage .je-calendar-page .je-calendar-filter-invert,
+.homePage .je-calendar-page .je-calendar-legend-item,
+.jellyfinenhanced.calendar .je-calendar-filter-invert,
+.jellyfinenhanced.calendar .je-calendar-legend-item,
+.je-calendar-page .je-calendar-filter-invert,
+.je-calendar-page .je-calendar-legend-item {
+  color: var(--my-text) !important;
+}
+
+.homePage .jellyfinenhanced.calendar .material-icons,
+.homePage .jellyfinenhanced.calendar .material-symbols-rounded,
+.homePage .je-calendar-page .material-icons,
+.homePage .je-calendar-page .material-symbols-rounded,
+.jellyfinenhanced.calendar .material-icons,
+.jellyfinenhanced.calendar .material-symbols-rounded,
+.je-calendar-page .material-icons,
+.je-calendar-page .material-symbols-rounded {
+  color: currentColor !important;
+}
+/* Codex Jellyfin Enhanced calendar colors v10.2 end */
+
+/* Codex drawer text color repair v10.3 */
+.mainDrawer,
+.drawer-open .mainDrawer,
+.MuiDrawer-paper {
+  color: var(--my-primary-2) !important;
+}
+
+.mainDrawer .navMenuSectionTitle,
+.mainDrawer .navSectionTitle,
+.mainDrawer .navMenuHeader,
+.mainDrawer .navHeader,
+.mainDrawer .drawerSectionTitle,
+.mainDrawer .sidebarSectionTitle,
+.mainDrawer .sectionHeader,
+.mainDrawer .listGroupHeader,
+.mainDrawer h2,
+.mainDrawer h3,
+.mainDrawer h4,
+.mainDrawer label {
+  color: var(--my-primary-2) !important;
+  font-weight: 750 !important;
+  opacity: .92 !important;
+}
+
+.mainDrawer .navMenuOption,
+.mainDrawer .navMenuOptionText,
+.mainDrawer .navMenuOptionIcon,
+.mainDrawer .material-icons,
+.mainDrawer .material-symbols-rounded,
+.mainDrawer .emby-button {
+  color: var(--my-primary-2) !important;
+}
+
+.mainDrawer .navMenuOption-selected,
+.mainDrawer .navMenuOption-selected .navMenuOptionText,
+.mainDrawer .navMenuOption-selected .navMenuOptionIcon,
+.mainDrawer .navMenuOption-selected .material-icons,
+.mainDrawer .navMenuOption-selected .material-symbols-rounded {
+  color: var(--my-primary-2) !important;
+}
+/* Codex drawer text color repair v10.3 end */
+
+/* Codex calendar custom-tab top spacing v10.4 */
+.homePage .codex-custom-tabContent.is-active:has(.jellyfinenhanced.calendar) {
+  padding-top: calc(var(--codex-header-wave-clearance, 2.4rem) + .25rem) !important;
+}
+
+.homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar {
+  padding-top: 0 !important;
+}
+
+.homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar .je-calendar-page,
+.homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar .content-primary.je-calendar-page {
+  padding-top: 0 !important;
+}
+
+.homePage .codex-custom-tabContent.is-active .jellyfinenhanced.calendar .je-calendar-header {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Codex calendar custom-tab top spacing v10.4 end */
