@@ -8133,6 +8133,124 @@ body:has(#slides-container) .homeSectionsContainer {
 }
 /* Codex Jellyfin Enhanced compact calendar filter grid v10.13 end */
 
+/* Codex Jellyfin Enhanced calendar card readability v10.16 */
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) :is(.je-calendar-grid, .je-calendar-month-grid, .je-calendar-weekdays, .je-calendar-dayline),
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) :is(.je-calendar-grid, .je-calendar-month-grid, .je-calendar-weekdays, .je-calendar-dayline) {
+  gap: .5rem !important;
+  max-width: min(100%, calc(100vw - 2rem)) !important;
+  width: min(100%, calc(100vw - 2rem)) !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day,
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day {
+  background: color-mix(in srgb, var(--my-primary) 8%, var(--my-bg-raised)) !important;
+  border: 1px solid color-mix(in srgb, var(--my-primary) 15%, transparent) !important;
+  border-radius: 9px !important;
+  min-height: 11.8rem !important;
+  min-width: 0 !important;
+  overflow: hidden auto !important;
+  padding: .42rem !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day-cards,
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day-cards {
+  align-items: stretch !important;
+  display: grid !important;
+  gap: .42rem !important;
+  justify-items: stretch !important;
+  width: 100% !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day-cards > .je-calendar-card,
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day-cards > .je-calendar-card {
+  align-items: center !important;
+  background: color-mix(in srgb, var(--my-primary) 9%, var(--my-bg)) !important;
+  border: 1px solid color-mix(in srgb, var(--my-primary) 17%, transparent) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  column-gap: .48rem !important;
+  display: grid !important;
+  grid-template-columns: 3.05rem minmax(0, 1fr) !important;
+  max-width: 100% !important;
+  min-height: 4.35rem !important;
+  overflow: hidden !important;
+  padding: .33rem .42rem .33rem .33rem !important;
+  width: 100% !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day-cards > .je-calendar-card:hover,
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-day-cards > .je-calendar-card:hover {
+  background: color-mix(in srgb, var(--my-primary) 15%, var(--my-bg)) !important;
+  transform: none !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(.je-calendar-card-image, .cardImage, .cardImageContainer, .cardImageContainer img, img.je-calendar-card-image),
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(.je-calendar-card-image, .cardImage, .cardImageContainer, .cardImageContainer img, img.je-calendar-card-image) {
+  align-self: stretch !important;
+  aspect-ratio: 2 / 3 !important;
+  border-radius: 7px !important;
+  grid-column: 1 !important;
+  grid-row: 1 / 6 !important;
+  height: 100% !important;
+  max-height: 4.7rem !important;
+  max-width: 3.05rem !important;
+  min-height: 4rem !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  overflow: hidden !important;
+  width: 3.05rem !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(.je-calendar-card-title, .je-calendar-card-title-text, .je-calendar-event-title),
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(.je-calendar-card-title, .je-calendar-card-title-text, .je-calendar-event-title) {
+  color: var(--my-primary-2) !important;
+  display: -webkit-box !important;
+  font-size: .78rem !important;
+  font-weight: 850 !important;
+  grid-column: 2 !important;
+  line-height: 1.08 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .55) !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(.je-calendar-card-subtitle, .je-calendar-card-meta, .je-calendar-event-subtitle, .je-calendar-event-type),
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(.je-calendar-card-subtitle, .je-calendar-card-meta, .je-calendar-event-subtitle, .je-calendar-event-type) {
+  color: color-mix(in srgb, var(--my-text) 78%, transparent) !important;
+  font-size: .64rem !important;
+  grid-column: 2 !important;
+  line-height: 1.05 !important;
+  margin: .06rem 0 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  text-overflow: ellipsis !important;
+  text-shadow: none !important;
+  white-space: nowrap !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is([class*="time"], [class*="Time"]),
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is([class*="time"], [class*="Time"]) {
+  border-radius: 999px !important;
+  font-size: .62rem !important;
+  line-height: 1 !important;
+  padding: .16rem .35rem !important;
+}
+
+.homePage :is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(button, [role="button"], .paper-icon-button-light),
+:is(.jellyfinenhanced.calendar, .je-calendar-page):is(.je-view-month, .je-view-week) .je-calendar-card :is(button, [role="button"], .paper-icon-button-light) {
+  height: 1.55rem !important;
+  min-height: 1.55rem !important;
+  min-width: 1.55rem !important;
+  width: 1.55rem !important;
+}
+/* Codex Jellyfin Enhanced calendar card readability v10.16 end */
+
 /* Codex remote music player polish v10.9 */
 .codex-remote-player-page {
   --codex-remote-control-bg: color-mix(in srgb, var(--my-primary) 10%, var(--my-surface-soft));
