@@ -551,6 +551,134 @@
         width: min(100%, calc(100vw - 4rem)) !important;
       }
 
+      .homePage .jellyfinenhanced.calendar .je-calendar-layout,
+      .homePage .je-calendar-page .je-calendar-layout,
+      .jellyfinenhanced.calendar .je-calendar-layout,
+      .je-calendar-page .je-calendar-layout {
+        align-items: stretch !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        width: 100% !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-main,
+      .homePage .je-calendar-page .je-calendar-main,
+      .jellyfinenhanced.calendar .je-calendar-main,
+      .je-calendar-page .je-calendar-main {
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        order: 2 !important;
+        width: 100% !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar,
+      .homePage .je-calendar-page .je-calendar-sidebar,
+      .jellyfinenhanced.calendar .je-calendar-sidebar,
+      .je-calendar-page .je-calendar-sidebar {
+        align-items: center !important;
+        align-self: stretch !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: .65rem !important;
+        height: auto !important;
+        justify-content: center !important;
+        max-width: 100% !important;
+        order: 1 !important;
+        overflow: visible !important;
+        position: static !important;
+        top: auto !important;
+        width: 100% !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar-toggle,
+      .homePage .je-calendar-page .je-calendar-sidebar-toggle,
+      .jellyfinenhanced.calendar .je-calendar-sidebar-toggle,
+      .je-calendar-page .je-calendar-sidebar-toggle {
+        display: inline-flex !important;
+        margin: 0 auto !important;
+        max-width: 8.5rem !important;
+        min-width: 6.75rem !important;
+        width: auto !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar-toggle::before,
+      .homePage .je-calendar-page .je-calendar-sidebar-toggle::before,
+      .jellyfinenhanced.calendar .je-calendar-sidebar-toggle::before,
+      .je-calendar-page .je-calendar-sidebar-toggle::before {
+        content: "Filters" !important;
+        font-size: .86rem !important;
+        font-weight: 800 !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar-content,
+      .homePage .je-calendar-page .je-calendar-sidebar-content,
+      .jellyfinenhanced.calendar .je-calendar-sidebar-content,
+      .je-calendar-page .je-calendar-sidebar-content {
+        display: flex !important;
+        justify-content: center !important;
+        max-height: 70vh !important;
+        max-width: 100% !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        transition: max-height .22s ease, opacity .18s ease !important;
+        width: 100% !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar.is-collapsed .je-calendar-sidebar-content,
+      .homePage .je-calendar-page .je-calendar-sidebar.is-collapsed .je-calendar-sidebar-content,
+      .jellyfinenhanced.calendar .je-calendar-sidebar.is-collapsed .je-calendar-sidebar-content,
+      .je-calendar-page .je-calendar-sidebar.is-collapsed .je-calendar-sidebar-content {
+        max-height: 0 !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar .je-calendar-legend,
+      .homePage .je-calendar-page .je-calendar-sidebar .je-calendar-legend,
+      .jellyfinenhanced.calendar .je-calendar-sidebar .je-calendar-legend,
+      .je-calendar-page .je-calendar-sidebar .je-calendar-legend,
+      .homePage .jellyfinenhanced.calendar .je-calendar-legend.je-calendar-legend-vertical,
+      .homePage .je-calendar-page .je-calendar-legend.je-calendar-legend-vertical,
+      .jellyfinenhanced.calendar .je-calendar-legend.je-calendar-legend-vertical,
+      .je-calendar-page .je-calendar-legend.je-calendar-legend-vertical {
+        align-items: center !important;
+        display: grid !important;
+        flex-direction: initial !important;
+        gap: .85rem 1rem !important;
+        grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)) !important;
+        justify-items: center !important;
+        margin: 0 auto 1rem !important;
+        max-width: min(100%, 76rem) !important;
+        padding: 1rem !important;
+        width: min(100%, 76rem) !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar .je-calendar-sidebar .je-calendar-filter-controls,
+      .homePage .je-calendar-page .je-calendar-sidebar .je-calendar-filter-controls,
+      .jellyfinenhanced.calendar .je-calendar-sidebar .je-calendar-filter-controls,
+      .je-calendar-page .je-calendar-sidebar .je-calendar-filter-controls {
+        grid-column: 1 / -1 !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar.je-view-week :is(.je-calendar-grid, .je-calendar-weekdays, .je-calendar-dayline),
+      .homePage .je-calendar-page.je-view-week :is(.je-calendar-grid, .je-calendar-weekdays, .je-calendar-dayline),
+      .jellyfinenhanced.calendar.je-view-week :is(.je-calendar-grid, .je-calendar-weekdays, .je-calendar-dayline),
+      .je-calendar-page.je-view-week :is(.je-calendar-grid, .je-calendar-weekdays, .je-calendar-dayline) {
+        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+      }
+
+      .homePage .jellyfinenhanced.calendar :is(.je-calendar-grid, .je-calendar-month-grid, .je-calendar-weekdays, .je-calendar-dayline),
+      .homePage .je-calendar-page :is(.je-calendar-grid, .je-calendar-month-grid, .je-calendar-weekdays, .je-calendar-dayline),
+      .jellyfinenhanced.calendar :is(.je-calendar-grid, .je-calendar-month-grid, .je-calendar-weekdays, .je-calendar-dayline),
+      .je-calendar-page :is(.je-calendar-grid, .je-calendar-month-grid, .je-calendar-weekdays, .je-calendar-dayline) {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
       @media (max-width: 980px) {
         .homePage .jellyfinenhanced.calendar :is(.je-calendar-legend, .je-calendar-filter-panel, .je-calendar-filters, [class*="calendar-legend"], [class*="CalendarLegend"], [class*="filter-panel"], [class*="FilterPanel"]),
         .homePage .je-calendar-page :is(.je-calendar-legend, .je-calendar-filter-panel, .je-calendar-filters, [class*="calendar-legend"], [class*="CalendarLegend"], [class*="filter-panel"], [class*="FilterPanel"]),
